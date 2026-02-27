@@ -1,0 +1,102 @@
+name: Citrix
+description: APIs for Citrix virtual desktop infrastructure, networking, and workspace solutions
+image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+url: https://developer.citrix.com
+created: '2024'
+modified: '2024'
+tags:
+- virtualization
+- desktop-as-a-service
+- workspace
+- networking
+- application delivery
+apis:
+- name: Citrix Virtual Apps and Desktops REST API
+  description: Manage and monitor Citrix Virtual Apps and Desktops deployments
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - virtual desktop
+  - VDI
+  - remote access
+  properties:
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: OpenAPI
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/openapi
+  - type: Authentication
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+- name: Citrix Workspace API
+  description: Integrate and customize Citrix Workspace for end users
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer.citrix.com/citrix-workspace
+  baseURL: https://api.cloud.com
+  tags:
+  - workspace
+  - SSO
+  - user experience
+  properties:
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-workspace/citrix-workspace-platform
+  - type: API Reference
+    url: https://developer.citrix.com/citrix-workspace/citrix-workspace-platform/build/api-reference
+- name: Citrix ADC (NetScaler) NITRO API
+  description: Configure and monitor Citrix ADC application delivery controllers
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer.citrix.com/citrix-adc
+  baseURL: https://{netscaler-ip}/nitro/v1
+  tags:
+  - load balancing
+  - application delivery
+  - networking
+  - ADC
+  properties:
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: API Reference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDK
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+- name: Citrix DaaS REST API
+  description: Manage Citrix Desktop as a Service (DaaS) cloud deployments
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer.citrix.com/citrix-daas
+  baseURL: https://api.cloud.com/cvad
+  tags:
+  - DaaS
+  - cloud
+  - desktop as a service
+  properties:
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: OpenAPI
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/openapi
+  - type: Getting Started
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+- name: Citrix Analytics API
+  description: Access analytics data for security and performance insights
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer.citrix.com/citrix-analytics
+  baseURL: https://api.analytics.cloud.com
+  tags:
+  - analytics
+  - security
+  - monitoring
+  - insights
+  properties:
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-analytics/api-overview
+  - type: API Reference
+    url: https://developer.citrix.com/citrix-analytics/api-reference
+maintainers:
+- name: Citrix Developer Platform
+  email: developer@citrix.com
+  url: https://developer.citrix.com
+include:
+- name: Developer Portal
+  url: https://developer.citrix.com
+- name: Community Forums
+  url: https://discussions.citrix.com/
+- name: Support
+  url: https://support.citrix.com/
