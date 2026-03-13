@@ -1,0 +1,351 @@
+openapi: 3.1.0
+info:
+  title: Citrix Cloud API
+  description: >-
+    Platform-level API for managing Citrix Cloud services, including
+    authentication via OAuth 2.0 client credentials, service principals,
+    resource locations, and notifications across the Citrix Cloud platform.
+  version: '1.0'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+externalDocs:
+  description: Citrix Cloud API Documentation
+  url: https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+servers:
+  - url: https://api.cloud.com
+    description: Citrix Cloud Production (US)
+  - url: https://api.citrixcloud.jp
+    description: Citrix Cloud Production (Japan)
+tags:
+  - name: Authentication
+    description: OAuth 2.0 token operations for API access
+  - name: Service Principals
+    description: Manage service principals for API automation
+  - name: Resource Locations
+    description: Manage resource locations within a customer
+  - name: Notifications
+    description: Manage platform notifications
+security:
+  - bearerAuth: []
+paths:
+  /cctrustoauth2/{customerId}/tokens/clients:
+    post:
+      operationId: getAccessToken
+      summary: Obtain access token
+      description: >-
+        Authenticate using OAuth 2.0 Client Credentials grant to obtain a
+        bearer token for accessing Citrix Cloud APIs.
+      tags:
+        - Authentication
+      parameters:
+        - $ref: '#/components/parameters/customerId'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - grant_type
+                - client_id
+                - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                    - client_credentials
+                  description: OAuth 2.0 grant type
+                client_id:
+                  type: string
+                  description: Service principal client ID
+                client_secret:
+                  type: string
+                  description: Service principal client secret
+      responses:
+        '200':
+          description: Access token returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          description: Invalid credentials
+      security: []
+  /serviceprincipals:
+    get:
+      operationId: listServicePrincipals
+      summary: List service principals
+      description: >-
+        Retrieve all service principals for the authenticated customer.
+      tags:
+        - Service Principals
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+      responses:
+        '200':
+          description: List of service principals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ServicePrincipal'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createServicePrincipal
+      summary: Create a service principal
+      description: >-
+        Create a new service principal for API automation within the customer.
+      tags:
+        - Service Principals
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServicePrincipalRequest'
+      responses:
+        '201':
+          description: Service principal created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicePrincipal'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /serviceprincipals/{principalId}:
+    get:
+      operationId: getServicePrincipal
+      summary: Get a service principal
+      description: >-
+        Retrieve details of a specific service principal by ID.
+      tags:
+        - Service Principals
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/principalId'
+      responses:
+        '200':
+          description: Service principal details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicePrincipal'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Service principal not found
+    delete:
+      operationId: deleteServicePrincipal
+      summary: Delete a service principal
+      description: >-
+        Delete a service principal by ID.
+      tags:
+        - Service Principals
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/principalId'
+      responses:
+        '204':
+          description: Service principal deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Service principal not found
+  /resourcelocations:
+    get:
+      operationId: listResourceLocations
+      summary: List resource locations
+      description: >-
+        Retrieve all resource locations configured for the customer.
+      tags:
+        - Resource Locations
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+      responses:
+        '200':
+          description: List of resource locations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ResourceLocation'
+        '401':
+          description: Unauthorized
+  /resourcelocations/{locationId}:
+    get:
+      operationId: getResourceLocation
+      summary: Get a resource location
+      description: >-
+        Retrieve details of a specific resource location by ID.
+      tags:
+        - Resource Locations
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/locationId'
+      responses:
+        '200':
+          description: Resource location details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceLocation'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Resource location not found
+  /notifications:
+    get:
+      operationId: listNotifications
+      summary: List notifications
+      description: >-
+        Retrieve platform notifications for the customer.
+      tags:
+        - Notifications
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+      responses:
+        '200':
+          description: List of notifications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Notification'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token from client credentials grant
+  parameters:
+    customerId:
+      name: customerId
+      in: path
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID header
+      schema:
+        type: string
+    principalId:
+      name: principalId
+      in: path
+      required: true
+      description: Service principal unique identifier
+      schema:
+        type: string
+    locationId:
+      name: locationId
+      in: path
+      required: true
+      description: Resource location unique identifier
+      schema:
+        type: string
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        token_type:
+          type: string
+          description: Token type (bearer)
+        access_token:
+          type: string
+          description: OAuth 2.0 access token
+        expires_in:
+          type: integer
+          description: Token expiration time in seconds
+    ServicePrincipal:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the service principal
+        displayName:
+          type: string
+          description: Display name of the service principal
+        clientId:
+          type: string
+          description: Client ID for OAuth authentication
+        customerId:
+          type: string
+          description: Associated customer ID
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+    CreateServicePrincipalRequest:
+      type: object
+      required:
+        - displayName
+      properties:
+        displayName:
+          type: string
+          description: Display name for the new service principal
+    ResourceLocation:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the resource location
+        name:
+          type: string
+          description: Name of the resource location
+        internalOnly:
+          type: boolean
+          description: Whether the location is internal only
+        timeZone:
+          type: string
+          description: Time zone of the resource location
+        readOnly:
+          type: boolean
+          description: Whether the resource location is read-only
+    Notification:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Notification unique identifier
+        title:
+          type: string
+          description: Notification title
+        description:
+          type: string
+          description: Notification description
+        severity:
+          type: string
+          enum:
+            - Information
+            - Warning
+            - Critical
+          description: Severity level of the notification
+        createdDate:
+          type: string
+          format: date-time
+          description: When the notification was created

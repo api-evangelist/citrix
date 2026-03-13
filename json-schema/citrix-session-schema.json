@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.citrix.com/schemas/citrix/session.json",
+  "title": "Citrix Session",
+  "description": "Represents an active user session on a Citrix virtual desktop or application, including connection state and hosting machine information.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the session"
+    },
+    "userName": {
+      "type": "string",
+      "description": "Username of the session owner"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["Active", "Disconnected"],
+      "description": "Current session state"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the session was established"
+    },
+    "machineName": {
+      "type": "string",
+      "description": "Name of the machine hosting the session"
+    },
+    "clientName": {
+      "type": "string",
+      "description": "Name of the client device connected to the session"
+    },
+    "applicationNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Applications currently running in the session"
+    }
+  }
+}

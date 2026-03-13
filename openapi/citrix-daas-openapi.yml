@@ -1,0 +1,798 @@
+openapi: 3.1.0
+info:
+  title: Citrix DaaS REST API
+  description: >-
+    REST API for managing Citrix Desktop as a Service (DaaS) cloud deployments,
+    including machine catalogs, delivery groups, applications, sessions, and
+    hypervisor connections.
+  version: '1.0'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+externalDocs:
+  description: Citrix DaaS REST APIs Documentation
+  url: https://developer-docs.citrix.com/en-us/citrix-daas-service-apis/citrix-daas-rest-apis/overview.html
+servers:
+  - url: https://api.cloud.com/cvad/manage
+    description: Citrix DaaS Production
+tags:
+  - name: Machine Catalogs
+    description: Manage machine catalogs and provisioning
+  - name: Delivery Groups
+    description: Manage delivery groups for resource assignment
+  - name: Applications
+    description: Manage published applications
+  - name: Sessions
+    description: Manage and monitor active sessions
+  - name: Machines
+    description: Manage individual machines in catalogs
+  - name: Hypervisors
+    description: Manage hypervisor connections
+security:
+  - bearerAuth: []
+paths:
+  /MachineCatalogs:
+    get:
+      operationId: listMachineCatalogs
+      summary: List machine catalogs
+      description: >-
+        Retrieve all machine catalogs configured within the customer site.
+      tags:
+        - Machine Catalogs
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of machine catalogs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalogCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createMachineCatalog
+      summary: Create a machine catalog
+      description: >-
+        Create a new machine catalog for provisioning virtual machines.
+      tags:
+        - Machine Catalogs
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMachineCatalogRequest'
+      responses:
+        '201':
+          description: Machine catalog created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalog'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /MachineCatalogs/{catalogId}:
+    get:
+      operationId: getMachineCatalog
+      summary: Get a machine catalog
+      description: >-
+        Retrieve details of a specific machine catalog.
+      tags:
+        - Machine Catalogs
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/catalogId'
+      responses:
+        '200':
+          description: Machine catalog details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalog'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Machine catalog not found
+    put:
+      operationId: updateMachineCatalog
+      summary: Update a machine catalog
+      description: >-
+        Update properties of an existing machine catalog.
+      tags:
+        - Machine Catalogs
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/catalogId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMachineCatalogRequest'
+      responses:
+        '200':
+          description: Machine catalog updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalog'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Machine catalog not found
+    delete:
+      operationId: deleteMachineCatalog
+      summary: Delete a machine catalog
+      description: >-
+        Delete an existing machine catalog.
+      tags:
+        - Machine Catalogs
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/catalogId'
+      responses:
+        '204':
+          description: Machine catalog deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Machine catalog not found
+  /DeliveryGroups:
+    get:
+      operationId: listDeliveryGroups
+      summary: List delivery groups
+      description: >-
+        Retrieve all delivery groups configured within the customer site.
+      tags:
+        - Delivery Groups
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of delivery groups
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryGroupCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createDeliveryGroup
+      summary: Create a delivery group
+      description: >-
+        Create a new delivery group for assigning resources to users.
+      tags:
+        - Delivery Groups
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeliveryGroupRequest'
+      responses:
+        '201':
+          description: Delivery group created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryGroup'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /DeliveryGroups/{deliveryGroupId}:
+    get:
+      operationId: getDeliveryGroup
+      summary: Get a delivery group
+      description: >-
+        Retrieve details of a specific delivery group.
+      tags:
+        - Delivery Groups
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/deliveryGroupId'
+      responses:
+        '200':
+          description: Delivery group details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryGroup'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Delivery group not found
+    put:
+      operationId: updateDeliveryGroup
+      summary: Update a delivery group
+      description: >-
+        Update properties of an existing delivery group.
+      tags:
+        - Delivery Groups
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/deliveryGroupId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeliveryGroupRequest'
+      responses:
+        '200':
+          description: Delivery group updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Delivery group not found
+    delete:
+      operationId: deleteDeliveryGroup
+      summary: Delete a delivery group
+      description: >-
+        Delete an existing delivery group.
+      tags:
+        - Delivery Groups
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/deliveryGroupId'
+      responses:
+        '204':
+          description: Delivery group deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Delivery group not found
+  /Applications:
+    get:
+      operationId: listApplications
+      summary: List applications
+      description: >-
+        Retrieve all published applications within the customer site.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of applications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationCollection'
+        '401':
+          description: Unauthorized
+  /Applications/{applicationId}:
+    get:
+      operationId: getApplication
+      summary: Get an application
+      description: >-
+        Retrieve details of a specific published application.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/applicationId'
+      responses:
+        '200':
+          description: Application details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application not found
+  /Sessions:
+    get:
+      operationId: listSessions
+      summary: List sessions
+      description: >-
+        Retrieve all active sessions within the customer site.
+      tags:
+        - Sessions
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of sessions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionCollection'
+        '401':
+          description: Unauthorized
+  /Sessions/{sessionId}:
+    get:
+      operationId: getSession
+      summary: Get a session
+      description: >-
+        Retrieve details of a specific session.
+      tags:
+        - Sessions
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '200':
+          description: Session details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Session not found
+  /Sessions/{sessionId}/$logoff:
+    post:
+      operationId: logoffSession
+      summary: Log off a session
+      description: >-
+        Log off an active user session.
+      tags:
+        - Sessions
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '204':
+          description: Session logoff initiated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Session not found
+  /Sessions/{sessionId}/$disconnect:
+    post:
+      operationId: disconnectSession
+      summary: Disconnect a session
+      description: >-
+        Disconnect an active user session without logging off.
+      tags:
+        - Sessions
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '204':
+          description: Session disconnect initiated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Session not found
+  /Machines:
+    get:
+      operationId: listMachines
+      summary: List machines
+      description: >-
+        Retrieve all machines registered within the customer site.
+      tags:
+        - Machines
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of machines
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCollection'
+        '401':
+          description: Unauthorized
+  /Machines/{machineId}:
+    get:
+      operationId: getMachine
+      summary: Get a machine
+      description: >-
+        Retrieve details of a specific machine.
+      tags:
+        - Machines
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+        - $ref: '#/components/parameters/machineId'
+      responses:
+        '200':
+          description: Machine details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Machine not found
+  /Hypervisors:
+    get:
+      operationId: listHypervisors
+      summary: List hypervisor connections
+      description: >-
+        Retrieve all hypervisor connections configured within the customer site.
+      tags:
+        - Hypervisors
+      parameters:
+        - $ref: '#/components/parameters/CitrixCustomerId'
+        - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of hypervisor connections
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HypervisorCollection'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token from Citrix Cloud authentication
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    catalogId:
+      name: catalogId
+      in: path
+      required: true
+      description: Machine catalog unique identifier
+      schema:
+        type: string
+    deliveryGroupId:
+      name: deliveryGroupId
+      in: path
+      required: true
+      description: Delivery group unique identifier
+      schema:
+        type: string
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+    sessionId:
+      name: sessionId
+      in: path
+      required: true
+      description: Session unique identifier
+      schema:
+        type: string
+    machineId:
+      name: machineId
+      in: path
+      required: true
+      description: Machine unique identifier
+      schema:
+        type: string
+  schemas:
+    MachineCatalogCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachineCatalog'
+    MachineCatalog:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the machine catalog
+        name:
+          type: string
+          description: Name of the machine catalog
+        description:
+          type: string
+          description: Description of the machine catalog
+        allocationType:
+          type: string
+          enum:
+            - Static
+            - Random
+          description: How machines are allocated to users
+        provisioningType:
+          type: string
+          enum:
+            - MCS
+            - PVS
+            - Manual
+          description: Provisioning method for machines
+        sessionSupport:
+          type: string
+          enum:
+            - SingleSession
+            - MultiSession
+          description: Session support type
+        machineCount:
+          type: integer
+          description: Number of machines in the catalog
+        zone:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Zone identifier
+            name:
+              type: string
+              description: Zone name
+    CreateMachineCatalogRequest:
+      type: object
+      required:
+        - name
+        - allocationType
+        - provisioningType
+        - sessionSupport
+      properties:
+        name:
+          type: string
+          description: Name for the new machine catalog
+        description:
+          type: string
+          description: Description for the machine catalog
+        allocationType:
+          type: string
+          enum:
+            - Static
+            - Random
+          description: Machine allocation type
+        provisioningType:
+          type: string
+          enum:
+            - MCS
+            - PVS
+            - Manual
+          description: Provisioning method
+        sessionSupport:
+          type: string
+          enum:
+            - SingleSession
+            - MultiSession
+          description: Session support type
+    UpdateMachineCatalogRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated name
+        description:
+          type: string
+          description: Updated description
+    DeliveryGroupCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryGroup'
+    DeliveryGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the delivery group
+        name:
+          type: string
+          description: Name of the delivery group
+        description:
+          type: string
+          description: Description of the delivery group
+        enabled:
+          type: boolean
+          description: Whether the delivery group is enabled
+        totalMachines:
+          type: integer
+          description: Total number of machines in the group
+        sessionsCount:
+          type: integer
+          description: Current number of active sessions
+        deliveryType:
+          type: string
+          enum:
+            - DesktopsOnly
+            - AppsOnly
+            - DesktopsAndApps
+          description: Type of resources delivered
+    CreateDeliveryGroupRequest:
+      type: object
+      required:
+        - name
+        - deliveryType
+      properties:
+        name:
+          type: string
+          description: Name for the new delivery group
+        description:
+          type: string
+          description: Description for the delivery group
+        deliveryType:
+          type: string
+          enum:
+            - DesktopsOnly
+            - AppsOnly
+            - DesktopsAndApps
+          description: Type of resources to deliver
+    UpdateDeliveryGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated name
+        description:
+          type: string
+          description: Updated description
+        enabled:
+          type: boolean
+          description: Whether the delivery group is enabled
+    ApplicationCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the application
+        name:
+          type: string
+          description: Application name
+        publishedName:
+          type: string
+          description: Published display name
+        description:
+          type: string
+          description: Application description
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
+        commandLineExecutable:
+          type: string
+          description: Path to the application executable
+        applicationFolder:
+          type: string
+          description: Folder containing the application
+    SessionCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Session'
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the session
+        userName:
+          type: string
+          description: Username of the session owner
+        state:
+          type: string
+          enum:
+            - Active
+            - Disconnected
+          description: Current session state
+        startTime:
+          type: string
+          format: date-time
+          description: When the session started
+        machineName:
+          type: string
+          description: Name of the machine hosting the session
+        clientName:
+          type: string
+          description: Name of the client device
+        applicationNames:
+          type: array
+          items:
+            type: string
+          description: Applications running in the session
+    MachineCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Machine'
+    Machine:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the machine
+        name:
+          type: string
+          description: Machine name
+        dnsName:
+          type: string
+          description: DNS name of the machine
+        registrationState:
+          type: string
+          enum:
+            - Registered
+            - Unregistered
+          description: Registration state with the delivery controller
+        powerState:
+          type: string
+          enum:
+            - On
+            - Off
+            - Suspended
+            - Unknown
+          description: Current power state
+        inMaintenanceMode:
+          type: boolean
+          description: Whether the machine is in maintenance mode
+        currentSessionCount:
+          type: integer
+          description: Number of active sessions on the machine
+    HypervisorCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hypervisor'
+    Hypervisor:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the hypervisor connection
+        name:
+          type: string
+          description: Hypervisor connection name
+        connectionType:
+          type: string
+          description: Type of hypervisor (e.g., AzureRM, AWS, vSphere)
+        state:
+          type: string
+          description: Current connection state

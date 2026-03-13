@@ -1,0 +1,125 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "citrix": "https://developer.citrix.com/schemas/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "MachineCatalog": {
+      "@id": "citrix:MachineCatalog",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "allocationType": "citrix:allocationType",
+        "provisioningType": "citrix:provisioningType",
+        "sessionSupport": "citrix:sessionSupport",
+        "machineCount": {
+          "@id": "citrix:machineCount",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "DeliveryGroup": {
+      "@id": "citrix:DeliveryGroup",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "enabled": "citrix:enabled",
+        "deliveryType": "citrix:deliveryType",
+        "totalMachines": {
+          "@id": "citrix:totalMachines",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "Machine": {
+      "@id": "citrix:Machine",
+      "@context": {
+        "name": "schema:name",
+        "dnsName": "citrix:dnsName",
+        "registrationState": "citrix:registrationState",
+        "powerState": "citrix:powerState",
+        "inMaintenanceMode": {
+          "@id": "citrix:inMaintenanceMode",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "Session": {
+      "@id": "citrix:Session",
+      "@context": {
+        "userName": "schema:name",
+        "state": "citrix:sessionState",
+        "startTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "machineName": "citrix:machineName",
+        "clientName": "citrix:clientName"
+      }
+    },
+
+    "Application": {
+      "@id": "citrix:Application",
+      "@context": {
+        "name": "schema:name",
+        "publishedName": "citrix:publishedName",
+        "description": "schema:description",
+        "enabled": "citrix:enabled",
+        "commandLineExecutable": "citrix:commandLineExecutable"
+      }
+    },
+
+    "ServicePrincipal": {
+      "@id": "citrix:ServicePrincipal",
+      "@context": {
+        "displayName": "schema:name",
+        "clientId": "citrix:clientId",
+        "customerId": "citrix:customerId",
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "ResourceLocation": {
+      "@id": "citrix:ResourceLocation",
+      "@context": {
+        "name": "schema:name",
+        "internalOnly": {
+          "@id": "citrix:internalOnly",
+          "@type": "xsd:boolean"
+        },
+        "timeZone": "citrix:timeZone"
+      }
+    },
+
+    "Device": {
+      "@id": "citrix:Device",
+      "@context": {
+        "serialNumber": "citrix:serialNumber",
+        "deviceModel": "citrix:deviceModel",
+        "platform": "citrix:platform",
+        "osVersion": "citrix:osVersion",
+        "userName": "schema:name",
+        "managed": {
+          "@id": "citrix:managed",
+          "@type": "xsd:boolean"
+        },
+        "compliant": {
+          "@id": "citrix:compliant",
+          "@type": "xsd:boolean"
+        },
+        "lastAccess": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

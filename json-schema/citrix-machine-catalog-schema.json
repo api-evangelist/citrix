@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.citrix.com/schemas/citrix/machine-catalog.json",
+  "title": "Citrix Machine Catalog",
+  "description": "A machine catalog defines a collection of virtual or physical machines managed as a single entity for provisioning in Citrix DaaS or Virtual Apps and Desktops.",
+  "type": "object",
+  "required": ["name", "allocationType", "provisioningType", "sessionSupport"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the machine catalog"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the machine catalog",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the machine catalog"
+    },
+    "allocationType": {
+      "type": "string",
+      "enum": ["Static", "Random"],
+      "description": "How machines are allocated to users"
+    },
+    "provisioningType": {
+      "type": "string",
+      "enum": ["MCS", "PVS", "Manual"],
+      "description": "Provisioning method for machines in the catalog"
+    },
+    "sessionSupport": {
+      "type": "string",
+      "enum": ["SingleSession", "MultiSession"],
+      "description": "Whether machines support single or multiple concurrent sessions"
+    },
+    "machineCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of machines in the catalog"
+    },
+    "zone": {
+      "$ref": "#/$defs/Zone"
+    }
+  },
+  "$defs": {
+    "Zone": {
+      "type": "object",
+      "description": "Resource zone where the catalog is hosted",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Zone unique identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Zone display name"
+        }
+      }
+    }
+  }
+}
