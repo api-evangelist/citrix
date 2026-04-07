@@ -37,7 +37,7 @@ paths:
   /config/login:
     post:
       operationId: login
-      summary: Log in to NITRO
+      summary: Citrix Log in to NITRO
       description: >-
         Authenticate to the NITRO API and receive a session cookie for
         subsequent requests.
@@ -87,7 +87,7 @@ paths:
   /config/lbvserver:
     get:
       operationId: listLbVservers
-      summary: List load balancing virtual servers
+      summary: Citrix List load balancing virtual servers
       description: >-
         Retrieve all load balancing virtual server configurations.
       tags:
@@ -106,7 +106,7 @@ paths:
                       $ref: '#/components/schemas/LbVserver'
     post:
       operationId: createLbVserver
-      summary: Create a load balancing virtual server
+      summary: Citrix Create a load balancing virtual server
       description: >-
         Create a new load balancing virtual server configuration.
       tags:
@@ -128,7 +128,7 @@ paths:
   /config/lbvserver/{name}:
     get:
       operationId: getLbVserver
-      summary: Get a load balancing virtual server
+      summary: Citrix Get a load balancing virtual server
       description: >-
         Retrieve configuration of a specific load balancing virtual server.
       tags:
@@ -156,7 +156,7 @@ paths:
           description: Virtual server not found
     put:
       operationId: updateLbVserver
-      summary: Update a load balancing virtual server
+      summary: Citrix Update a load balancing virtual server
       description: >-
         Update configuration of an existing load balancing virtual server.
       tags:
@@ -184,7 +184,7 @@ paths:
           description: Invalid configuration
     delete:
       operationId: deleteLbVserver
-      summary: Delete a load balancing virtual server
+      summary: Citrix Delete a load balancing virtual server
       description: >-
         Delete a load balancing virtual server configuration.
       tags:
@@ -204,7 +204,7 @@ paths:
   /config/service:
     get:
       operationId: listServices
-      summary: List services
+      summary: Citrix List services
       description: >-
         Retrieve all service configurations bound to virtual servers.
       tags:
@@ -224,7 +224,7 @@ paths:
   /config/servicegroup:
     get:
       operationId: listServiceGroups
-      summary: List service groups
+      summary: Citrix List service groups
       description: >-
         Retrieve all service group configurations.
       tags:
@@ -244,7 +244,7 @@ paths:
   /config/csvserver:
     get:
       operationId: listCsVservers
-      summary: List content switching virtual servers
+      summary: Citrix List content switching virtual servers
       description: >-
         Retrieve all content switching virtual server configurations.
       tags:
@@ -264,7 +264,7 @@ paths:
   /config/sslcertkey:
     get:
       operationId: listSslCertKeys
-      summary: List SSL certificate-key pairs
+      summary: Citrix List SSL certificate-key pairs
       description: >-
         Retrieve all SSL certificate and key pair configurations.
       tags:
@@ -284,7 +284,7 @@ paths:
   /stat/lbvserver:
     get:
       operationId: getLbVserverStats
-      summary: Get load balancing statistics
+      summary: Citrix Get load balancing statistics
       description: >-
         Retrieve statistics for all load balancing virtual servers.
       tags:
@@ -304,7 +304,7 @@ paths:
   /stat/ns:
     get:
       operationId: getSystemStats
-      summary: Get system statistics
+      summary: Citrix Get system statistics
       description: >-
         Retrieve system-level statistics including CPU, memory, and throughput.
       tags:
@@ -322,7 +322,7 @@ paths:
   /config/nsconfig:
     get:
       operationId: getNsConfig
-      summary: Get system configuration
+      summary: Citrix Get system configuration
       description: >-
         Retrieve the current NetScaler system configuration.
       tags:

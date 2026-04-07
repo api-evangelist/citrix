@@ -35,7 +35,7 @@ paths:
   /MachineCatalogs:
     get:
       operationId: listMachineCatalogs
-      summary: List machine catalogs
+      summary: Citrix List machine catalogs
       description: >-
         Retrieve all machine catalogs configured within the customer site.
       tags:
@@ -54,7 +54,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createMachineCatalog
-      summary: Create a machine catalog
+      summary: Citrix Create a machine catalog
       description: >-
         Create a new machine catalog for provisioning virtual machines.
       tags:
@@ -82,7 +82,7 @@ paths:
   /MachineCatalogs/{catalogId}:
     get:
       operationId: getMachineCatalog
-      summary: Get a machine catalog
+      summary: Citrix Get a machine catalog
       description: >-
         Retrieve details of a specific machine catalog.
       tags:
@@ -104,7 +104,7 @@ paths:
           description: Machine catalog not found
     put:
       operationId: updateMachineCatalog
-      summary: Update a machine catalog
+      summary: Citrix Update a machine catalog
       description: >-
         Update properties of an existing machine catalog.
       tags:
@@ -134,7 +134,7 @@ paths:
           description: Machine catalog not found
     delete:
       operationId: deleteMachineCatalog
-      summary: Delete a machine catalog
+      summary: Citrix Delete a machine catalog
       description: >-
         Delete an existing machine catalog.
       tags:
@@ -153,7 +153,7 @@ paths:
   /DeliveryGroups:
     get:
       operationId: listDeliveryGroups
-      summary: List delivery groups
+      summary: Citrix List delivery groups
       description: >-
         Retrieve all delivery groups configured within the customer site.
       tags:
@@ -172,7 +172,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createDeliveryGroup
-      summary: Create a delivery group
+      summary: Citrix Create a delivery group
       description: >-
         Create a new delivery group for assigning resources to users.
       tags:
@@ -200,7 +200,7 @@ paths:
   /DeliveryGroups/{deliveryGroupId}:
     get:
       operationId: getDeliveryGroup
-      summary: Get a delivery group
+      summary: Citrix Get a delivery group
       description: >-
         Retrieve details of a specific delivery group.
       tags:
@@ -222,7 +222,7 @@ paths:
           description: Delivery group not found
     put:
       operationId: updateDeliveryGroup
-      summary: Update a delivery group
+      summary: Citrix Update a delivery group
       description: >-
         Update properties of an existing delivery group.
       tags:
@@ -248,7 +248,7 @@ paths:
           description: Delivery group not found
     delete:
       operationId: deleteDeliveryGroup
-      summary: Delete a delivery group
+      summary: Citrix Delete a delivery group
       description: >-
         Delete an existing delivery group.
       tags:
@@ -267,7 +267,7 @@ paths:
   /Applications:
     get:
       operationId: listApplications
-      summary: List applications
+      summary: Citrix List applications
       description: >-
         Retrieve all published applications within the customer site.
       tags:
@@ -287,7 +287,7 @@ paths:
   /Applications/{applicationId}:
     get:
       operationId: getApplication
-      summary: Get an application
+      summary: Citrix Get an application
       description: >-
         Retrieve details of a specific published application.
       tags:
@@ -310,7 +310,7 @@ paths:
   /Sessions:
     get:
       operationId: listSessions
-      summary: List sessions
+      summary: Citrix List sessions
       description: >-
         Retrieve all active sessions within the customer site.
       tags:
@@ -330,7 +330,7 @@ paths:
   /Sessions/{sessionId}:
     get:
       operationId: getSession
-      summary: Get a session
+      summary: Citrix Get a session
       description: >-
         Retrieve details of a specific session.
       tags:
@@ -353,7 +353,7 @@ paths:
   /Sessions/{sessionId}/$logoff:
     post:
       operationId: logoffSession
-      summary: Log off a session
+      summary: Citrix Log off a session
       description: >-
         Log off an active user session.
       tags:
@@ -372,7 +372,7 @@ paths:
   /Sessions/{sessionId}/$disconnect:
     post:
       operationId: disconnectSession
-      summary: Disconnect a session
+      summary: Citrix Disconnect a session
       description: >-
         Disconnect an active user session without logging off.
       tags:
@@ -391,7 +391,7 @@ paths:
   /Machines:
     get:
       operationId: listMachines
-      summary: List machines
+      summary: Citrix List machines
       description: >-
         Retrieve all machines registered within the customer site.
       tags:
@@ -411,7 +411,7 @@ paths:
   /Machines/{machineId}:
     get:
       operationId: getMachine
-      summary: Get a machine
+      summary: Citrix Get a machine
       description: >-
         Retrieve details of a specific machine.
       tags:
@@ -434,7 +434,7 @@ paths:
   /Hypervisors:
     get:
       operationId: listHypervisors
-      summary: List hypervisor connections
+      summary: Citrix List hypervisor connections
       description: >-
         Retrieve all hypervisor connections configured within the customer site.
       tags:

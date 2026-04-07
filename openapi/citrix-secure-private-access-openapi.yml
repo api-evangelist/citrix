@@ -31,7 +31,7 @@ paths:
   /applications:
     get:
       operationId: listApplications
-      summary: List applications
+      summary: Citrix List applications
       description: >-
         Retrieve all applications configured in Secure Private Access.
       tags:
@@ -54,7 +54,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createApplication
-      summary: Create an application
+      summary: Citrix Create an application
       description: >-
         Create a new application configuration for secure private access.
       tags:
@@ -81,7 +81,7 @@ paths:
   /applications/{applicationId}:
     get:
       operationId: getApplication
-      summary: Get an application
+      summary: Citrix Get an application
       description: >-
         Retrieve details of a specific application.
       tags:
@@ -102,7 +102,7 @@ paths:
           description: Application not found
     put:
       operationId: updateApplication
-      summary: Update an application
+      summary: Citrix Update an application
       description: >-
         Update an existing application configuration.
       tags:
@@ -127,7 +127,7 @@ paths:
           description: Application not found
     delete:
       operationId: deleteApplication
-      summary: Delete an application
+      summary: Citrix Delete an application
       description: >-
         Delete an application configuration.
       tags:
@@ -145,7 +145,7 @@ paths:
   /policies:
     get:
       operationId: listAccessPolicies
-      summary: List access policies
+      summary: Citrix List access policies
       description: >-
         Retrieve all access policies configured for secure private access.
       tags:
@@ -168,7 +168,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createAccessPolicy
-      summary: Create an access policy
+      summary: Citrix Create an access policy
       description: >-
         Create a new zero trust access policy.
       tags:
@@ -195,7 +195,7 @@ paths:
   /certificate:
     post:
       operationId: createCertificate
-      summary: Upload a certificate
+      summary: Citrix Upload a certificate
       description: >-
         Upload a new SSL certificate for use with applications.
       tags:
@@ -222,7 +222,7 @@ paths:
   /application/{applicationId}/domain/{encodedURL}:
     get:
       operationId: getApplicationDomainCertificate
-      summary: Get domain certificate for an application
+      summary: Citrix Get domain certificate for an application
       description: >-
         Retrieve the certificate associated with a specific application domain.
       tags:
@@ -249,7 +249,7 @@ paths:
           description: Domain or certificate not found
     put:
       operationId: associateDomainCertificate
-      summary: Associate certificate with application domain
+      summary: Citrix Associate certificate with application domain
       description: >-
         Associate an SSL certificate with a specific application domain.
       tags:

@@ -39,7 +39,7 @@ paths:
   /authentication/login:
     post:
       operationId: login
-      summary: Authenticate to the API
+      summary: Citrix Authenticate to the API
       description: >-
         Log in with administrator credentials to obtain an authentication token.
       tags:
@@ -77,7 +77,7 @@ paths:
   /authentication/logout:
     post:
       operationId: logout
-      summary: Log out
+      summary: Citrix Log out
       description: >-
         Invalidate the current authentication token.
       tags:
@@ -88,7 +88,7 @@ paths:
   /device/filter:
     post:
       operationId: filterDevices
-      summary: Filter devices
+      summary: Citrix Filter devices
       description: >-
         Search and filter enrolled devices based on criteria.
       tags:
@@ -116,7 +116,7 @@ paths:
   /device/{deviceId}:
     get:
       operationId: getDevice
-      summary: Get device details
+      summary: Citrix Get device details
       description: >-
         Retrieve detailed information about a specific enrolled device.
       tags:
@@ -142,7 +142,7 @@ paths:
   /device/wipe:
     post:
       operationId: wipeDevice
-      summary: Wipe a device
+      summary: Citrix Wipe a device
       description: >-
         Issue a full wipe command to a managed device.
       tags:
@@ -169,7 +169,7 @@ paths:
   /device/selectivewipe:
     post:
       operationId: selectiveWipeDevice
-      summary: Selective wipe a device
+      summary: Citrix Selective wipe a device
       description: >-
         Issue a selective wipe to remove only corporate data from a device.
       tags:
@@ -196,7 +196,7 @@ paths:
   /application/filter:
     post:
       operationId: filterApplications
-      summary: Filter applications
+      summary: Citrix Filter applications
       description: >-
         Search and filter managed applications.
       tags:
@@ -224,7 +224,7 @@ paths:
   /device/policy/deploy:
     post:
       operationId: deployPolicy
-      summary: Deploy policies to devices
+      summary: Citrix Deploy policies to devices
       description: >-
         Deploy device or application policies to specified devices.
       tags:
@@ -251,7 +251,7 @@ paths:
   /user/filter:
     post:
       operationId: filterUsers
-      summary: Filter users
+      summary: Citrix Filter users
       description: >-
         Search and filter users and groups.
       tags:
@@ -279,7 +279,7 @@ paths:
   /deliverygroup/filter:
     post:
       operationId: filterDeliveryGroups
-      summary: Filter delivery groups
+      summary: Citrix Filter delivery groups
       description: >-
         Search and filter delivery groups.
       tags:

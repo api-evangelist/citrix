@@ -33,7 +33,7 @@ paths:
   /cctrustoauth2/{customerId}/tokens/clients:
     post:
       operationId: getAccessToken
-      summary: Obtain access token
+      summary: Citrix Obtain access token
       description: >-
         Authenticate using OAuth 2.0 Client Credentials grant to obtain a
         bearer token for accessing Citrix Cloud APIs.
@@ -76,7 +76,7 @@ paths:
   /serviceprincipals:
     get:
       operationId: listServicePrincipals
-      summary: List service principals
+      summary: Citrix List service principals
       description: >-
         Retrieve all service principals for the authenticated customer.
       tags:
@@ -99,7 +99,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createServicePrincipal
-      summary: Create a service principal
+      summary: Citrix Create a service principal
       description: >-
         Create a new service principal for API automation within the customer.
       tags:
@@ -126,7 +126,7 @@ paths:
   /serviceprincipals/{principalId}:
     get:
       operationId: getServicePrincipal
-      summary: Get a service principal
+      summary: Citrix Get a service principal
       description: >-
         Retrieve details of a specific service principal by ID.
       tags:
@@ -147,7 +147,7 @@ paths:
           description: Service principal not found
     delete:
       operationId: deleteServicePrincipal
-      summary: Delete a service principal
+      summary: Citrix Delete a service principal
       description: >-
         Delete a service principal by ID.
       tags:
@@ -165,7 +165,7 @@ paths:
   /resourcelocations:
     get:
       operationId: listResourceLocations
-      summary: List resource locations
+      summary: Citrix List resource locations
       description: >-
         Retrieve all resource locations configured for the customer.
       tags:
@@ -189,7 +189,7 @@ paths:
   /resourcelocations/{locationId}:
     get:
       operationId: getResourceLocation
-      summary: Get a resource location
+      summary: Citrix Get a resource location
       description: >-
         Retrieve details of a specific resource location by ID.
       tags:
@@ -211,7 +211,7 @@ paths:
   /notifications:
     get:
       operationId: listNotifications
-      summary: List notifications
+      summary: Citrix List notifications
       description: >-
         Retrieve platform notifications for the customer.
       tags:
