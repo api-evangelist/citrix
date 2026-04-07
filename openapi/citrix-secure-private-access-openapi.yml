@@ -17,14 +17,14 @@ servers:
   - url: https://api.cloud.com/accessSecurity
     description: Citrix Cloud Production
 tags:
-  - name: Applications
-    description: Manage SaaS and web applications
   - name: Access Policies
     description: Manage zero trust access policies
-  - name: Certificates
-    description: Manage application certificates
   - name: Application Domains
     description: Manage application domain configurations
+  - name: Applications
+    description: Manage SaaS and web applications
+  - name: Certificates
+    description: Manage application certificates
 security:
   - bearerAuth: []
 paths:

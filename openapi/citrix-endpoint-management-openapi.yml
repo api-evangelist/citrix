@@ -21,18 +21,18 @@ servers:
         default: xms.example.com
         description: XenMobile server hostname
 tags:
-  - name: Authentication
-    description: Login and token management
-  - name: Devices
-    description: Device enrollment and lifecycle management
   - name: Applications
     description: Application management and deployment
+  - name: Authentication
+    description: Login and token management
+  - name: Delivery Groups
+    description: Delivery group management
+  - name: Devices
+    description: Device enrollment and lifecycle management
   - name: Policies
     description: Device and app policy management
   - name: Users
     description: User and group management
-  - name: Delivery Groups
-    description: Delivery group management
 security:
   - authToken: []
 paths:

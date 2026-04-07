@@ -21,16 +21,16 @@ servers:
         default: 192.168.1.1
         description: NetScaler management IP address
 tags:
-  - name: Load Balancing
-    description: Load balancing virtual servers and services
+  - name: Authentication
+    description: Login and session management
   - name: Content Switching
     description: Content switching virtual servers and policies
+  - name: Load Balancing
+    description: Load balancing virtual servers and services
   - name: SSL
     description: SSL certificates and configuration
   - name: System
     description: System configuration and statistics
-  - name: Authentication
-    description: Login and session management
 security:
   - nitroAuth: []
 paths:

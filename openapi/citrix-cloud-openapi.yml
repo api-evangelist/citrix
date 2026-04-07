@@ -21,12 +21,12 @@ servers:
 tags:
   - name: Authentication
     description: OAuth 2.0 token operations for API access
-  - name: Service Principals
-    description: Manage service principals for API automation
-  - name: Resource Locations
-    description: Manage resource locations within a customer
   - name: Notifications
     description: Manage platform notifications
+  - name: Resource Locations
+    description: Manage resource locations within a customer
+  - name: Service Principals
+    description: Manage service principals for API automation
 security:
   - bearerAuth: []
 paths:

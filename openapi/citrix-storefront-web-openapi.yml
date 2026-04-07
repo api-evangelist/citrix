@@ -23,12 +23,12 @@ servers:
 tags:
   - name: Authentication
     description: User authentication and session management
+  - name: Launch
+    description: Launch applications and desktops
   - name: Resources
     description: Enumerate available applications and desktops
   - name: Sessions
     description: Manage HDX session lifecycle
-  - name: Launch
-    description: Launch applications and desktops
 security:
   - csrfToken: []
 paths:

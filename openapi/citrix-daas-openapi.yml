@@ -17,18 +17,18 @@ servers:
   - url: https://api.cloud.com/cvad/manage
     description: Citrix DaaS Production
 tags:
-  - name: Machine Catalogs
-    description: Manage machine catalogs and provisioning
-  - name: Delivery Groups
-    description: Manage delivery groups for resource assignment
   - name: Applications
     description: Manage published applications
-  - name: Sessions
-    description: Manage and monitor active sessions
-  - name: Machines
-    description: Manage individual machines in catalogs
+  - name: Delivery Groups
+    description: Manage delivery groups for resource assignment
   - name: Hypervisors
     description: Manage hypervisor connections
+  - name: Machine Catalogs
+    description: Manage machine catalogs and provisioning
+  - name: Machines
+    description: Manage individual machines in catalogs
+  - name: Sessions
+    description: Manage and monitor active sessions
 security:
   - bearerAuth: []
 paths:
