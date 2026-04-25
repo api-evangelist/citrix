@@ -282,9 +282,9 @@ common:
   - type: JSONSchema
     url: json-schema/citrix-session-schema.json
   - type: Spectral
-    url: spectral/citrix-spectral.yml
+    url: rules/citrix-rules.yml
   - type: Naftiko Capabilities
-    url: naftiko/citrix-capabilities.yml
+    url: capabilities/citrix-capabilities.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -131,8 +131,8 @@ REST API for managing zero trust network access policies, applications, applicat
 - [JSON-LD Context](json-ld/citrix-context.jsonld)
 - [JSON Schema (Machine Catalog)](json-schema/citrix-machine-catalog-schema.json)
 - [JSON Schema (Session)](json-schema/citrix-session-schema.json)
-- [Spectral Ruleset](spectral/citrix-spectral.yml)
-- [Naftiko Capabilities](naftiko/citrix-capabilities.yml)
+- [Spectral Ruleset](rules/citrix-rules.yml)
+- [Naftiko Capabilities](capabilities/citrix-capabilities.yml)
 
 ## Maintainers
 
