@@ -1,11 +1,23 @@
+aid: citrix
 name: Citrix
 description: >-
-  APIs for Citrix virtual desktop infrastructure, networking, and workspace solutions.
+  Citrix is a global software company providing virtualization, networking,
+  workspace, and digital experience products that allow organizations to
+  deliver applications and desktops securely from data centers and clouds
+  to any device. Citrix exposes its programmable surface through the
+  Citrix Cloud platform and developer.citrix.com / developer-docs.citrix.com,
+  with REST APIs spanning Virtual Apps and Desktops, DaaS, Workspace,
+  Citrix Cloud, ADC (NetScaler) NITRO, Endpoint Management, Secure Private
+  Access, and Analytics. Authentication uses OAuth 2.0 bearer tokens
+  issued through Citrix Cloud customer-id-scoped credentials.
 image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-url: https://developer.citrix.com
-created: '2024'
-modified: '2026-03-04'
-specificationVersion: '0.18'
+url: https://raw.githubusercontent.com/api-evangelist/citrix/refs/heads/main/apis.yml
+created: '2024-01-01'
+modified: '2026-04-23'
+type: Index
+access: 3rd-Party
+position: Consumer
+specificationVersion: '0.19'
 tags:
   - Application Delivery
   - Desktop-As-A-Service
@@ -269,6 +281,10 @@ common:
     url: json-schema/citrix-machine-catalog-schema.json
   - type: JSONSchema
     url: json-schema/citrix-session-schema.json
+  - type: Spectral
+    url: spectral/citrix-spectral.yml
+  - type: Naftiko Capabilities
+    url: naftiko/citrix-capabilities.yml
 maintainers:
-  - name: Kin Lane
+  - FN: Kin Lane
     email: kin@apievangelist.com
