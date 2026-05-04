@@ -1,0 +1,227 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Citrix
+providerId: citrix
+publisherName: Citrix
+serviceCategory: API
+created: '2026-05-04'
+modified: '2026-05-04'
+tags:
+  - Application Delivery
+  - Desktop-As-A-Service
+  - Networking
+  - Virtualization
+  - Workspace
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: FinOps framework definition for the Citrix API surface. Provides a FOCUS-aligned mapping
+  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+principles:
+  - name: Visibility
+    description: Make API consumption costs visible to engineering, product, and finance teams in near
+      real-time.
+  - name: Allocation
+    description: Tag every chargeable API call with the consuming team, environment, application, and
+      feature so cost can be allocated.
+  - name: Optimization
+    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
+      cost per useful unit of work.
+  - name: Accountability
+    description: Establish budget owners and chargeback or showback flows for each consuming team.
+domains:
+  - name: Understand Usage and Cost
+    capabilities:
+      - Data Ingestion
+      - Allocation
+      - Reporting and Analytics
+      - Anomaly Management
+  - name: Quantify Business Value
+    capabilities:
+      - Planning and Estimating
+      - Forecasting
+      - Budgeting
+      - Benchmarking
+      - Unit Economics
+  - name: Optimize Usage and Cost
+    capabilities:
+      - Architecting for Cloud
+      - Rate Optimization
+      - Workload Optimization
+      - Cloud Sustainability
+      - Licensing and SaaS
+  - name: Manage the FinOps Practice
+    capabilities:
+      - FinOps Practice Operations
+      - FinOps Education and Enablement
+      - Invoicing and Chargeback
+      - Onboarding Workloads
+      - Intersecting Disciplines
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  chargeFrequency: Recurring
+focusColumns:
+  ServiceName: Citrix
+  ServiceCategory: Developer Tools / API
+  ProviderName: Citrix
+  PublisherName: Citrix
+  InvoiceIssuerName: Citrix
+  PricingCategory: Usage-Based
+  PricingUnit: request
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: api_requests
+    description: Count of billable API requests
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api
+      - endpoint
+      - tier
+      - region
+      - consumer
+  - name: data_egress
+    description: Bytes returned over the network in API responses
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - api
+      - region
+      - consumer
+  - name: compute_seconds
+    description: Server-side compute consumed by the request, where applicable
+    unit: second
+    aggregation: sum
+    dimensions:
+      - api
+      - endpoint
+      - tier
+apis:
+  - name: Citrix Virtual Apps and Desktops REST API
+    baseURL: https://{customer-id}.xendesktop.net
+    tags:
+      - Remote Access
+      - VDI
+      - Virtual Desktop
+    serviceName: Citrix Virtual Apps and Desktops REST API
+    serviceCategory: API
+  - name: Citrix Workspace API
+    baseURL: https://api.cloud.com
+    tags:
+      - SSO
+      - User Experience
+      - Workspace
+    serviceName: Citrix Workspace API
+    serviceCategory: API
+  - name: Citrix ADC (NetScaler) NITRO API
+    baseURL: https://{netscaler-ip}/nitro/v1
+    tags:
+      - ADC
+      - Application Delivery
+      - Load Balancing
+      - Networking
+    serviceName: Citrix ADC (NetScaler) NITRO API
+    serviceCategory: API
+  - name: Citrix DaaS REST API
+    baseURL: https://api.cloud.com/cvad
+    tags:
+      - Cloud
+      - DaaS
+      - Desktop as a Service
+    serviceName: Citrix DaaS REST API
+    serviceCategory: API
+  - name: Citrix Analytics API
+    baseURL: https://api.analytics.cloud.com
+    tags:
+      - Analytics
+      - Insights
+      - Monitoring
+      - Security
+    serviceName: Citrix Analytics API
+    serviceCategory: API
+  - name: Citrix Cloud API
+    baseURL: https://api.cloud.com
+    tags:
+      - Cloud
+      - Identity
+      - Management
+      - Platform
+    serviceName: Citrix Cloud API
+    serviceCategory: API
+  - name: Citrix Monitor Service OData API
+    baseURL: https://{delivery-controller}/Citrix/Monitor/OData/v4/Data
+    tags:
+      - Analytics
+      - Monitoring
+      - OData
+      - Reporting
+    serviceName: Citrix Monitor Service OData API
+    serviceCategory: API
+  - name: Citrix StoreFront Web API
+    baseURL: https://{storefront-server}/Citrix/Store
+    tags:
+      - Client
+      - Resources
+      - Sessions
+      - StoreFront
+    serviceName: Citrix StoreFront Web API
+    serviceCategory: API
+  - name: Citrix StoreFront Store Services API
+    baseURL: https://{storefront-server}/Citrix/Store
+    tags:
+      - Customization
+      - Server
+      - StoreFront
+    serviceName: Citrix StoreFront Store Services API
+    serviceCategory: API
+  - name: Citrix StoreFront Authentication SDK
+    baseURL: https://{storefront-server}
+    tags:
+      - Authentication
+      - Identity
+      - StoreFront
+    serviceName: Citrix StoreFront Authentication SDK
+    serviceCategory: API
+  - name: Citrix Endpoint Management REST API
+    baseURL: https://{xms-server}:4443/xenmobile/api/v1
+    tags:
+      - Endpoint Management
+      - MDM
+      - Mobile
+      - UEM
+    serviceName: Citrix Endpoint Management REST API
+    serviceCategory: API
+  - name: Citrix Secure Private Access API
+    baseURL: https://api.cloud.com/accessSecurity
+    tags:
+      - Access Control
+      - Security
+      - Zero Trust
+      - ZTNA
+    serviceName: Citrix Secure Private Access API
+    serviceCategory: API
+unitEconomics:
+  - name: Cost per 1K Requests
+    metric: billed_cost / (api_requests / 1000)
+    target: TBD
+  - name: Cost per Active Consumer
+    metric: billed_cost / active_consumers
+    target: TBD
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
