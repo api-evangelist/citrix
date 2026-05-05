@@ -1,0 +1,13 @@
+{
+  "repo": "citrix",
+  "feeds": [
+    {
+      "source": "https://www.citrix.com/blogs/",
+      "feed_url": "https://www.citrix.com/blogs/feed/",
+      "saved": 10,
+      "title": "Citrix Blogs"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:25:15Z"
+}

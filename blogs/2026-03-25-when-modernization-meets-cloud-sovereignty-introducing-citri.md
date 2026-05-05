@@ -1,0 +1,8 @@
+---
+title: "When modernization meets cloud sovereignty: Introducing Citrix Platform for Public Sector"
+url: "https://www.citrix.com/blogs/2026/03/25/when-modernization-meets-cloud-sovereignty-introducing-citrix-platform-for-public-sector/"
+date: "Wed, 25 Mar 2026 16:40:16 +0000"
+author: "Bill Gray"
+feed_url: "https://www.citrix.com/blogs/feed/"
+---
+<img alt="" class="webfeedsFeaturedVisual wp-post-image" height="166" src="https://www.citrix.com/blogs/wp-content/uploads/2017/10/Citrix-Blog-Post-Hero-Image-69-360x166.png" style="display: block; margin-bottom: 5px; clear: both;" width="360" /><p><span class="TextRun SCXW104065613 BCX0" lang="EN-US" xml:lang="EN-US"><span class="NormalTextRun SCXW104065613 BCX0">In the public sector, desktop computing </span><span class="NormalTextRun SCXW104065613 BCX0">isn’t</span><span class="NormalTextRun SCXW104065613 BCX0"> just an IT concern</span></span><span class="TextRun SCXW104065613 BCX0" lang="EN-US" xml:lang="EN-US"><span class="NormalTextRun SCXW104065613 BCX0">—</span><span class="NormalTextRun SCXW104065613 BCX0">it’s</span></span><span class="TextRun SCXW104065613 BCX0" lang="EN-US" xml:lang="EN-US"><span class="NormalTextRun SCXW104065613 BCX0"> </span><span class="NormalTextRun CommentStart SCXW104065613 BCX0">mission</span><span class="NormalTextRun SCXW104065613 BCX0">&#8211;</span><span class="NormalTextRun SCXW104065613 BCX0">critical </span><span class="NormalTextRun SCXW104065613 BCX0">infrastructure. Every endpoint underpins how agencies deliver services, protect sensitive data, and keep essential operations running for citizens who depend on them. Yet many </span></span>&hellip;</p>
