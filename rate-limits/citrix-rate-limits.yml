@@ -4,141 +4,52 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Citrix
 providerId: citrix
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Application Delivery
   - Desktop-As-A-Service
-  - Networking
-  - Virtualization
   - Workspace
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Citrix API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: >-
+  Citrix Cloud and Citrix DaaS REST APIs are governed by per-customer service throttles in the Citrix
+  Cloud control plane. Specific per-second / per-minute thresholds are not published in self-serve
+  form; clients should rely on HTTP 429 / Retry-After signaling and request increases via Citrix
+  support. On-premises NetScaler / ADC NITRO and the Workspace API have their own throttling that is
+  bounded by appliance / control-plane capacity.
+notes: Verify exact thresholds inside the developer.cloud.com API reference and Citrix support
+  channels. Numbers below are descriptive placeholders pending verification.
+sources:
+  - https://developer.cloud.com
+  - https://docs.citrix.com/en-us/citrix-daas/
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Citrix Virtual Apps and Desktops REST API
-      - Citrix Workspace API
-      - Citrix ADC (NetScaler) NITRO API
-      - Citrix DaaS REST API
-      - Citrix Analytics API
-      - Citrix Cloud API
-      - Citrix Monitor Service OData API
-      - Citrix StoreFront Web API
-      - Citrix StoreFront Store Services API
-      - Citrix StoreFront Authentication SDK
-      - Citrix Endpoint Management REST API
-      - Citrix Secure Private Access API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Citrix Virtual Apps and Desktops REST API
-      - Citrix Workspace API
-      - Citrix ADC (NetScaler) NITRO API
-      - Citrix DaaS REST API
-      - Citrix Analytics API
-      - Citrix Cloud API
-      - Citrix Monitor Service OData API
-      - Citrix StoreFront Web API
-      - Citrix StoreFront Store Services API
-      - Citrix StoreFront Authentication SDK
-      - Citrix Endpoint Management REST API
-      - Citrix Secure Private Access API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Citrix Virtual Apps and Desktops REST API
-      - Citrix Workspace API
-      - Citrix ADC (NetScaler) NITRO API
-      - Citrix DaaS REST API
-      - Citrix Analytics API
-      - Citrix Cloud API
-      - Citrix Monitor Service OData API
-      - Citrix StoreFront Web API
-      - Citrix StoreFront Store Services API
-      - Citrix StoreFront Authentication SDK
-      - Citrix Endpoint Management REST API
-      - Citrix Secure Private Access API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Citrix Virtual Apps and Desktops REST API
-      - Citrix Workspace API
-      - Citrix ADC (NetScaler) NITRO API
-      - Citrix DaaS REST API
-      - Citrix Analytics API
-      - Citrix Cloud API
-      - Citrix Monitor Service OData API
-      - Citrix StoreFront Web API
-      - Citrix StoreFront Store Services API
-      - Citrix StoreFront Authentication SDK
-      - Citrix Endpoint Management REST API
-      - Citrix Secure Private Access API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Citrix Virtual Apps and Desktops REST API
-      - Citrix Workspace API
-      - Citrix ADC (NetScaler) NITRO API
-      - Citrix DaaS REST API
-      - Citrix Analytics API
-      - Citrix Cloud API
-      - Citrix Monitor Service OData API
-      - Citrix StoreFront Web API
-      - Citrix StoreFront Store Services API
-      - Citrix StoreFront Authentication SDK
-      - Citrix Endpoint Management REST API
-      - Citrix Secure Private Access API
+  - name: Citrix Cloud / DaaS REST API
+    scope: customer
+    metric: varies
+    limit: see developer.cloud.com; per-service throttles applied per customer
+  - name: NetScaler NITRO API
+    scope: appliance
+    metric: varies
+    limit: bounded by NetScaler control-plane CPU; see Citrix ADC documentation
+  - name: Workspace / StoreFront APIs
+    scope: site
+    metric: varies
+    limit: see Citrix Workspace developer docs
 policies:
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: Implement exponential backoff with jitter on HTTP 429/503 responses and honor any
+      Retry-After header.
+  - name: Bearer token reuse
+    description: Cache Citrix Cloud bearer tokens until expiry; do not request a new token per call.
+  - name: Pagination
+    description: Use cursor / pagination parameters on list endpoints rather than polling full
+      collections.
+  - name: Limit increase
+    description: Production tenants requiring higher throughput should engage Citrix support with the
+      Customer ID and traffic profile.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
