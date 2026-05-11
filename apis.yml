@@ -285,6 +285,10 @@ common:
     url: rules/citrix-rules.yml
   - type: Naftiko Capabilities
     url: capabilities/citrix-capabilities.yml
+  - type: Integrations
+    url: https://www.citrix.com/partners/
+integrations:
+  - name: Citrix Ready partners
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
