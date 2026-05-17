@@ -57,7 +57,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.citrix.com/citrix-workspace/citrix-workspace-platform
-      - type: API Reference
+      - type: APIReference
         url: https://developer.citrix.com/citrix-workspace/citrix-workspace-platform/build/api-reference
   - name: Citrix ADC (NetScaler) NITRO API
     description: >-
@@ -73,7 +73,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
-      - type: API Reference
+      - type: APIReference
         url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
       - type: SDK
         url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
@@ -94,7 +94,7 @@ apis:
         url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
       - type: OpenAPI
         url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/openapi
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
       - type: OpenAPI
         url: openapi/citrix-daas-openapi.yml
@@ -112,7 +112,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.citrix.com/citrix-analytics/api-overview
-      - type: API Reference
+      - type: APIReference
         url: https://developer.citrix.com/citrix-analytics/api-reference
   - name: Citrix Cloud API
     description: >-
@@ -130,7 +130,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
       - type: Authentication
         url: https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
@@ -154,7 +154,7 @@ apis:
         url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html
       - type: Reference
         url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/monitor-service-resources.html
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/access-methods.html
   - name: Citrix StoreFront Web API
     description: >-
@@ -172,7 +172,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
       - type: Reference
         url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
@@ -244,28 +244,28 @@ apis:
     properties:
       - type: Documentation
         url: https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
       - type: OpenAPI
         url: openapi/citrix-secure-private-access-openapi.yml
 common:
   - type: Portal
     url: https://developer-docs.citrix.com/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
   - type: Authentication
     url: https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
   - type: Blog
     url: https://www.citrix.com/blogs/
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.com/
   - type: Support
     url: https://support.citrix.com/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://developer.cloud.com/citrix-developer-terms-of-use
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.citrix.com/about/legal/privacy/plain.html
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/citrix
   - type: Community
     url: https://discussions.citrix.com/
@@ -275,7 +275,7 @@ common:
     url: https://www.citrix.com
   - type: Login
     url: https://accounts.cloud.com/
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/citrix-context.jsonld
   - type: JSONSchema
     url: json-schema/citrix-machine-catalog-schema.json
