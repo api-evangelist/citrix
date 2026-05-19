@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix DaaS REST API — Machine Catalogs
+  description: 'Citrix DaaS REST API — Machine Catalogs. 5 operations. Lead operation: Citrix List machine catalogs. Self-contained
+    Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Machine Catalogs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: daas-machine-catalogs
+    baseUri: https://api.cloud.com/cvad/manage
+    description: Citrix DaaS REST API — Machine Catalogs business capability. Self-contained, no shared references.
+    resources:
+    - name: MachineCatalogs
+      path: /MachineCatalogs
+      operations:
+      - name: listmachinecatalogs
+        method: GET
+        description: Citrix List machine catalogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createmachinecatalog
+        method: POST
+        description: Citrix Create a machine catalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: MachineCatalogs-catalogId
+      path: /MachineCatalogs/{catalogId}
+      operations:
+      - name: getmachinecatalog
+        method: GET
+        description: Citrix Get a machine catalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatemachinecatalog
+        method: PUT
+        description: Citrix Update a machine catalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemachinecatalog
+        method: DELETE
+        description: Citrix Delete a machine catalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.CITRIX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: daas-machine-catalogs-rest
+    port: 8080
+    description: REST adapter for Citrix DaaS REST API — Machine Catalogs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/machinecatalogs
+      name: machinecatalogs
+      description: REST surface for MachineCatalogs.
+      operations:
+      - method: GET
+        name: listmachinecatalogs
+        description: Citrix List machine catalogs
+        call: daas-machine-catalogs.listmachinecatalogs
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createmachinecatalog
+        description: Citrix Create a machine catalog
+        call: daas-machine-catalogs.createmachinecatalog
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/machinecatalogs/{catalogid}
+      name: machinecatalogs-catalogid
+      description: REST surface for MachineCatalogs-catalogId.
+      operations:
+      - method: GET
+        name: getmachinecatalog
+        description: Citrix Get a machine catalog
+        call: daas-machine-catalogs.getmachinecatalog
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatemachinecatalog
+        description: Citrix Update a machine catalog
+        call: daas-machine-catalogs.updatemachinecatalog
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemachinecatalog
+        description: Citrix Delete a machine catalog
+        call: daas-machine-catalogs.deletemachinecatalog
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: daas-machine-catalogs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix DaaS REST API — Machine Catalogs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: citrix-list-machine-catalogs
+      description: Citrix List machine catalogs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: daas-machine-catalogs.listmachinecatalogs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: citrix-create-machine-catalog
+      description: Citrix Create a machine catalog
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: daas-machine-catalogs.createmachinecatalog
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: citrix-get-machine-catalog
+      description: Citrix Get a machine catalog
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: daas-machine-catalogs.getmachinecatalog
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: citrix-update-machine-catalog
+      description: Citrix Update a machine catalog
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: daas-machine-catalogs.updatemachinecatalog
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: citrix-delete-machine-catalog
+      description: Citrix Delete a machine catalog
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: daas-machine-catalogs.deletemachinecatalog
+      outputParameters:
+      - type: object
+        mapping: $.

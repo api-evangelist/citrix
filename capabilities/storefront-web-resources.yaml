@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix StoreFront Web API — Resources
+  description: 'Citrix StoreFront Web API — Resources. 1 operations. Lead operation: Citrix List available resources. Self-contained
+    Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Resources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: storefront-web-resources
+    baseUri: https://{storefront-server}/Citrix/Store
+    description: Citrix StoreFront Web API — Resources business capability. Self-contained, no shared references.
+    resources:
+    - name: Resources-List
+      path: /Resources/List
+      operations:
+      - name: listresources
+        method: POST
+        description: Citrix List available resources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Csrf-Token
+      value: '{{env.CITRIX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: storefront-web-resources-rest
+    port: 8080
+    description: REST adapter for Citrix StoreFront Web API — Resources. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/resources/list
+      name: resources-list
+      description: REST surface for Resources-List.
+      operations:
+      - method: POST
+        name: listresources
+        description: Citrix List available resources
+        call: storefront-web-resources.listresources
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: storefront-web-resources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix StoreFront Web API — Resources. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: citrix-list-available-resources
+      description: Citrix List available resources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: storefront-web-resources.listresources
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

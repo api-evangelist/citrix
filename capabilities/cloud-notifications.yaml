@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix Cloud API — Notifications
+  description: 'Citrix Cloud API — Notifications. 1 operations. Lead operation: Citrix List notifications. Self-contained
+    Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Notifications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-notifications
+    baseUri: https://api.cloud.com
+    description: Citrix Cloud API — Notifications business capability. Self-contained, no shared references.
+    resources:
+    - name: notifications
+      path: /notifications
+      operations:
+      - name: listnotifications
+        method: GET
+        description: Citrix List notifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.CITRIX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-notifications-rest
+    port: 8080
+    description: REST adapter for Citrix Cloud API — Notifications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/notifications
+      name: notifications
+      description: REST surface for notifications.
+      operations:
+      - method: GET
+        name: listnotifications
+        description: Citrix List notifications
+        call: cloud-notifications.listnotifications
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-notifications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix Cloud API — Notifications. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: citrix-list-notifications
+      description: Citrix List notifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-notifications.listnotifications
+      outputParameters:
+      - type: object
+        mapping: $.

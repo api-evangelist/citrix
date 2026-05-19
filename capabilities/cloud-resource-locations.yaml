@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix Cloud API — Resource Locations
+  description: 'Citrix Cloud API — Resource Locations. 2 operations. Lead operation: Citrix List resource locations. Self-contained
+    Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Resource Locations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-resource-locations
+    baseUri: https://api.cloud.com
+    description: Citrix Cloud API — Resource Locations business capability. Self-contained, no shared references.
+    resources:
+    - name: resourcelocations
+      path: /resourcelocations
+      operations:
+      - name: listresourcelocations
+        method: GET
+        description: Citrix List resource locations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: resourcelocations-locationId
+      path: /resourcelocations/{locationId}
+      operations:
+      - name: getresourcelocation
+        method: GET
+        description: Citrix Get a resource location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.CITRIX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-resource-locations-rest
+    port: 8080
+    description: REST adapter for Citrix Cloud API — Resource Locations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/resourcelocations
+      name: resourcelocations
+      description: REST surface for resourcelocations.
+      operations:
+      - method: GET
+        name: listresourcelocations
+        description: Citrix List resource locations
+        call: cloud-resource-locations.listresourcelocations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resourcelocations/{locationid}
+      name: resourcelocations-locationid
+      description: REST surface for resourcelocations-locationId.
+      operations:
+      - method: GET
+        name: getresourcelocation
+        description: Citrix Get a resource location
+        call: cloud-resource-locations.getresourcelocation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-resource-locations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix Cloud API — Resource Locations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: citrix-list-resource-locations
+      description: Citrix List resource locations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-resource-locations.listresourcelocations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: citrix-get-resource-location
+      description: Citrix Get a resource location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-resource-locations.getresourcelocation
+      outputParameters:
+      - type: object
+        mapping: $.

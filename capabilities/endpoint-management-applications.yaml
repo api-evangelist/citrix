@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix Endpoint Management REST API — Applications
+  description: 'Citrix Endpoint Management REST API — Applications. 1 operations. Lead operation: Citrix Filter applications.
+    Self-contained Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: endpoint-management-applications
+    baseUri: https://{xms-server}:4443/xenmobile/api/v1
+    description: Citrix Endpoint Management REST API — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: application-filter
+      path: /application/filter
+      operations:
+      - name: filterapplications
+        method: POST
+        description: Citrix Filter applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: auth_token
+      value: '{{env.CITRIX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: endpoint-management-applications-rest
+    port: 8080
+    description: REST adapter for Citrix Endpoint Management REST API — Applications. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/application/filter
+      name: application-filter
+      description: REST surface for application-filter.
+      operations:
+      - method: POST
+        name: filterapplications
+        description: Citrix Filter applications
+        call: endpoint-management-applications.filterapplications
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: endpoint-management-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix Endpoint Management REST API — Applications. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: citrix-filter-applications
+      description: Citrix Filter applications
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: endpoint-management-applications.filterapplications
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

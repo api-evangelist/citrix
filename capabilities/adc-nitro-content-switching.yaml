@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix ADC (NetScaler) NITRO API — Content Switching
+  description: 'Citrix ADC (NetScaler) NITRO API — Content Switching. 1 operations. Lead operation: Citrix List content switching
+    virtual servers. Self-contained Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Content Switching
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adc-nitro-content-switching
+    baseUri: https://{netscaler-ip}/nitro/v1
+    description: Citrix ADC (NetScaler) NITRO API — Content Switching business capability. Self-contained, no shared references.
+    resources:
+    - name: config-csvserver
+      path: /config/csvserver
+      operations:
+      - name: listcsvservers
+        method: GET
+        description: Citrix List content switching virtual servers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: NITRO_AUTH_TOKEN
+      value: '{{env.CITRIX_API_KEY}}'
+      placement: cookie
+  exposes:
+  - type: rest
+    namespace: adc-nitro-content-switching-rest
+    port: 8080
+    description: REST adapter for Citrix ADC (NetScaler) NITRO API — Content Switching. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/config/csvserver
+      name: config-csvserver
+      description: REST surface for config-csvserver.
+      operations:
+      - method: GET
+        name: listcsvservers
+        description: Citrix List content switching virtual servers
+        call: adc-nitro-content-switching.listcsvservers
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adc-nitro-content-switching-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix ADC (NetScaler) NITRO API — Content Switching. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: citrix-list-content-switching-virtual
+      description: Citrix List content switching virtual servers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adc-nitro-content-switching.listcsvservers
+      outputParameters:
+      - type: object
+        mapping: $.

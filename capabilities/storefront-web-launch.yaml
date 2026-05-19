@@ -1,0 +1,124 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix StoreFront Web API — Launch
+  description: 'Citrix StoreFront Web API — Launch. 2 operations. Lead operation: Citrix Get launch status. Self-contained
+    Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Launch
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: storefront-web-launch
+    baseUri: https://{storefront-server}/Citrix/Store
+    description: Citrix StoreFront Web API — Launch business capability. Self-contained, no shared references.
+    resources:
+    - name: Resources-GetLaunchStatus-resourceId
+      path: /Resources/GetLaunchStatus/{resourceId}
+      operations:
+      - name: getlaunchstatus
+        method: GET
+        description: Citrix Get launch status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceId
+          in: path
+          type: string
+          description: Resource identifier to check
+          required: true
+    - name: Resources-LaunchIca-resourceId
+      path: /Resources/LaunchIca/{resourceId}
+      operations:
+      - name: launchresource
+        method: GET
+        description: Citrix Launch a resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceId
+          in: path
+          type: string
+          description: Resource identifier to launch
+          required: true
+    authentication:
+      type: apikey
+      key: Csrf-Token
+      value: '{{env.CITRIX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: storefront-web-launch-rest
+    port: 8080
+    description: REST adapter for Citrix StoreFront Web API — Launch. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/resources/getlaunchstatus/{resourceid}
+      name: resources-getlaunchstatus-resourceid
+      description: REST surface for Resources-GetLaunchStatus-resourceId.
+      operations:
+      - method: GET
+        name: getlaunchstatus
+        description: Citrix Get launch status
+        call: storefront-web-launch.getlaunchstatus
+        with:
+          resourceId: rest.resourceId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resources/launchica/{resourceid}
+      name: resources-launchica-resourceid
+      description: REST surface for Resources-LaunchIca-resourceId.
+      operations:
+      - method: GET
+        name: launchresource
+        description: Citrix Launch a resource
+        call: storefront-web-launch.launchresource
+        with:
+          resourceId: rest.resourceId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: storefront-web-launch-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix StoreFront Web API — Launch. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: citrix-get-launch-status
+      description: Citrix Get launch status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: storefront-web-launch.getlaunchstatus
+      with:
+        resourceId: tools.resourceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: citrix-launch-resource
+      description: Citrix Launch a resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: storefront-web-launch.launchresource
+      with:
+        resourceId: tools.resourceId
+      outputParameters:
+      - type: object
+        mapping: $.

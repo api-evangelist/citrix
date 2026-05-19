@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix Endpoint Management REST API — Delivery Groups
+  description: 'Citrix Endpoint Management REST API — Delivery Groups. 1 operations. Lead operation: Citrix Filter delivery
+    groups. Self-contained Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Delivery Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: endpoint-management-delivery-groups
+    baseUri: https://{xms-server}:4443/xenmobile/api/v1
+    description: Citrix Endpoint Management REST API — Delivery Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: deliverygroup-filter
+      path: /deliverygroup/filter
+      operations:
+      - name: filterdeliverygroups
+        method: POST
+        description: Citrix Filter delivery groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: auth_token
+      value: '{{env.CITRIX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: endpoint-management-delivery-groups-rest
+    port: 8080
+    description: REST adapter for Citrix Endpoint Management REST API — Delivery Groups. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deliverygroup/filter
+      name: deliverygroup-filter
+      description: REST surface for deliverygroup-filter.
+      operations:
+      - method: POST
+        name: filterdeliverygroups
+        description: Citrix Filter delivery groups
+        call: endpoint-management-delivery-groups.filterdeliverygroups
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: endpoint-management-delivery-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix Endpoint Management REST API — Delivery Groups. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: citrix-filter-delivery-groups
+      description: Citrix Filter delivery groups
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: endpoint-management-delivery-groups.filterdeliverygroups
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

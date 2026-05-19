@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Citrix ADC (NetScaler) NITRO API — Authentication
+  description: 'Citrix ADC (NetScaler) NITRO API — Authentication. 1 operations. Lead operation: Citrix Log in to NITRO. Self-contained
+    Naftiko capability covering one Citrix business surface.'
+  tags:
+  - Citrix
+  - Authentication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CITRIX_API_KEY: CITRIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adc-nitro-authentication
+    baseUri: https://{netscaler-ip}/nitro/v1
+    description: Citrix ADC (NetScaler) NITRO API — Authentication business capability. Self-contained, no shared references.
+    resources:
+    - name: config-login
+      path: /config/login
+      operations:
+      - name: login
+        method: POST
+        description: Citrix Log in to NITRO
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: NITRO_AUTH_TOKEN
+      value: '{{env.CITRIX_API_KEY}}'
+      placement: cookie
+  exposes:
+  - type: rest
+    namespace: adc-nitro-authentication-rest
+    port: 8080
+    description: REST adapter for Citrix ADC (NetScaler) NITRO API — Authentication. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/config/login
+      name: config-login
+      description: REST surface for config-login.
+      operations:
+      - method: POST
+        name: login
+        description: Citrix Log in to NITRO
+        call: adc-nitro-authentication.login
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adc-nitro-authentication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Citrix ADC (NetScaler) NITRO API — Authentication. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: citrix-log-nitro
+      description: Citrix Log in to NITRO
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adc-nitro-authentication.login
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
