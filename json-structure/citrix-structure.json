@@ -1,0 +1,287 @@
+{
+  "provider": "Citrix",
+  "providerId": "citrix",
+  "kind": "json-structure",
+  "description": "Structural overview of the Citrix API surface; extracted from openapi/.",
+  "schemaCount": 16,
+  "operationCount": 19,
+  "schemas": [
+    {
+      "name": "MachineCatalogCollection",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "MachineCatalog",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "CreateMachineCatalogRequest",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name",
+        "allocationType",
+        "provisioningType",
+        "sessionSupport"
+      ]
+    },
+    {
+      "name": "UpdateMachineCatalogRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DeliveryGroupCollection",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "DeliveryGroup",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "CreateDeliveryGroupRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "deliveryType"
+      ]
+    },
+    {
+      "name": "UpdateDeliveryGroupRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ApplicationCollection",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Application",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "SessionCollection",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Session",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "MachineCollection",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Machine",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "HypervisorCollection",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Hypervisor",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/MachineCatalogs",
+      "operationId": "listMachineCatalogs",
+      "summary": "Citrix List machine catalogs",
+      "tags": [
+        "Machine Catalogs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/MachineCatalogs",
+      "operationId": "createMachineCatalog",
+      "summary": "Citrix Create a machine catalog",
+      "tags": [
+        "Machine Catalogs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/MachineCatalogs/{catalogId}",
+      "operationId": "getMachineCatalog",
+      "summary": "Citrix Get a machine catalog",
+      "tags": [
+        "Machine Catalogs"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/MachineCatalogs/{catalogId}",
+      "operationId": "updateMachineCatalog",
+      "summary": "Citrix Update a machine catalog",
+      "tags": [
+        "Machine Catalogs"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/MachineCatalogs/{catalogId}",
+      "operationId": "deleteMachineCatalog",
+      "summary": "Citrix Delete a machine catalog",
+      "tags": [
+        "Machine Catalogs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/DeliveryGroups",
+      "operationId": "listDeliveryGroups",
+      "summary": "Citrix List delivery groups",
+      "tags": [
+        "Delivery Groups"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/DeliveryGroups",
+      "operationId": "createDeliveryGroup",
+      "summary": "Citrix Create a delivery group",
+      "tags": [
+        "Delivery Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/DeliveryGroups/{deliveryGroupId}",
+      "operationId": "getDeliveryGroup",
+      "summary": "Citrix Get a delivery group",
+      "tags": [
+        "Delivery Groups"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/DeliveryGroups/{deliveryGroupId}",
+      "operationId": "updateDeliveryGroup",
+      "summary": "Citrix Update a delivery group",
+      "tags": [
+        "Delivery Groups"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/DeliveryGroups/{deliveryGroupId}",
+      "operationId": "deleteDeliveryGroup",
+      "summary": "Citrix Delete a delivery group",
+      "tags": [
+        "Delivery Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Applications",
+      "operationId": "listApplications",
+      "summary": "Citrix List applications",
+      "tags": [
+        "Applications"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Applications/{applicationId}",
+      "operationId": "getApplication",
+      "summary": "Citrix Get an application",
+      "tags": [
+        "Applications"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Sessions",
+      "operationId": "listSessions",
+      "summary": "Citrix List sessions",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Sessions/{sessionId}",
+      "operationId": "getSession",
+      "summary": "Citrix Get a session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/Sessions/{sessionId}/$logoff",
+      "operationId": "logoffSession",
+      "summary": "Citrix Log off a session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/Sessions/{sessionId}/$disconnect",
+      "operationId": "disconnectSession",
+      "summary": "Citrix Disconnect a session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Machines",
+      "operationId": "listMachines",
+      "summary": "Citrix List machines",
+      "tags": [
+        "Machines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Machines/{machineId}",
+      "operationId": "getMachine",
+      "summary": "Citrix Get a machine",
+      "tags": [
+        "Machines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/Hypervisors",
+      "operationId": "listHypervisors",
+      "summary": "Citrix List hypervisor connections",
+      "tags": [
+        "Hypervisors"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LbVserver",
+  "title": "LbVserver",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Virtual server name"
+    },
+    "ipv46": {
+      "type": "string",
+      "description": "IPv4 or IPv6 address"
+    },
+    "port": {
+      "type": "integer",
+      "description": "Port number"
+    },
+    "servicetype": {
+      "type": "string",
+      "enum": [
+        "HTTP",
+        "HTTPS",
+        "TCP",
+        "UDP",
+        "SSL",
+        "SSL_TCP",
+        "ANY"
+      ],
+      "description": "Protocol type"
+    },
+    "lbmethod": {
+      "type": "string",
+      "enum": [
+        "ROUNDROBIN",
+        "LEASTCONNECTION",
+        "LEASTRESPONSETIME",
+        "SOURCEIPHASH",
+        "URLHASH"
+      ],
+      "description": "Load balancing method"
+    },
+    "curstate": {
+      "type": "string",
+      "description": "Current state of the virtual server"
+    },
+    "effectivestate": {
+      "type": "string",
+      "description": "Effective state considering bound services"
+    }
+  }
+}

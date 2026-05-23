@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateServicePrincipalRequest",
+  "title": "CreateServicePrincipalRequest",
+  "type": "object",
+  "required": [
+    "displayName"
+  ],
+  "properties": {
+    "displayName": {
+      "type": "string",
+      "description": "Display name for the new service principal"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServiceGroup",
+  "title": "ServiceGroup",
+  "type": "object",
+  "properties": {
+    "servicegroupname": {
+      "type": "string",
+      "description": "Service group name"
+    },
+    "servicetype": {
+      "type": "string",
+      "description": "Protocol type"
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state"
+    }
+  }
+}

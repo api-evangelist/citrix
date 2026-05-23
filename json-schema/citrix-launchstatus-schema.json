@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LaunchStatus",
+  "title": "LaunchStatus",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "ready",
+        "notReady"
+      ],
+      "description": "Whether the resource is ready to launch"
+    },
+    "pollTimeout": {
+      "type": "integer",
+      "description": "Seconds to wait before polling again"
+    }
+  }
+}

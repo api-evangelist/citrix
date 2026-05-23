@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SslCertKey",
+  "title": "SslCertKey",
+  "type": "object",
+  "properties": {
+    "certkey": {
+      "type": "string",
+      "description": "Certificate-key pair name"
+    },
+    "cert": {
+      "type": "string",
+      "description": "Certificate file path"
+    },
+    "key": {
+      "type": "string",
+      "description": "Key file path"
+    },
+    "daystoexpiration": {
+      "type": "integer",
+      "description": "Days until certificate expiration"
+    },
+    "status": {
+      "type": "string",
+      "description": "Certificate status"
+    }
+  }
+}

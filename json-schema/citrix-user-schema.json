@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/User",
+  "title": "User",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "User unique identifier"
+    },
+    "userName": {
+      "type": "string",
+      "description": "Username"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Display name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "domain": {
+      "type": "string",
+      "description": "Active Directory domain"
+    }
+  }
+}

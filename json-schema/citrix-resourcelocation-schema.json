@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResourceLocation",
+  "title": "ResourceLocation",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the resource location"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the resource location"
+    },
+    "internalOnly": {
+      "type": "boolean",
+      "description": "Whether the location is internal only"
+    },
+    "timeZone": {
+      "type": "string",
+      "description": "Time zone of the resource location"
+    },
+    "readOnly": {
+      "type": "boolean",
+      "description": "Whether the resource location is read-only"
+    }
+  }
+}

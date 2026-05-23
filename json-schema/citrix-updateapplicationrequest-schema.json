@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateApplicationRequest",
+  "title": "UpdateApplicationRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Updated application name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Updated description"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Updated URL"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the application is enabled"
+    }
+  }
+}

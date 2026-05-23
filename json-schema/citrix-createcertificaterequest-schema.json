@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateCertificateRequest",
+  "title": "CreateCertificateRequest",
+  "type": "object",
+  "required": [
+    "name",
+    "certificate",
+    "privateKey"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Certificate name"
+    },
+    "certificate": {
+      "type": "string",
+      "description": "PEM-encoded certificate"
+    },
+    "privateKey": {
+      "type": "string",
+      "description": "PEM-encoded private key"
+    }
+  }
+}

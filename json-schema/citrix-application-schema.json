@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Application",
+  "title": "Application",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the application"
+    },
+    "name": {
+      "type": "string",
+      "description": "Application name"
+    },
+    "publishedName": {
+      "type": "string",
+      "description": "Published display name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Application description"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the application is enabled"
+    },
+    "commandLineExecutable": {
+      "type": "string",
+      "description": "Path to the application executable"
+    },
+    "applicationFolder": {
+      "type": "string",
+      "description": "Folder containing the application"
+    }
+  }
+}

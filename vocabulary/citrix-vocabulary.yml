@@ -1,0 +1,17 @@
+name: Citrix Domain Vocabulary
+provider: Citrix
+providerId: citrix
+description: Tag-derived vocabulary for the Citrix API surface; sourced from openapi/ tags.
+terms:
+- term: Applications
+  description: Manage published applications
+- term: Delivery Groups
+  description: Manage delivery groups for resource assignment
+- term: Hypervisors
+  description: Manage hypervisor connections
+- term: Machine Catalogs
+  description: Manage machine catalogs and provisioning
+- term: Machines
+  description: Manage individual machines in catalogs
+- term: Sessions
+  description: Manage and monitor active sessions

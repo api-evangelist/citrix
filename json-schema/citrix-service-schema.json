@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Service",
+  "title": "Service",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Service name"
+    },
+    "ip": {
+      "type": "string",
+      "description": "IP address of the service"
+    },
+    "port": {
+      "type": "integer",
+      "description": "Port number"
+    },
+    "servicetype": {
+      "type": "string",
+      "description": "Protocol type"
+    },
+    "svrstate": {
+      "type": "string",
+      "description": "Current state of the service"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Hypervisor",
+  "title": "Hypervisor",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the hypervisor connection"
+    },
+    "name": {
+      "type": "string",
+      "description": "Hypervisor connection name"
+    },
+    "connectionType": {
+      "type": "string",
+      "description": "Type of hypervisor (e.g., AzureRM, AWS, vSphere)"
+    },
+    "state": {
+      "type": "string",
+      "description": "Current connection state"
+    }
+  }
+}

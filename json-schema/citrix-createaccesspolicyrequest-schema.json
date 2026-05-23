@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateAccessPolicyRequest",
+  "title": "CreateAccessPolicyRequest",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Policy name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Policy description"
+    },
+    "conditions": {
+      "type": "object",
+      "description": "Policy conditions"
+    },
+    "actions": {
+      "type": "object",
+      "description": "Policy actions"
+    }
+  }
+}

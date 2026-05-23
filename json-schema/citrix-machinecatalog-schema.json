@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MachineCatalog",
+  "title": "MachineCatalog",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the machine catalog"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the machine catalog"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the machine catalog"
+    },
+    "allocationType": {
+      "type": "string",
+      "enum": [
+        "Static",
+        "Random"
+      ],
+      "description": "How machines are allocated to users"
+    },
+    "provisioningType": {
+      "type": "string",
+      "enum": [
+        "MCS",
+        "PVS",
+        "Manual"
+      ],
+      "description": "Provisioning method for machines"
+    },
+    "sessionSupport": {
+      "type": "string",
+      "enum": [
+        "SingleSession",
+        "MultiSession"
+      ],
+      "description": "Session support type"
+    },
+    "machineCount": {
+      "type": "integer",
+      "description": "Number of machines in the catalog"
+    },
+    "zone": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Zone identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Zone name"
+        }
+      }
+    }
+  }
+}

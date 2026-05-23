@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserFilterRequest",
+  "title": "UserFilterRequest",
+  "type": "object",
+  "properties": {
+    "start": {
+      "type": "integer",
+      "description": "Start index for pagination"
+    },
+    "limit": {
+      "type": "integer",
+      "description": "Maximum number of results"
+    },
+    "search": {
+      "type": "string",
+      "description": "Search text"
+    }
+  }
+}

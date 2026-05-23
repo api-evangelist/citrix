@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Resource",
+  "title": "Resource",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Resource identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Resource display name"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Citrix.MPS.Application",
+        "Citrix.MPS.Desktop"
+      ],
+      "description": "Resource type"
+    },
+    "iconurl": {
+      "type": "string",
+      "description": "URL to the resource icon"
+    },
+    "launchurl": {
+      "type": "string",
+      "description": "URL to launch the resource"
+    },
+    "launchstatusurl": {
+      "type": "string",
+      "description": "URL to check launch readiness"
+    }
+  }
+}

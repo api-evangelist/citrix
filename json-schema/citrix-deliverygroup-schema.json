@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeliveryGroup",
+  "title": "DeliveryGroup",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the delivery group"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the delivery group"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the delivery group"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the delivery group is enabled"
+    },
+    "totalMachines": {
+      "type": "integer",
+      "description": "Total number of machines in the group"
+    },
+    "sessionsCount": {
+      "type": "integer",
+      "description": "Current number of active sessions"
+    },
+    "deliveryType": {
+      "type": "string",
+      "enum": [
+        "DesktopsOnly",
+        "AppsOnly",
+        "DesktopsAndApps"
+      ],
+      "description": "Type of resources delivered"
+    }
+  }
+}

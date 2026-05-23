@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateMachineCatalogRequest",
+  "title": "CreateMachineCatalogRequest",
+  "type": "object",
+  "required": [
+    "name",
+    "allocationType",
+    "provisioningType",
+    "sessionSupport"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the new machine catalog"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description for the machine catalog"
+    },
+    "allocationType": {
+      "type": "string",
+      "enum": [
+        "Static",
+        "Random"
+      ],
+      "description": "Machine allocation type"
+    },
+    "provisioningType": {
+      "type": "string",
+      "enum": [
+        "MCS",
+        "PVS",
+        "Manual"
+      ],
+      "description": "Provisioning method"
+    },
+    "sessionSupport": {
+      "type": "string",
+      "enum": [
+        "SingleSession",
+        "MultiSession"
+      ],
+      "description": "Session support type"
+    }
+  }
+}

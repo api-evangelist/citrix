@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationFilterRequest",
+  "title": "ApplicationFilterRequest",
+  "type": "object",
+  "properties": {
+    "start": {
+      "type": "integer",
+      "description": "Start index for pagination"
+    },
+    "limit": {
+      "type": "integer",
+      "description": "Maximum number of results"
+    }
+  }
+}

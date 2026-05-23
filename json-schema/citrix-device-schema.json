@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Device",
+  "title": "Device",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Device unique identifier"
+    },
+    "serialNumber": {
+      "type": "string",
+      "description": "Device serial number"
+    },
+    "deviceModel": {
+      "type": "string",
+      "description": "Device model name"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "iOS",
+        "Android",
+        "Windows",
+        "macOS"
+      ],
+      "description": "Device platform"
+    },
+    "osVersion": {
+      "type": "string",
+      "description": "Operating system version"
+    },
+    "lastAccess": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last access timestamp"
+    },
+    "userName": {
+      "type": "string",
+      "description": "Enrolled user name"
+    },
+    "jailbroken": {
+      "type": "boolean",
+      "description": "Whether the device is jailbroken or rooted"
+    },
+    "managed": {
+      "type": "boolean",
+      "description": "Whether the device is managed"
+    },
+    "compliant": {
+      "type": "boolean",
+      "description": "Whether the device is compliant with policies"
+    }
+  }
+}

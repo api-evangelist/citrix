@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CsVserver",
+  "title": "CsVserver",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Content switching virtual server name"
+    },
+    "ipv46": {
+      "type": "string",
+      "description": "IP address"
+    },
+    "port": {
+      "type": "integer",
+      "description": "Port number"
+    },
+    "servicetype": {
+      "type": "string",
+      "description": "Protocol type"
+    },
+    "curstate": {
+      "type": "string",
+      "description": "Current state"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Machine",
+  "title": "Machine",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the machine"
+    },
+    "name": {
+      "type": "string",
+      "description": "Machine name"
+    },
+    "dnsName": {
+      "type": "string",
+      "description": "DNS name of the machine"
+    },
+    "registrationState": {
+      "type": "string",
+      "enum": [
+        "Registered",
+        "Unregistered"
+      ],
+      "description": "Registration state with the delivery controller"
+    },
+    "powerState": {
+      "type": "string",
+      "enum": [
+        true,
+        false,
+        "Suspended",
+        "Unknown"
+      ],
+      "description": "Current power state"
+    },
+    "inMaintenanceMode": {
+      "type": "boolean",
+      "description": "Whether the machine is in maintenance mode"
+    },
+    "currentSessionCount": {
+      "type": "integer",
+      "description": "Number of active sessions on the machine"
+    }
+  }
+}

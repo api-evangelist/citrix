@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SystemStats",
+  "title": "SystemStats",
+  "type": "object",
+  "properties": {
+    "cpuusagepcnt": {
+      "type": "number",
+      "description": "CPU usage percentage"
+    },
+    "memusagepcnt": {
+      "type": "number",
+      "description": "Memory usage percentage"
+    },
+    "mgmtcpuusagepcnt": {
+      "type": "number",
+      "description": "Management CPU usage percentage"
+    },
+    "pktcpuusagepcnt": {
+      "type": "number",
+      "description": "Packet CPU usage percentage"
+    },
+    "disk0perusage": {
+      "type": "number",
+      "description": "Disk 0 usage percentage"
+    },
+    "disk1perusage": {
+      "type": "number",
+      "description": "Disk 1 usage percentage"
+    }
+  }
+}

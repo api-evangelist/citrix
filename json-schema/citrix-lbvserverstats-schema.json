@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LbVserverStats",
+  "title": "LbVserverStats",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Virtual server name"
+    },
+    "requestsrate": {
+      "type": "number",
+      "description": "Requests per second"
+    },
+    "responsesrate": {
+      "type": "number",
+      "description": "Responses per second"
+    },
+    "totalrequests": {
+      "type": "integer",
+      "description": "Total requests received"
+    },
+    "totalresponses": {
+      "type": "integer",
+      "description": "Total responses sent"
+    },
+    "curclntconnections": {
+      "type": "integer",
+      "description": "Current client connections"
+    },
+    "cursrvrconnections": {
+      "type": "integer",
+      "description": "Current server connections"
+    },
+    "health": {
+      "type": "number",
+      "description": "Health percentage"
+    }
+  }
+}

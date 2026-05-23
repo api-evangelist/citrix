@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Certificate",
+  "title": "Certificate",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Certificate unique identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Certificate name"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Certificate subject"
+    },
+    "issuer": {
+      "type": "string",
+      "description": "Certificate issuer"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Certificate expiration date"
+    }
+  }
+}

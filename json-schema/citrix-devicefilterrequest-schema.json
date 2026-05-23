@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeviceFilterRequest",
+  "title": "DeviceFilterRequest",
+  "type": "object",
+  "properties": {
+    "start": {
+      "type": "integer",
+      "description": "Start index for pagination"
+    },
+    "limit": {
+      "type": "integer",
+      "description": "Maximum number of results"
+    },
+    "sortOrder": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "description": "Sort order"
+    },
+    "search": {
+      "type": "string",
+      "description": "Search text"
+    }
+  }
+}

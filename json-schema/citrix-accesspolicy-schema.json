@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccessPolicy",
+  "title": "AccessPolicy",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Policy unique identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Policy name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Policy description"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the policy is active"
+    },
+    "priority": {
+      "type": "integer",
+      "description": "Policy evaluation priority"
+    },
+    "conditions": {
+      "type": "object",
+      "description": "Policy conditions for matching"
+    },
+    "actions": {
+      "type": "object",
+      "description": "Actions to apply when policy matches"
+    }
+  }
+}
