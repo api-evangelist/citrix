@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix Endpoint Management REST API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth_token",
+      "value": "{{auth_token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Authenticate to the API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/authentication/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Log in with administrator credentials to obtain an authentication token."
+        },
+        {
+          "info": {
+            "name": "Citrix Log out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/authentication/logout"
+          },
+          "docs": "Invalidate the current authentication token."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Filter devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/device/filter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search and filter enrolled devices based on criteria."
+        },
+        {
+          "info": {
+            "name": "Citrix Get device details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/device/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific enrolled device."
+        },
+        {
+          "info": {
+            "name": "Citrix Wipe a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/device/wipe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Issue a full wipe command to a managed device."
+        },
+        {
+          "info": {
+            "name": "Citrix Selective wipe a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/device/selectivewipe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Issue a selective wipe to remove only corporate data from a device."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Filter applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/application/filter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search and filter managed applications."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Deploy policies to devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/device/policy/deploy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deploy device or application policies to specified devices."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Filter users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/user/filter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search and filter users and groups."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Delivery Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Filter delivery groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{xms-server}:4443/xenmobile/api/v1/deliverygroup/filter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search and filter delivery groups."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,255 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix StoreFront Web API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Csrf-Token",
+      "value": "{{Csrf-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Get authentication methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{storefront-server}/Citrix/Store/Authentication/GetAuthMethods"
+          },
+          "docs": "Retrieve available authentication methods for the StoreFront store."
+        },
+        {
+          "info": {
+            "name": "Citrix Log in with explicit credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{storefront-server}/Citrix/Store/ExplicitAuth/Login",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                },
+                {
+                  "name": "domain",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Authenticate using explicit username and password credentials."
+        },
+        {
+          "info": {
+            "name": "Citrix Log out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{storefront-server}/Citrix/Store/ExplicitAuth/Logout",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "End the current authenticated session."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List available resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{storefront-server}/Citrix/Store/Resources/List",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "format",
+                  "value": ""
+                },
+                {
+                  "name": "resourcesDetails",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Enumerate all applications and desktops available to the authenticated user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List active sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{storefront-server}/Citrix/Store/Sessions/List",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all active HDX sessions for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Citrix Disconnect a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{storefront-server}/Citrix/Store/Sessions/Disconnect",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "sessionId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Disconnect an active HDX session without logging off."
+        },
+        {
+          "info": {
+            "name": "Citrix Log off a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{storefront-server}/Citrix/Store/Sessions/Logoff",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "sessionId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Log off an active HDX session."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Launch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Get launch status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{storefront-server}/Citrix/Store/Resources/GetLaunchStatus/:resourceId",
+            "params": [
+              {
+                "name": "CsrfToken",
+                "value": "",
+                "type": "query",
+                "description": "CSRF token as query parameter for GET requests"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier to check"
+              }
+            ]
+          },
+          "docs": "Check if a resource is ready to launch. If not ready, returns a retry interval."
+        },
+        {
+          "info": {
+            "name": "Citrix Launch a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{storefront-server}/Citrix/Store/Resources/LaunchIca/:resourceId",
+            "params": [
+              {
+                "name": "CsrfToken",
+                "value": "",
+                "type": "query",
+                "description": "CSRF token as query parameter for GET requests"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier to launch"
+              }
+            ]
+          },
+          "docs": "Get an ICA file to launch a specific application or desktop resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

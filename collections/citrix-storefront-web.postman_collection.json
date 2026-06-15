@@ -1,0 +1,1828 @@
+{
+  "item": [
+    {
+      "id": "dfd5b361-c831-4a5b-8c2b-3e8a7a9dbf74",
+      "name": "Authentication",
+      "description": {
+        "content": "User authentication and session management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "388810d3-3185-4335-8934-d6fbbc669649",
+          "name": "Citrix Get authentication methods",
+          "request": {
+            "name": "Citrix Get authentication methods",
+            "description": {
+              "content": "Retrieve available authentication methods for the StoreFront store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Authentication",
+                "GetAuthMethods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a440e57-bbcd-42ba-8fb4-c571a7dd114a",
+              "name": "Available authentication methods",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Authentication",
+                    "GetAuthMethods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d30ea4a2-17f3-4794-a83e-a8f20f002b79",
+          "name": "Citrix Log in with explicit credentials",
+          "request": {
+            "name": "Citrix Log in with explicit credentials",
+            "description": {
+              "content": "Authenticate using explicit username and password credentials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ExplicitAuth",
+                "Login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) Username for authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) Password for authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "domain",
+                  "value": "<string>",
+                  "description": "Domain name"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13b66f87-8a4e-4705-b97e-a77df66de6e8",
+              "name": "Login successful with session cookies set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ExplicitAuth",
+                    "Login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Username for authentication",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Password for authentication",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Domain name",
+                        "type": "text/plain"
+                      },
+                      "key": "domain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d680d4b5-bb60-4682-b4bb-ed32f2d6ac87",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ExplicitAuth",
+                    "Login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Username for authentication",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Password for authentication",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Domain name",
+                        "type": "text/plain"
+                      },
+                      "key": "domain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a82d6ecd-f5a1-43c5-9a35-14565fcf5a8b",
+          "name": "Citrix Log out",
+          "request": {
+            "name": "Citrix Log out",
+            "description": {
+              "content": "End the current authenticated session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ExplicitAuth",
+                "Logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) CSRF token read from the session cookie",
+                "key": "Csrf-Token",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2474c452-d89b-43a1-895a-cd3acd4920c8",
+              "name": "Logout successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ExplicitAuth",
+                    "Logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f7735cdc-8a35-4d92-8e8c-37d0754cd766",
+      "name": "Launch",
+      "description": {
+        "content": "Launch applications and desktops",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67ca78ab-4748-470d-8178-eea09a301122",
+          "name": "Citrix Get launch status",
+          "request": {
+            "name": "Citrix Get launch status",
+            "description": {
+              "content": "Check if a resource is ready to launch. If not ready, returns a retry interval.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Resources",
+                "GetLaunchStatus",
+                ":resourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "CsrfToken",
+                  "value": "<string>",
+                  "description": "(Required) CSRF token as query parameter for GET requests"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceId",
+                  "description": "(Required) Resource identifier to check"
+                },
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0453621d-cb8c-4a22-ad3c-1d53c126f377",
+              "name": "Launch status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Resources",
+                    "GetLaunchStatus",
+                    ":resourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CsrfToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceId",
+                      "description": "(Required) Resource identifier to check"
+                    },
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"notReady\",\n  \"pollTimeout\": 3863\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5aa04fa-58f0-406f-a5e8-80fce7dcb578",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Resources",
+                    "GetLaunchStatus",
+                    ":resourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CsrfToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceId",
+                      "description": "(Required) Resource identifier to check"
+                    },
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21738dfa-f2ac-4fd1-bbc3-f444b0c28fac",
+          "name": "Citrix Launch a resource",
+          "request": {
+            "name": "Citrix Launch a resource",
+            "description": {
+              "content": "Get an ICA file to launch a specific application or desktop resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Resources",
+                "LaunchIca",
+                ":resourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "CsrfToken",
+                  "value": "<string>",
+                  "description": "(Required) CSRF token as query parameter for GET requests"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceId",
+                  "description": "(Required) Resource identifier to launch"
+                },
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/x-ica"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07b43ea9-be02-47b2-824b-28d06b01e37f",
+              "name": "ICA launch file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Resources",
+                    "LaunchIca",
+                    ":resourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CsrfToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceId",
+                      "description": "(Required) Resource identifier to launch"
+                    },
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/x-ica"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/x-ica"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6cb2028f-e3a3-49fe-aa5c-f93dbb9787a2",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Resources",
+                    "LaunchIca",
+                    ":resourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CsrfToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceId",
+                      "description": "(Required) Resource identifier to launch"
+                    },
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "30beeb37-5514-4a23-947e-5618ab449389",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Resources",
+                    "LaunchIca",
+                    ":resourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CsrfToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceId",
+                      "description": "(Required) Resource identifier to launch"
+                    },
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fe7bf8e7-5f44-4fe2-a593-5874f208ff84",
+      "name": "Resources",
+      "description": {
+        "content": "Enumerate available applications and desktops",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dca4c614-f697-44db-ba04-831511f3c1e8",
+          "name": "Citrix List available resources",
+          "request": {
+            "name": "Citrix List available resources",
+            "description": {
+              "content": "Enumerate all applications and desktops available to the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Resources",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) CSRF token read from the session cookie",
+                "key": "Csrf-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format"
+                },
+                {
+                  "disabled": false,
+                  "key": "resourcesDetails",
+                  "value": "<string>",
+                  "description": "Level of detail in response"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9ec10bad-6823-4aa3-abf6-93af5376184b",
+              "name": "List of available resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Resources",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Response format",
+                        "type": "text/plain"
+                      },
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Level of detail in response",
+                        "type": "text/plain"
+                      },
+                      "key": "resourcesDetails",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resources\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"Citrix.MPS.Application\",\n      \"iconurl\": \"string\",\n      \"launchurl\": \"string\",\n      \"launchstatusurl\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"Citrix.MPS.Desktop\",\n      \"iconurl\": \"string\",\n      \"launchurl\": \"string\",\n      \"launchstatusurl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1aa0971a-9316-4607-8bac-231ca96359d0",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Resources",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Response format",
+                        "type": "text/plain"
+                      },
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Level of detail in response",
+                        "type": "text/plain"
+                      },
+                      "key": "resourcesDetails",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a4696997-595d-4cef-a7b6-4679cf8386b0",
+      "name": "Sessions",
+      "description": {
+        "content": "Manage HDX session lifecycle",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c58e577-2835-4c0e-8c0e-ebcfc4ab303f",
+          "name": "Citrix List active sessions",
+          "request": {
+            "name": "Citrix List active sessions",
+            "description": {
+              "content": "Retrieve all active HDX sessions for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Sessions",
+                "List"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) CSRF token read from the session cookie",
+                "key": "Csrf-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0c02f4f-e4b7-4bad-9e66-c6ab49add436",
+              "name": "List of active sessions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessions\": [\n    {\n      \"sessionId\": \"string\",\n      \"appName\": \"string\",\n      \"publishedName\": \"string\",\n      \"initialApp\": \"string\",\n      \"isActive\": false\n    },\n    {\n      \"sessionId\": \"string\",\n      \"appName\": \"string\",\n      \"publishedName\": \"string\",\n      \"initialApp\": \"string\",\n      \"isActive\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c18bfc00-8ac5-47e7-a451-d945429edaea",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "List"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89caefa4-a5ad-4649-b010-0b63baca100a",
+          "name": "Citrix Disconnect a session",
+          "request": {
+            "name": "Citrix Disconnect a session",
+            "description": {
+              "content": "Disconnect an active HDX session without logging off.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Sessions",
+                "Disconnect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) CSRF token read from the session cookie",
+                "key": "Csrf-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sessionId",
+                  "value": "<string>",
+                  "description": "(Required) Session ID to disconnect"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4c686dd9-e8f0-444b-b467-ab9a5627dfcf",
+              "name": "Session disconnected",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "Disconnect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Session ID to disconnect",
+                        "type": "text/plain"
+                      },
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5da8d3dc-caba-4c72-b530-33c261b4ccc1",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "Disconnect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Session ID to disconnect",
+                        "type": "text/plain"
+                      },
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8397d86b-3048-45f6-97ad-f1f5c651af70",
+              "name": "Session not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "Disconnect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Session ID to disconnect",
+                        "type": "text/plain"
+                      },
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31b04580-9d51-4f89-ae58-785521bd43cf",
+          "name": "Citrix Log off a session",
+          "request": {
+            "name": "Citrix Log off a session",
+            "description": {
+              "content": "Log off an active HDX session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Sessions",
+                "Logoff"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "StoreFront server hostname",
+                  "type": "any",
+                  "value": "{{storefront-server}}",
+                  "key": "storefront-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) CSRF token read from the session cookie",
+                "key": "Csrf-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sessionId",
+                  "value": "<string>",
+                  "description": "(Required) Session ID to log off"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "143896a2-a09a-4446-8c6e-23491660e97a",
+              "name": "Session logged off",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "Logoff"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Session ID to log off",
+                        "type": "text/plain"
+                      },
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "344ee6ce-cd9d-4f78-8d8d-292f0f3ca1e3",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "Logoff"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Session ID to log off",
+                        "type": "text/plain"
+                      },
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb5957c8-303a-4a0d-9114-eb0c3f800341",
+              "name": "Session not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Sessions",
+                    "Logoff"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "StoreFront server hostname",
+                      "type": "any",
+                      "value": "{{storefront-server}}",
+                      "key": "storefront-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Csrf-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Session ID to log off",
+                        "type": "text/plain"
+                      },
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "StoreFront server hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "storefront.example.com",
+      "key": "storefront-server"
+    },
+    {
+      "type": "string",
+      "value": "https://{{storefront-server}}/Citrix/Store",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Csrf-Token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9d596168-a967-4486-b6df-ca457f626928",
+    "name": "Citrix StoreFront Web API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "HTTP API for building custom client applications that authenticate users, enumerate available applications and desktops, manage HDX sessions, and launch resources from Citrix StoreFront.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}

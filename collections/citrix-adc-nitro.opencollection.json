@@ -1,0 +1,237 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Log in to NITRO",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/config/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticate to the NITRO API and receive a session cookie for subsequent requests."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Load Balancing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List load balancing virtual servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/lbvserver"
+          },
+          "docs": "Retrieve all load balancing virtual server configurations."
+        },
+        {
+          "info": {
+            "name": "Citrix Create a load balancing virtual server",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/config/lbvserver",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new load balancing virtual server configuration."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a load balancing virtual server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/lbvserver/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Virtual server name"
+              }
+            ]
+          },
+          "docs": "Retrieve configuration of a specific load balancing virtual server."
+        },
+        {
+          "info": {
+            "name": "Citrix Update a load balancing virtual server",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{netscaler-ip}/nitro/v1/config/lbvserver/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Virtual server name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update configuration of an existing load balancing virtual server."
+        },
+        {
+          "info": {
+            "name": "Citrix Delete a load balancing virtual server",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{netscaler-ip}/nitro/v1/config/lbvserver/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "Virtual server name"
+              }
+            ]
+          },
+          "docs": "Delete a load balancing virtual server configuration."
+        },
+        {
+          "info": {
+            "name": "Citrix List services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/service"
+          },
+          "docs": "Retrieve all service configurations bound to virtual servers."
+        },
+        {
+          "info": {
+            "name": "Citrix List service groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/servicegroup"
+          },
+          "docs": "Retrieve all service group configurations."
+        },
+        {
+          "info": {
+            "name": "Citrix Get load balancing statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/stat/lbvserver"
+          },
+          "docs": "Retrieve statistics for all load balancing virtual servers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Content Switching",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List content switching virtual servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/csvserver"
+          },
+          "docs": "Retrieve all content switching virtual server configurations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SSL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List SSL certificate-key pairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/sslcertkey"
+          },
+          "docs": "Retrieve all SSL certificate and key pair configurations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Get system statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/stat/ns"
+          },
+          "docs": "Retrieve system-level statistics including CPU, memory, and throughput."
+        },
+        {
+          "info": {
+            "name": "Citrix Get system configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/nsconfig"
+          },
+          "docs": "Retrieve the current NetScaler system configuration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

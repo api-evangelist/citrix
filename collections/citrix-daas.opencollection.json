@@ -1,0 +1,567 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix DaaS REST API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Machine Catalogs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List machine catalogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/MachineCatalogs",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all machine catalogs configured within the customer site."
+        },
+        {
+          "info": {
+            "name": "Citrix Create a machine catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloud.com/cvad/manage/MachineCatalogs",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new machine catalog for provisioning virtual machines."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a machine catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/MachineCatalogs/:catalogId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "catalogId",
+                "value": "",
+                "type": "path",
+                "description": "Machine catalog unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific machine catalog."
+        },
+        {
+          "info": {
+            "name": "Citrix Update a machine catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.cloud.com/cvad/manage/MachineCatalogs/:catalogId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "catalogId",
+                "value": "",
+                "type": "path",
+                "description": "Machine catalog unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update properties of an existing machine catalog."
+        },
+        {
+          "info": {
+            "name": "Citrix Delete a machine catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.cloud.com/cvad/manage/MachineCatalogs/:catalogId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "catalogId",
+                "value": "",
+                "type": "path",
+                "description": "Machine catalog unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete an existing machine catalog."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Delivery Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List delivery groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/DeliveryGroups",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all delivery groups configured within the customer site."
+        },
+        {
+          "info": {
+            "name": "Citrix Create a delivery group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloud.com/cvad/manage/DeliveryGroups",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new delivery group for assigning resources to users."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a delivery group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/DeliveryGroups/:deliveryGroupId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deliveryGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Delivery group unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific delivery group."
+        },
+        {
+          "info": {
+            "name": "Citrix Update a delivery group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.cloud.com/cvad/manage/DeliveryGroups/:deliveryGroupId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deliveryGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Delivery group unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update properties of an existing delivery group."
+        },
+        {
+          "info": {
+            "name": "Citrix Delete a delivery group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.cloud.com/cvad/manage/DeliveryGroups/:deliveryGroupId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deliveryGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Delivery group unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete an existing delivery group."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/Applications",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all published applications within the customer site."
+        },
+        {
+          "info": {
+            "name": "Citrix Get an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/Applications/:applicationId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "Application unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific published application."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/Sessions",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all active sessions within the customer site."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/Sessions/:sessionId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific session."
+        },
+        {
+          "info": {
+            "name": "Citrix Log off a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloud.com/cvad/manage/Sessions/:sessionId/$logoff",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session unique identifier"
+              }
+            ]
+          },
+          "docs": "Log off an active user session."
+        },
+        {
+          "info": {
+            "name": "Citrix Disconnect a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.cloud.com/cvad/manage/Sessions/:sessionId/$disconnect",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session unique identifier"
+              }
+            ]
+          },
+          "docs": "Disconnect an active user session without logging off."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Machines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/Machines",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all machines registered within the customer site."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/Machines/:machineId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "machineId",
+                "value": "",
+                "type": "path",
+                "description": "Machine unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific machine."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hypervisors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List hypervisor connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.cloud.com/cvad/manage/Hypervisors",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all hypervisor connections configured within the customer site."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

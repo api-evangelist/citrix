@@ -1,0 +1,1862 @@
+{
+  "item": [
+    {
+      "id": "442eda51-fa4f-49c8-a3b4-81cf915c6bdc",
+      "name": "Applications",
+      "description": {
+        "content": "Application management and deployment",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd7052be-5ed3-4bde-a1dd-29c0cb471f45",
+          "name": "Citrix Filter applications",
+          "request": {
+            "name": "Citrix Filter applications",
+            "description": {
+              "content": "Search and filter managed applications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d2a04c7b-426b-4c69-bcbc-f143e73d04a1",
+              "name": "Filtered application list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applicationListData\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"appType\": \"string\",\n      \"platform\": \"string\",\n      \"disabled\": false\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"appType\": \"string\",\n      \"platform\": \"string\",\n      \"disabled\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b84d3d44-3a11-4a1d-8ee6-a3173b5aaaa9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "270e5edd-3961-4725-b20a-af32e5c29d4f",
+      "name": "Authentication",
+      "description": {
+        "content": "Login and token management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7943e265-a118-4f73-a8bb-ecdb5efdb61a",
+          "name": "Citrix Authenticate to the API",
+          "request": {
+            "name": "Citrix Authenticate to the API",
+            "description": {
+              "content": "Log in with administrator credentials to obtain an authentication token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28c91d1e-f0f3-42bf-8e27-d734e9e2d412",
+              "name": "Authentication successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"auth_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7363d78c-fc6e-48c6-a0dc-2f35be9834c2",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0215328-500c-4556-9dc8-cf31b980e3a9",
+          "name": "Citrix Log out",
+          "request": {
+            "name": "Citrix Log out",
+            "description": {
+              "content": "Invalidate the current authentication token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42086572-5630-4f26-98bd-bb48d623bf3d",
+              "name": "Logout successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f02cb31d-54b2-4e62-a38f-76ce7462f15f",
+      "name": "Delivery Groups",
+      "description": {
+        "content": "Delivery group management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cda06176-70b0-44ca-aae5-d41467318081",
+          "name": "Citrix Filter delivery groups",
+          "request": {
+            "name": "Citrix Filter delivery groups",
+            "description": {
+              "content": "Search and filter delivery groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deliverygroup",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79073ef3-0dd4-407e-838d-015ba3ac4ef8",
+              "name": "Filtered delivery group list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deliverygroup",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dgListData\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"disabled\": true\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"disabled\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b18380fb-e751-43a1-a092-00b6543530dd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deliverygroup",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5e84ba0e-0745-45aa-a1a4-939774fc6f61",
+      "name": "Devices",
+      "description": {
+        "content": "Device enrollment and lifecycle management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "446382bc-9413-43cc-9b62-60548f18c906",
+          "name": "Citrix Filter devices",
+          "request": {
+            "name": "Citrix Filter devices",
+            "description": {
+              "content": "Search and filter enrolled devices based on criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"sortOrder\": \"<string>\",\n  \"search\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6dc0954-ca4d-4b00-bea5-1bec7f8cd0ae",
+              "name": "Filtered device list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"sortOrder\": \"<string>\",\n  \"search\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filteredDevicesDataList\": [\n    {\n      \"id\": \"string\",\n      \"serialNumber\": \"string\",\n      \"deviceModel\": \"string\",\n      \"platform\": \"iOS\",\n      \"osVersion\": \"string\",\n      \"lastAccess\": \"1949-12-22T08:54:42.544Z\",\n      \"userName\": \"string\",\n      \"jailbroken\": true,\n      \"managed\": false,\n      \"compliant\": false\n    },\n    {\n      \"id\": \"string\",\n      \"serialNumber\": \"string\",\n      \"deviceModel\": \"string\",\n      \"platform\": \"macOS\",\n      \"osVersion\": \"string\",\n      \"lastAccess\": \"1976-08-19T00:28:25.643Z\",\n      \"userName\": \"string\",\n      \"jailbroken\": false,\n      \"managed\": true,\n      \"compliant\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2d3710f-0e04-4e74-bff4-1f7f8d6bae7e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"sortOrder\": \"<string>\",\n  \"search\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d98d75fb-5e86-4a02-970f-380b3bfbc2e1",
+          "name": "Citrix Get device details",
+          "request": {
+            "name": "Citrix Get device details",
+            "description": {
+              "content": "Retrieve detailed information about a specific enrolled device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceId",
+                  "description": "(Required) Device unique identifier"
+                },
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55e4a798-9580-44c0-bd8a-59ee0be0bffa",
+              "name": "Device details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Device unique identifier"
+                    },
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"serialNumber\": \"string\",\n  \"deviceModel\": \"string\",\n  \"platform\": \"macOS\",\n  \"osVersion\": \"string\",\n  \"lastAccess\": \"1991-10-05T06:55:36.019Z\",\n  \"userName\": \"string\",\n  \"jailbroken\": false,\n  \"managed\": false,\n  \"compliant\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c042796b-2991-4d6b-95f7-d1538777e3ea",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Device unique identifier"
+                    },
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11119ab5-65d1-4cdf-bef5-0d20aaa91d62",
+              "name": "Device not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Device unique identifier"
+                    },
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9858370-5707-4950-a954-078532994a7d",
+          "name": "Citrix Wipe a device",
+          "request": {
+            "name": "Citrix Wipe a device",
+            "description": {
+              "content": "Issue a full wipe command to a managed device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "wipe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69e85af1-e7c1-494b-a1bd-a33025045bcf",
+              "name": "Wipe command sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3c6afdf-ed64-49c1-a3f4-7b05e91465ee",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "957354ca-5dd5-4fd1-b7db-dde488641dc9",
+              "name": "Device not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "wipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fe63da6-d1d9-40dd-afed-a7a98c9eb57b",
+          "name": "Citrix Selective wipe a device",
+          "request": {
+            "name": "Citrix Selective wipe a device",
+            "description": {
+              "content": "Issue a selective wipe to remove only corporate data from a device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "selectivewipe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c3aa6a4e-62d5-4483-bbb7-d7841080cb97",
+              "name": "Selective wipe command sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "selectivewipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f54a011-e079-4c9f-9541-d20102d57a76",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "selectivewipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f65fa04-7e4a-4ed5-bb7b-1f1ce28d801a",
+              "name": "Device not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "selectivewipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "648295da-2c5f-4bf5-bf7b-b0f8859c5373",
+      "name": "Policies",
+      "description": {
+        "content": "Device and app policy management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1d6397e-7545-4f9c-ba4f-cc8db59bd8bd",
+          "name": "Citrix Deploy policies to devices",
+          "request": {
+            "name": "Citrix Deploy policies to devices",
+            "description": {
+              "content": "Deploy device or application policies to specified devices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "policy",
+                "deploy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ac253b6b-7d03-41ce-a858-208cf2d199e7",
+              "name": "Policy deployment initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "policy",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "880ecd39-368a-407d-a63e-5038298ca3ee",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "policy",
+                    "deploy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2e260eba-dee0-4e12-9875-1e962ba12471",
+      "name": "Users",
+      "description": {
+        "content": "User and group management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2b54fc1-2c2b-48c3-8a21-7181b0cfd005",
+          "name": "Citrix Filter users",
+          "request": {
+            "name": "Citrix Filter users",
+            "description": {
+              "content": "Search and filter users and groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "XenMobile server hostname",
+                  "type": "any",
+                  "value": "{{xms-server}}",
+                  "key": "xms-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"search\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f8bc1f6-ca12-4f26-a7ec-8a6c417786c8",
+              "name": "Filtered user list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"search\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userListData\": [\n    {\n      \"id\": \"string\",\n      \"userName\": \"string\",\n      \"displayName\": \"string\",\n      \"email\": \"string\",\n      \"domain\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"userName\": \"string\",\n      \"displayName\": \"string\",\n      \"email\": \"string\",\n      \"domain\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "138b4e01-3ef5-4231-8fe2-a1385e75d8b1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "XenMobile server hostname",
+                      "type": "any",
+                      "value": "{{xms-server}}",
+                      "key": "xms-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "auth_token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"search\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "XenMobile server hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "xms.example.com",
+      "key": "xms-server"
+    },
+    {
+      "type": "string",
+      "value": "https://{{xms-server}}:4443/xenmobile/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4a932dc5-e9a2-4638-8a4b-83eb0017ab3c",
+    "name": "Citrix Endpoint Management REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for managing mobile devices, applications, and policies in Citrix Endpoint Management (formerly XenMobile), enabling integration with external systems for device lifecycle management and compliance.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}

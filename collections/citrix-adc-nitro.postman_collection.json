@@ -1,0 +1,1692 @@
+{
+  "item": [
+    {
+      "id": "a48b5ea4-cdc7-488a-8939-1d3d3e16203c",
+      "name": "Authentication",
+      "description": {
+        "content": "Login and session management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "650cecf2-b949-4ca9-bb2c-72b1436719b1",
+          "name": "Citrix Log in to NITRO",
+          "request": {
+            "name": "Citrix Log in to NITRO",
+            "description": {
+              "content": "Authenticate to the NITRO API and receive a session cookie for subsequent requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": {\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2cf87b81-265d-4f13-8902-d81e6bb7d2f7",
+              "name": "Login successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"login\": {\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errorcode\": 3847,\n  \"message\": \"string\",\n  \"sessionid\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0b710dc-b79c-4747-b033-6852df3accda",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"login\": {\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "62363379-8807-4298-9618-f2b778697b90",
+      "name": "Content Switching",
+      "description": {
+        "content": "Content switching virtual servers and policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f88f351-7ed6-4946-a664-f9f9b0503cae",
+          "name": "Citrix List content switching virtual servers",
+          "request": {
+            "name": "Citrix List content switching virtual servers",
+            "description": {
+              "content": "Retrieve all content switching virtual server configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "csvserver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a7ae2e4-513d-46b4-910d-ebb32392a27b",
+              "name": "List of content switching virtual servers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "csvserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"csvserver\": [\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 8776,\n      \"servicetype\": \"string\",\n      \"curstate\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 7136,\n      \"servicetype\": \"string\",\n      \"curstate\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "03bc84cb-53f1-4864-b296-1dfc92c6ca99",
+      "name": "Load Balancing",
+      "description": {
+        "content": "Load balancing virtual servers and services",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "368aa683-82d0-4911-844c-3027e6c529ac",
+          "name": "Citrix List load balancing virtual servers",
+          "request": {
+            "name": "Citrix List load balancing virtual servers",
+            "description": {
+              "content": "Retrieve all load balancing virtual server configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "lbvserver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93bd9660-15ff-45fe-bf4c-22f18ccd02e9",
+              "name": "List of load balancing virtual servers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lbvserver\": [\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 885,\n      \"servicetype\": \"HTTPS\",\n      \"lbmethod\": \"ROUNDROBIN\",\n      \"curstate\": \"string\",\n      \"effectivestate\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 5987,\n      \"servicetype\": \"SSL\",\n      \"lbmethod\": \"ROUNDROBIN\",\n      \"curstate\": \"string\",\n      \"effectivestate\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1da3cb6d-4128-44a6-add7-c02a49faa8dc",
+          "name": "Citrix Create a load balancing virtual server",
+          "request": {
+            "name": "Citrix Create a load balancing virtual server",
+            "description": {
+              "content": "Create a new load balancing virtual server configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "lbvserver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lbvserver\": {\n    \"name\": \"<string>\",\n    \"ipv46\": \"<string>\",\n    \"port\": \"<integer>\",\n    \"servicetype\": \"<string>\",\n    \"lbmethod\": \"<string>\",\n    \"curstate\": \"<string>\",\n    \"effectivestate\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f8c7444-f36f-4de8-8bf4-8716c2794627",
+              "name": "Virtual server created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lbvserver\": {\n    \"name\": \"string\",\n    \"ipv46\": \"string\",\n    \"port\": 2923,\n    \"servicetype\": \"SSL_TCP\",\n    \"lbmethod\": \"ROUNDROBIN\",\n    \"curstate\": \"string\",\n    \"effectivestate\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e6cb186-437e-42d6-8ae7-fc8f2805eeba",
+              "name": "Invalid configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lbvserver\": {\n    \"name\": \"string\",\n    \"ipv46\": \"string\",\n    \"port\": 2923,\n    \"servicetype\": \"SSL_TCP\",\n    \"lbmethod\": \"ROUNDROBIN\",\n    \"curstate\": \"string\",\n    \"effectivestate\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7cd91a6-c47c-4ab7-87c2-b0d046066c10",
+          "name": "Citrix Get a load balancing virtual server",
+          "request": {
+            "name": "Citrix Get a load balancing virtual server",
+            "description": {
+              "content": "Retrieve configuration of a specific load balancing virtual server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "lbvserver",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Virtual server name"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67666c66-b531-4160-892f-868f4ea1d6da",
+              "name": "Virtual server details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Virtual server name"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lbvserver\": [\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 885,\n      \"servicetype\": \"HTTPS\",\n      \"lbmethod\": \"ROUNDROBIN\",\n      \"curstate\": \"string\",\n      \"effectivestate\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 5987,\n      \"servicetype\": \"SSL\",\n      \"lbmethod\": \"ROUNDROBIN\",\n      \"curstate\": \"string\",\n      \"effectivestate\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "127eb86e-142f-40aa-a72a-fdcfe59e7681",
+              "name": "Virtual server not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Virtual server name"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a11f158-6d0c-4832-857b-d1ba736bafcb",
+          "name": "Citrix Update a load balancing virtual server",
+          "request": {
+            "name": "Citrix Update a load balancing virtual server",
+            "description": {
+              "content": "Update configuration of an existing load balancing virtual server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "lbvserver",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Virtual server name"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lbvserver\": {\n    \"name\": \"<string>\",\n    \"ipv46\": \"<string>\",\n    \"port\": \"<integer>\",\n    \"servicetype\": \"<string>\",\n    \"lbmethod\": \"<string>\",\n    \"curstate\": \"<string>\",\n    \"effectivestate\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5cc336bd-cfd5-4285-b2dd-6460cb0453b3",
+              "name": "Virtual server updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Virtual server name"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lbvserver\": {\n    \"name\": \"string\",\n    \"ipv46\": \"string\",\n    \"port\": 2923,\n    \"servicetype\": \"SSL_TCP\",\n    \"lbmethod\": \"ROUNDROBIN\",\n    \"curstate\": \"string\",\n    \"effectivestate\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a37b08e-fdb4-4b74-b912-310db0c5c196",
+              "name": "Invalid configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Virtual server name"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lbvserver\": {\n    \"name\": \"string\",\n    \"ipv46\": \"string\",\n    \"port\": 2923,\n    \"servicetype\": \"SSL_TCP\",\n    \"lbmethod\": \"ROUNDROBIN\",\n    \"curstate\": \"string\",\n    \"effectivestate\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "769acb90-aa36-46ac-8cbd-2efa14958db5",
+          "name": "Citrix Delete a load balancing virtual server",
+          "request": {
+            "name": "Citrix Delete a load balancing virtual server",
+            "description": {
+              "content": "Delete a load balancing virtual server configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "lbvserver",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Virtual server name"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad4e88b3-be49-499d-944a-596945ef5924",
+              "name": "Virtual server deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Virtual server name"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dfdf6b31-4bc2-4e8e-ac76-f0f92fe3df04",
+              "name": "Virtual server not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "lbvserver",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Virtual server name"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a029c678-0d5f-496c-9053-e34d72701336",
+          "name": "Citrix List services",
+          "request": {
+            "name": "Citrix List services",
+            "description": {
+              "content": "Retrieve all service configurations bound to virtual servers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "service"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65d6366d-44c5-47c4-a87b-1a7c5fb3cfc6",
+              "name": "List of services",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "service"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"service\": [\n    {\n      \"name\": \"string\",\n      \"ip\": \"string\",\n      \"port\": 4281,\n      \"servicetype\": \"string\",\n      \"svrstate\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"ip\": \"string\",\n      \"port\": 4776,\n      \"servicetype\": \"string\",\n      \"svrstate\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eda3792f-0fe5-4d3d-b1d9-7dc02d965df5",
+          "name": "Citrix List service groups",
+          "request": {
+            "name": "Citrix List service groups",
+            "description": {
+              "content": "Retrieve all service group configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "servicegroup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3988ecb-d1a7-4ac3-b742-f8faf613791d",
+              "name": "List of service groups",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "servicegroup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"servicegroup\": [\n    {\n      \"servicegroupname\": \"string\",\n      \"servicetype\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"servicegroupname\": \"string\",\n      \"servicetype\": \"string\",\n      \"state\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24a8ddee-4ead-4c06-a303-dc41d62a092d",
+          "name": "Citrix Get load balancing statistics",
+          "request": {
+            "name": "Citrix Get load balancing statistics",
+            "description": {
+              "content": "Retrieve statistics for all load balancing virtual servers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stat",
+                "lbvserver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a31f284e-f99a-4296-aa57-5b36da823029",
+              "name": "Load balancing statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stat",
+                    "lbvserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lbvserver\": [\n    {\n      \"name\": \"string\",\n      \"requestsrate\": 9870.526264898039,\n      \"responsesrate\": 6826.621973010363,\n      \"totalrequests\": 8044,\n      \"totalresponses\": 8351,\n      \"curclntconnections\": 108,\n      \"cursrvrconnections\": 4167,\n      \"health\": 5453.338125860123\n    },\n    {\n      \"name\": \"string\",\n      \"requestsrate\": 7307.5362514506,\n      \"responsesrate\": 1852.6497342727644,\n      \"totalrequests\": 5972,\n      \"totalresponses\": 6792,\n      \"curclntconnections\": 8272,\n      \"cursrvrconnections\": 1957,\n      \"health\": 7437.991564506447\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a7c9abc0-ec05-4349-b936-94b06215b00b",
+      "name": "SSL",
+      "description": {
+        "content": "SSL certificates and configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7332761-296c-4030-adc3-12e249b5a634",
+          "name": "Citrix List SSL certificate-key pairs",
+          "request": {
+            "name": "Citrix List SSL certificate-key pairs",
+            "description": {
+              "content": "Retrieve all SSL certificate and key pair configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "sslcertkey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d527f1e2-9e2b-4ee4-be97-b4d7546c24b7",
+              "name": "List of SSL certificate-key pairs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "sslcertkey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sslcertkey\": [\n    {\n      \"certkey\": \"string\",\n      \"cert\": \"string\",\n      \"key\": \"string\",\n      \"daystoexpiration\": 8819,\n      \"status\": \"string\"\n    },\n    {\n      \"certkey\": \"string\",\n      \"cert\": \"string\",\n      \"key\": \"string\",\n      \"daystoexpiration\": 2861,\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3bc2c31f-1e0a-4d6d-a70e-cc1713658a82",
+      "name": "System",
+      "description": {
+        "content": "System configuration and statistics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2cc6ec44-7eb8-47e1-b595-2e7ea210459c",
+          "name": "Citrix Get system statistics",
+          "request": {
+            "name": "Citrix Get system statistics",
+            "description": {
+              "content": "Retrieve system-level statistics including CPU, memory, and throughput.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stat",
+                "ns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a110bd51-9cf5-497a-87e5-c333f99fe4b7",
+              "name": "System statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stat",
+                    "ns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ns\": {\n    \"cpuusagepcnt\": 7708.039167031547,\n    \"memusagepcnt\": 1620.3976216375481,\n    \"mgmtcpuusagepcnt\": 2794.2374136535786,\n    \"pktcpuusagepcnt\": 4582.696774687057,\n    \"disk0perusage\": 5614.237073035257,\n    \"disk1perusage\": 866.5930633935259\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9403144a-7aba-4827-a4d8-eaa12b7ab231",
+          "name": "Citrix Get system configuration",
+          "request": {
+            "name": "Citrix Get system configuration",
+            "description": {
+              "content": "Retrieve the current NetScaler system configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "nsconfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40ef6ef5-8d65-47c4-b92e-f27fa77d6621",
+              "name": "System configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "nsconfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nsconfig\": {\n    \"ipaddress\": \"string\",\n    \"netmask\": \"string\",\n    \"systemtype\": \"string\",\n    \"primaryip\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "NetScaler management IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "192.168.1.1",
+      "key": "netscaler-ip"
+    },
+    {
+      "type": "string",
+      "value": "https://{{netscaler-ip}}/nitro/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b5ad4326-5638-4b1a-8540-c544f9801d45",
+    "name": "Citrix ADC (NetScaler) NITRO API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}
