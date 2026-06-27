@@ -70,7 +70,7 @@ apis:
         url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
       - type: APIReference
         url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
-      - type: SDK
+      - type: SDKs
         url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
       - type: OpenAPI
         url: openapi/citrix-adc-nitro-openapi.yml
