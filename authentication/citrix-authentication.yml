@@ -1,0 +1,43 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/citrix-adc-nitro-openapi.yml, openapi/citrix-cloud-openapi.yml, openapi/citrix-daas-openapi.yml,
+  openapi/citrix-endpoint-management-openapi.yml, openapi/citrix-secure-private-access-openapi.yml,
+  openapi/citrix-storefront-web-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - cookie
+  - header
+schemes:
+- name: nitroAuth
+  type: apiKey
+  in: cookie
+  parameter: NITRO_AUTH_TOKEN
+  description: Session cookie from NITRO login
+  sources:
+  - openapi/citrix-adc-nitro-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: OAuth 2.0 bearer token from client credentials grant
+  sources:
+  - openapi/citrix-cloud-openapi.yml
+  - openapi/citrix-daas-openapi.yml
+  - openapi/citrix-secure-private-access-openapi.yml
+- name: authToken
+  type: apiKey
+  in: header
+  parameter: auth_token
+  description: Authentication token from login endpoint
+  sources:
+  - openapi/citrix-endpoint-management-openapi.yml
+- name: csrfToken
+  type: apiKey
+  in: header
+  parameter: Csrf-Token
+  description: CSRF token from session cookie for POST requests
+  sources:
+  - openapi/citrix-storefront-web-openapi.yml

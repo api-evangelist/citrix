@@ -239,6 +239,10 @@ apis:
       - type: OpenAPI
         url: openapi/citrix-secure-private-access-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/citrix-domain-security.yml
+  - type: Authentication
+    url: authentication/citrix-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/citrix
   - type: Portal
