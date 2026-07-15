@@ -239,6 +239,8 @@ apis:
       - type: OpenAPI
         url: openapi/citrix-secure-private-access-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/citrix-agentic-access.yml
   - type: DomainSecurity
     url: security/citrix-domain-security.yml
   - type: Authentication
