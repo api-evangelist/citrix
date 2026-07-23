@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies System API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: System
+  description: System configuration and statistics
+paths:
+  /stat/ns:
+    get:
+      operationId: getSystemStats
+      summary: Citrix Get system statistics
+      description: Retrieve system-level statistics including CPU, memory, and throughput.
+      tags:
+      - System
+      responses:
+        '200':
+          description: System statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ns:
+                    $ref: '#/components/schemas/SystemStats'
+  /config/nsconfig:
+    get:
+      operationId: getNsConfig
+      summary: Citrix Get system configuration
+      description: Retrieve the current NetScaler system configuration.
+      tags:
+      - System
+      responses:
+        '200':
+          description: System configuration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nsconfig:
+                    $ref: '#/components/schemas/NsConfig'
+components:
+  schemas:
+    SystemStats:
+      type: object
+      properties:
+        cpuusagepcnt:
+          type: number
+          description: CPU usage percentage
+        memusagepcnt:
+          type: number
+          description: Memory usage percentage
+        mgmtcpuusagepcnt:
+          type: number
+          description: Management CPU usage percentage
+        pktcpuusagepcnt:
+          type: number
+          description: Packet CPU usage percentage
+        disk0perusage:
+          type: number
+          description: Disk 0 usage percentage
+        disk1perusage:
+          type: number
+          description: Disk 1 usage percentage
+    NsConfig:
+      type: object
+      properties:
+        ipaddress:
+          type: string
+          description: NetScaler IP address
+        netmask:
+          type: string
+          description: Network mask
+        systemtype:
+          type: string
+          description: System type
+        primaryip:
+          type: string
+          description: Primary IP address
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

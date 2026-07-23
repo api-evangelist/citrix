@@ -1,0 +1,371 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Applications API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Applications
+  description: Manage published applications
+paths:
+  /Applications:
+    get:
+      operationId: listApplications
+      summary: Citrix List applications
+      description: Retrieve all published applications within the customer site.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of applications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationCollection'
+        '401':
+          description: Unauthorized
+  /Applications/{applicationId}:
+    get:
+      operationId: getApplication
+      summary: Citrix Get an application
+      description: Retrieve details of a specific published application.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/applicationId'
+      responses:
+        '200':
+          description: Application details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application not found
+  /application/filter:
+    post:
+      operationId: filterApplications
+      summary: Citrix Filter applications
+      description: Search and filter managed applications.
+      tags:
+      - Applications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationFilterRequest'
+      responses:
+        '200':
+          description: Filtered application list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applicationListData:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Application_2'
+        '401':
+          description: Unauthorized
+  /applications:
+    get:
+      operationId: listApplications
+      summary: Citrix List applications
+      description: Retrieve all applications configured in Secure Private Access.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      responses:
+        '200':
+          description: List of applications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Application_3'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createApplication
+      summary: Citrix Create an application
+      description: Create a new application configuration for secure private access.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApplicationRequest'
+      responses:
+        '201':
+          description: Application created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application_3'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /applications/{applicationId}:
+    get:
+      operationId: getApplication
+      summary: Citrix Get an application
+      description: Retrieve details of a specific application.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/applicationId_2'
+      responses:
+        '200':
+          description: Application details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application_3'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application not found
+    put:
+      operationId: updateApplication
+      summary: Citrix Update an application
+      description: Update an existing application configuration.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/applicationId_2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateApplicationRequest'
+      responses:
+        '200':
+          description: Application updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application not found
+    delete:
+      operationId: deleteApplication
+      summary: Citrix Delete an application
+      description: Delete an application configuration.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/applicationId_2'
+      responses:
+        '204':
+          description: Application deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application not found
+components:
+  parameters:
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    applicationId_2:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+        format: uuid
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+  schemas:
+    ApplicationCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
+    CreateApplicationRequest:
+      type: object
+      required:
+      - name
+      - url
+      - appType
+      properties:
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        url:
+          type: string
+          format: uri
+          description: Application URL
+        appType:
+          type: string
+          enum:
+          - SaaS
+          - Web
+          description: Type of application
+    Application_3:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the application
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        url:
+          type: string
+          format: uri
+          description: Application URL
+        appType:
+          type: string
+          enum:
+          - SaaS
+          - Web
+          description: Type of application
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
+        domains:
+          type: array
+          items:
+            type: string
+          description: Associated domains
+    UpdateApplicationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated application name
+        description:
+          type: string
+          description: Updated description
+        url:
+          type: string
+          format: uri
+          description: Updated URL
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the application
+        name:
+          type: string
+          description: Application name
+        publishedName:
+          type: string
+          description: Published display name
+        description:
+          type: string
+          description: Application description
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
+        commandLineExecutable:
+          type: string
+          description: Path to the application executable
+        applicationFolder:
+          type: string
+          description: Folder containing the application
+    Application_2:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Application unique identifier
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        appType:
+          type: string
+          description: Application type
+        platform:
+          type: string
+          description: Target platform
+        disabled:
+          type: boolean
+          description: Whether the application is disabled
+    ApplicationFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

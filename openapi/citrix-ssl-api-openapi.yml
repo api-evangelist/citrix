@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies SSL API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: SSL
+  description: SSL certificates and configuration
+paths:
+  /config/sslcertkey:
+    get:
+      operationId: listSslCertKeys
+      summary: Citrix List SSL certificate-key pairs
+      description: Retrieve all SSL certificate and key pair configurations.
+      tags:
+      - SSL
+      responses:
+        '200':
+          description: List of SSL certificate-key pairs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sslcertkey:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SslCertKey'
+components:
+  schemas:
+    SslCertKey:
+      type: object
+      properties:
+        certkey:
+          type: string
+          description: Certificate-key pair name
+        cert:
+          type: string
+          description: Certificate file path
+        key:
+          type: string
+          description: Key file path
+        daystoexpiration:
+          type: integer
+          description: Days until certificate expiration
+        status:
+          type: string
+          description: Certificate status
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

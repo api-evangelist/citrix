@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Hypervisors API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Hypervisors
+  description: Manage hypervisor connections
+paths:
+  /Hypervisors:
+    get:
+      operationId: listHypervisors
+      summary: Citrix List hypervisor connections
+      description: Retrieve all hypervisor connections configured within the customer site.
+      tags:
+      - Hypervisors
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of hypervisor connections
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HypervisorCollection'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    HypervisorCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hypervisor'
+    Hypervisor:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the hypervisor connection
+        name:
+          type: string
+          description: Hypervisor connection name
+        connectionType:
+          type: string
+          description: Type of hypervisor (e.g., AzureRM, AWS, vSphere)
+        state:
+          type: string
+          description: Current connection state
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

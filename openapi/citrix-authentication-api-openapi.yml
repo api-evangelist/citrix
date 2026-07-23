@@ -1,0 +1,256 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Authentication API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Authentication
+  description: Login and session management
+paths:
+  /config/login:
+    post:
+      operationId: login
+      summary: Citrix Log in to NITRO
+      description: Authenticate to the NITRO API and receive a session cookie for subsequent requests.
+      tags:
+      - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - login
+              properties:
+                login:
+                  type: object
+                  required:
+                  - username
+                  - password
+                  properties:
+                    username:
+                      type: string
+                      description: Administrator username
+                    password:
+                      type: string
+                      description: Administrator password
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorcode:
+                    type: integer
+                    description: Error code (0 for success)
+                  message:
+                    type: string
+                    description: Response message
+                  sessionid:
+                    type: string
+                    description: Session ID for subsequent requests
+        '401':
+          description: Authentication failed
+      security: []
+  /cctrustoauth2/{customerId}/tokens/clients:
+    post:
+      operationId: getAccessToken
+      summary: Citrix Obtain access token
+      description: Authenticate using OAuth 2.0 Client Credentials grant to obtain a bearer token for accessing Citrix Cloud APIs.
+      tags:
+      - Authentication
+      parameters:
+      - $ref: '#/components/parameters/customerId'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                  description: OAuth 2.0 grant type
+                client_id:
+                  type: string
+                  description: Service principal client ID
+                client_secret:
+                  type: string
+                  description: Service principal client secret
+      responses:
+        '200':
+          description: Access token returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          description: Invalid credentials
+      security: []
+  /authentication/login:
+    post:
+      operationId: login
+      summary: Citrix Authenticate to the API
+      description: Log in with administrator credentials to obtain an authentication token.
+      tags:
+      - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - login
+              - password
+              properties:
+                login:
+                  type: string
+                  description: Administrator username
+                password:
+                  type: string
+                  description: Administrator password
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  auth_token:
+                    type: string
+                    description: Authentication token for subsequent requests
+        '401':
+          description: Authentication failed
+      security: []
+  /authentication/logout:
+    post:
+      operationId: logout
+      summary: Citrix Log out
+      description: Invalidate the current authentication token.
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: Logout successful
+  /Authentication/GetAuthMethods:
+    post:
+      operationId: getAuthMethods
+      summary: Citrix Get authentication methods
+      description: Retrieve available authentication methods for the StoreFront store.
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: Available authentication methods
+          content:
+            application/xml:
+              schema:
+                type: string
+                description: XML document listing available auth methods
+      security: []
+  /ExplicitAuth/Login:
+    post:
+      operationId: explicitLogin
+      summary: Citrix Log in with explicit credentials
+      description: Authenticate using explicit username and password credentials.
+      tags:
+      - Authentication
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                  description: Username for authentication
+                password:
+                  type: string
+                  description: Password for authentication
+                domain:
+                  type: string
+                  description: Domain name
+      responses:
+        '200':
+          description: Login successful with session cookies set
+        '401':
+          description: Authentication failed
+      security: []
+  /ExplicitAuth/Logout:
+    post:
+      operationId: explicitLogout
+      summary: Citrix Log out
+      description: End the current authenticated session.
+      tags:
+      - Authentication
+      parameters:
+      - $ref: '#/components/parameters/CsrfToken'
+      responses:
+        '200':
+          description: Logout successful
+components:
+  parameters:
+    CsrfToken:
+      name: Csrf-Token
+      in: header
+      required: true
+      description: CSRF token read from the session cookie
+      schema:
+        type: string
+    customerId:
+      name: customerId
+      in: path
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        token_type:
+          type: string
+          description: Token type (bearer)
+        access_token:
+          type: string
+          description: OAuth 2.0 access token
+        expires_in:
+          type: integer
+          description: Token expiration time in seconds
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

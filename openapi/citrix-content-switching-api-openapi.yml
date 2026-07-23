@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Content Switching API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Content Switching
+  description: Content switching virtual servers and policies
+paths:
+  /config/csvserver:
+    get:
+      operationId: listCsVservers
+      summary: Citrix List content switching virtual servers
+      description: Retrieve all content switching virtual server configurations.
+      tags:
+      - Content Switching
+      responses:
+        '200':
+          description: List of content switching virtual servers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  csvserver:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CsVserver'
+components:
+  schemas:
+    CsVserver:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Content switching virtual server name
+        ipv46:
+          type: string
+          description: IP address
+        port:
+          type: integer
+          description: Port number
+        servicetype:
+          type: string
+          description: Protocol type
+        curstate:
+          type: string
+          description: Current state
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

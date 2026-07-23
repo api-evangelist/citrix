@@ -1,0 +1,130 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Application Domains API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Application Domains
+  description: Manage application domain configurations
+paths:
+  /application/{applicationId}/domain/{encodedURL}:
+    get:
+      operationId: getApplicationDomainCertificate
+      summary: Citrix Get domain certificate for an application
+      description: Retrieve the certificate associated with a specific application domain.
+      tags:
+      - Application Domains
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/applicationId'
+      - name: encodedURL
+        in: path
+        required: true
+        description: URL-encoded domain name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Certificate details for the domain
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Domain or certificate not found
+    put:
+      operationId: associateDomainCertificate
+      summary: Citrix Associate certificate with application domain
+      description: Associate an SSL certificate with a specific application domain.
+      tags:
+      - Application Domains
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/applicationId'
+      - name: encodedURL
+        in: path
+        required: true
+        description: URL-encoded domain name
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                certificateId:
+                  type: string
+                  description: ID of the certificate to associate
+      responses:
+        '200':
+          description: Certificate associated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application or domain not found
+components:
+  schemas:
+    Certificate:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Certificate unique identifier
+        name:
+          type: string
+          description: Certificate name
+        subject:
+          type: string
+          description: Certificate subject
+        issuer:
+          type: string
+          description: Certificate issuer
+        expirationDate:
+          type: string
+          format: date-time
+          description: Certificate expiration date
+  parameters:
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+        format: uuid
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

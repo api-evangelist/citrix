@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Resources API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Resources
+  description: Enumerate available applications and desktops
+paths:
+  /Resources/List:
+    post:
+      operationId: listResources
+      summary: Citrix List available resources
+      description: Enumerate all applications and desktops available to the authenticated user.
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/CsrfToken'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                format:
+                  type: string
+                  enum:
+                  - json
+                  - xml
+                  description: Response format
+                resourcesDetails:
+                  type: string
+                  enum:
+                  - Default
+                  - Full
+                  description: Level of detail in response
+      responses:
+        '200':
+          description: List of available resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcesResponse'
+        '401':
+          description: Not authenticated
+components:
+  parameters:
+    CsrfToken:
+      name: Csrf-Token
+      in: header
+      required: true
+      description: CSRF token read from the session cookie
+      schema:
+        type: string
+  schemas:
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Resource identifier
+        name:
+          type: string
+          description: Resource display name
+        type:
+          type: string
+          enum:
+          - Citrix.MPS.Application
+          - Citrix.MPS.Desktop
+          description: Resource type
+        iconurl:
+          type: string
+          description: URL to the resource icon
+        launchurl:
+          type: string
+          description: URL to launch the resource
+        launchstatusurl:
+          type: string
+          description: URL to check launch readiness
+    ResourcesResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+          description: Available applications and desktops
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

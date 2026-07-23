@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Launch API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Launch
+  description: Launch applications and desktops
+paths:
+  /Resources/GetLaunchStatus/{resourceId}:
+    get:
+      operationId: getLaunchStatus
+      summary: Citrix Get launch status
+      description: Check if a resource is ready to launch. If not ready, returns a retry interval.
+      tags:
+      - Launch
+      parameters:
+      - $ref: '#/components/parameters/CsrfTokenQuery'
+      - name: resourceId
+        in: path
+        required: true
+        description: Resource identifier to check
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Launch status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LaunchStatus'
+        '401':
+          description: Not authenticated
+  /Resources/LaunchIca/{resourceId}:
+    get:
+      operationId: launchResource
+      summary: Citrix Launch a resource
+      description: Get an ICA file to launch a specific application or desktop resource.
+      tags:
+      - Launch
+      parameters:
+      - $ref: '#/components/parameters/CsrfTokenQuery'
+      - name: resourceId
+        in: path
+        required: true
+        description: Resource identifier to launch
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ICA launch file
+          content:
+            application/x-ica:
+              schema:
+                type: string
+                description: ICA file contents for launching the resource
+        '401':
+          description: Not authenticated
+        '404':
+          description: Resource not found
+components:
+  schemas:
+    LaunchStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - ready
+          - notReady
+          description: Whether the resource is ready to launch
+        pollTimeout:
+          type: integer
+          description: Seconds to wait before polling again
+  parameters:
+    CsrfTokenQuery:
+      name: CsrfToken
+      in: query
+      required: true
+      description: CSRF token as query parameter for GET requests
+      schema:
+        type: string
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

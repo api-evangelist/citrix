@@ -1,0 +1,58 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Policies
+  description: Device and app policy management
+paths:
+  /device/policy/deploy:
+    post:
+      operationId: deployPolicy
+      summary: Citrix Deploy policies to devices
+      description: Deploy device or application policies to specified devices.
+      tags:
+      - Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - deviceIds
+              properties:
+                deviceIds:
+                  type: array
+                  items:
+                    type: string
+                  description: List of device IDs to receive the policy
+      responses:
+        '200':
+          description: Policy deployment initiated
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Service Principals API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Service Principals
+  description: Manage service principals for API automation
+paths:
+  /serviceprincipals:
+    get:
+      operationId: listServicePrincipals
+      summary: Citrix List service principals
+      description: Retrieve all service principals for the authenticated customer.
+      tags:
+      - Service Principals
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      responses:
+        '200':
+          description: List of service principals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ServicePrincipal'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createServicePrincipal
+      summary: Citrix Create a service principal
+      description: Create a new service principal for API automation within the customer.
+      tags:
+      - Service Principals
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServicePrincipalRequest'
+      responses:
+        '201':
+          description: Service principal created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicePrincipal'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /serviceprincipals/{principalId}:
+    get:
+      operationId: getServicePrincipal
+      summary: Citrix Get a service principal
+      description: Retrieve details of a specific service principal by ID.
+      tags:
+      - Service Principals
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/principalId'
+      responses:
+        '200':
+          description: Service principal details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicePrincipal'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Service principal not found
+    delete:
+      operationId: deleteServicePrincipal
+      summary: Citrix Delete a service principal
+      description: Delete a service principal by ID.
+      tags:
+      - Service Principals
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/principalId'
+      responses:
+        '204':
+          description: Service principal deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Service principal not found
+components:
+  parameters:
+    principalId:
+      name: principalId
+      in: path
+      required: true
+      description: Service principal unique identifier
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID header
+      schema:
+        type: string
+  schemas:
+    ServicePrincipal:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the service principal
+        displayName:
+          type: string
+          description: Display name of the service principal
+        clientId:
+          type: string
+          description: Client ID for OAuth authentication
+        customerId:
+          type: string
+          description: Associated customer ID
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+    CreateServicePrincipalRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+          description: Display name for the new service principal
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

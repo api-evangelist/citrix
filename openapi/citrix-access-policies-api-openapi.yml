@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Access Policies
+  description: Manage zero trust access policies
+paths:
+  /policies:
+    get:
+      operationId: listAccessPolicies
+      summary: Citrix List access policies
+      description: Retrieve all access policies configured for secure private access.
+      tags:
+      - Access Policies
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      responses:
+        '200':
+          description: List of access policies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AccessPolicy'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAccessPolicy
+      summary: Citrix Create an access policy
+      description: Create a new zero trust access policy.
+      tags:
+      - Access Policies
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccessPolicyRequest'
+      responses:
+        '201':
+          description: Access policy created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicy'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    AccessPolicy:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Policy unique identifier
+        name:
+          type: string
+          description: Policy name
+        description:
+          type: string
+          description: Policy description
+        enabled:
+          type: boolean
+          description: Whether the policy is active
+        priority:
+          type: integer
+          description: Policy evaluation priority
+        conditions:
+          type: object
+          description: Policy conditions for matching
+        actions:
+          type: object
+          description: Actions to apply when policy matches
+    CreateAccessPolicyRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Policy name
+        description:
+          type: string
+          description: Policy description
+        conditions:
+          type: object
+          description: Policy conditions
+        actions:
+          type: object
+          description: Policy actions
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

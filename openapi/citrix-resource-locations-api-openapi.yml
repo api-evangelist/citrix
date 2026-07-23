@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Resource Locations API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Resource Locations
+  description: Manage resource locations within a customer
+paths:
+  /resourcelocations:
+    get:
+      operationId: listResourceLocations
+      summary: Citrix List resource locations
+      description: Retrieve all resource locations configured for the customer.
+      tags:
+      - Resource Locations
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      responses:
+        '200':
+          description: List of resource locations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ResourceLocation'
+        '401':
+          description: Unauthorized
+  /resourcelocations/{locationId}:
+    get:
+      operationId: getResourceLocation
+      summary: Citrix Get a resource location
+      description: Retrieve details of a specific resource location by ID.
+      tags:
+      - Resource Locations
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/locationId'
+      responses:
+        '200':
+          description: Resource location details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceLocation'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Resource location not found
+components:
+  parameters:
+    locationId:
+      name: locationId
+      in: path
+      required: true
+      description: Resource location unique identifier
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID header
+      schema:
+        type: string
+  schemas:
+    ResourceLocation:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the resource location
+        name:
+          type: string
+          description: Name of the resource location
+        internalOnly:
+          type: boolean
+          description: Whether the location is internal only
+        timeZone:
+          type: string
+          description: Time zone of the resource location
+        readOnly:
+          type: boolean
+          description: Whether the resource location is read-only
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

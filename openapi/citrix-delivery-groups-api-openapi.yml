@@ -1,0 +1,281 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Delivery Groups API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Delivery Groups
+  description: Manage delivery groups for resource assignment
+paths:
+  /DeliveryGroups:
+    get:
+      operationId: listDeliveryGroups
+      summary: Citrix List delivery groups
+      description: Retrieve all delivery groups configured within the customer site.
+      tags:
+      - Delivery Groups
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of delivery groups
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryGroupCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createDeliveryGroup
+      summary: Citrix Create a delivery group
+      description: Create a new delivery group for assigning resources to users.
+      tags:
+      - Delivery Groups
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeliveryGroupRequest'
+      responses:
+        '201':
+          description: Delivery group created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryGroup'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /DeliveryGroups/{deliveryGroupId}:
+    get:
+      operationId: getDeliveryGroup
+      summary: Citrix Get a delivery group
+      description: Retrieve details of a specific delivery group.
+      tags:
+      - Delivery Groups
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/deliveryGroupId'
+      responses:
+        '200':
+          description: Delivery group details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryGroup'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Delivery group not found
+    put:
+      operationId: updateDeliveryGroup
+      summary: Citrix Update a delivery group
+      description: Update properties of an existing delivery group.
+      tags:
+      - Delivery Groups
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/deliveryGroupId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeliveryGroupRequest'
+      responses:
+        '200':
+          description: Delivery group updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Delivery group not found
+    delete:
+      operationId: deleteDeliveryGroup
+      summary: Citrix Delete a delivery group
+      description: Delete an existing delivery group.
+      tags:
+      - Delivery Groups
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/deliveryGroupId'
+      responses:
+        '204':
+          description: Delivery group deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Delivery group not found
+  /deliverygroup/filter:
+    post:
+      operationId: filterDeliveryGroups
+      summary: Citrix Filter delivery groups
+      description: Search and filter delivery groups.
+      tags:
+      - Delivery Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryGroupFilterRequest'
+      responses:
+        '200':
+          description: Filtered delivery group list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dgListData:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeliveryGroup_2'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    DeliveryGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the delivery group
+        name:
+          type: string
+          description: Name of the delivery group
+        description:
+          type: string
+          description: Description of the delivery group
+        enabled:
+          type: boolean
+          description: Whether the delivery group is enabled
+        totalMachines:
+          type: integer
+          description: Total number of machines in the group
+        sessionsCount:
+          type: integer
+          description: Current number of active sessions
+        deliveryType:
+          type: string
+          enum:
+          - DesktopsOnly
+          - AppsOnly
+          - DesktopsAndApps
+          description: Type of resources delivered
+    DeliveryGroupFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+    DeliveryGroup_2:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Delivery group unique identifier
+        name:
+          type: string
+          description: Delivery group name
+        description:
+          type: string
+          description: Description
+        disabled:
+          type: boolean
+          description: Whether the delivery group is disabled
+    DeliveryGroupCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryGroup'
+    UpdateDeliveryGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated name
+        description:
+          type: string
+          description: Updated description
+        enabled:
+          type: boolean
+          description: Whether the delivery group is enabled
+    CreateDeliveryGroupRequest:
+      type: object
+      required:
+      - name
+      - deliveryType
+      properties:
+        name:
+          type: string
+          description: Name for the new delivery group
+        description:
+          type: string
+          description: Description for the delivery group
+        deliveryType:
+          type: string
+          enum:
+          - DesktopsOnly
+          - AppsOnly
+          - DesktopsAndApps
+          description: Type of resources to deliver
+  parameters:
+    deliveryGroupId:
+      name: deliveryGroupId
+      in: path
+      required: true
+      description: Delivery group unique identifier
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

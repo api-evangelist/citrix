@@ -1,0 +1,297 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Load Balancing API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Load Balancing
+  description: Load balancing virtual servers and services
+paths:
+  /config/lbvserver:
+    get:
+      operationId: listLbVservers
+      summary: Citrix List load balancing virtual servers
+      description: Retrieve all load balancing virtual server configurations.
+      tags:
+      - Load Balancing
+      responses:
+        '200':
+          description: List of load balancing virtual servers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lbvserver:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LbVserver'
+    post:
+      operationId: createLbVserver
+      summary: Citrix Create a load balancing virtual server
+      description: Create a new load balancing virtual server configuration.
+      tags:
+      - Load Balancing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lbvserver:
+                  $ref: '#/components/schemas/LbVserver'
+      responses:
+        '201':
+          description: Virtual server created
+        '400':
+          description: Invalid configuration
+  /config/lbvserver/{name}:
+    get:
+      operationId: getLbVserver
+      summary: Citrix Get a load balancing virtual server
+      description: Retrieve configuration of a specific load balancing virtual server.
+      tags:
+      - Load Balancing
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: Virtual server name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Virtual server details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lbvserver:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LbVserver'
+        '404':
+          description: Virtual server not found
+    put:
+      operationId: updateLbVserver
+      summary: Citrix Update a load balancing virtual server
+      description: Update configuration of an existing load balancing virtual server.
+      tags:
+      - Load Balancing
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: Virtual server name
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lbvserver:
+                  $ref: '#/components/schemas/LbVserver'
+      responses:
+        '200':
+          description: Virtual server updated
+        '400':
+          description: Invalid configuration
+    delete:
+      operationId: deleteLbVserver
+      summary: Citrix Delete a load balancing virtual server
+      description: Delete a load balancing virtual server configuration.
+      tags:
+      - Load Balancing
+      parameters:
+      - name: name
+        in: path
+        required: true
+        description: Virtual server name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Virtual server deleted
+        '404':
+          description: Virtual server not found
+  /config/service:
+    get:
+      operationId: listServices
+      summary: Citrix List services
+      description: Retrieve all service configurations bound to virtual servers.
+      tags:
+      - Load Balancing
+      responses:
+        '200':
+          description: List of services
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  service:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Service'
+  /config/servicegroup:
+    get:
+      operationId: listServiceGroups
+      summary: Citrix List service groups
+      description: Retrieve all service group configurations.
+      tags:
+      - Load Balancing
+      responses:
+        '200':
+          description: List of service groups
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  servicegroup:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ServiceGroup'
+  /stat/lbvserver:
+    get:
+      operationId: getLbVserverStats
+      summary: Citrix Get load balancing statistics
+      description: Retrieve statistics for all load balancing virtual servers.
+      tags:
+      - Load Balancing
+      responses:
+        '200':
+          description: Load balancing statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lbvserver:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LbVserverStats'
+components:
+  schemas:
+    Service:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Service name
+        ip:
+          type: string
+          description: IP address of the service
+        port:
+          type: integer
+          description: Port number
+        servicetype:
+          type: string
+          description: Protocol type
+        svrstate:
+          type: string
+          description: Current state of the service
+    ServiceGroup:
+      type: object
+      properties:
+        servicegroupname:
+          type: string
+          description: Service group name
+        servicetype:
+          type: string
+          description: Protocol type
+        state:
+          type: string
+          description: Current state
+    LbVserverStats:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Virtual server name
+        requestsrate:
+          type: number
+          description: Requests per second
+        responsesrate:
+          type: number
+          description: Responses per second
+        totalrequests:
+          type: integer
+          description: Total requests received
+        totalresponses:
+          type: integer
+          description: Total responses sent
+        curclntconnections:
+          type: integer
+          description: Current client connections
+        cursrvrconnections:
+          type: integer
+          description: Current server connections
+        health:
+          type: number
+          description: Health percentage
+    LbVserver:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Virtual server name
+        ipv46:
+          type: string
+          description: IPv4 or IPv6 address
+        port:
+          type: integer
+          description: Port number
+        servicetype:
+          type: string
+          enum:
+          - HTTP
+          - HTTPS
+          - TCP
+          - UDP
+          - SSL
+          - SSL_TCP
+          - ANY
+          description: Protocol type
+        lbmethod:
+          type: string
+          enum:
+          - ROUNDROBIN
+          - LEASTCONNECTION
+          - LEASTRESPONSETIME
+          - SOURCEIPHASH
+          - URLHASH
+          description: Load balancing method
+        curstate:
+          type: string
+          description: Current state of the virtual server
+        effectivestate:
+          type: string
+          description: Effective state considering bound services
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

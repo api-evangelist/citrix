@@ -1,0 +1,273 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Sessions API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Sessions
+  description: Manage and monitor active sessions
+paths:
+  /Sessions:
+    get:
+      operationId: listSessions
+      summary: Citrix List sessions
+      description: Retrieve all active sessions within the customer site.
+      tags:
+      - Sessions
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of sessions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionCollection'
+        '401':
+          description: Unauthorized
+  /Sessions/{sessionId}:
+    get:
+      operationId: getSession
+      summary: Citrix Get a session
+      description: Retrieve details of a specific session.
+      tags:
+      - Sessions
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/sessionId'
+      responses:
+        '200':
+          description: Session details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Session not found
+  /Sessions/{sessionId}/$logoff:
+    post:
+      operationId: logoffSession
+      summary: Citrix Log off a session
+      description: Log off an active user session.
+      tags:
+      - Sessions
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/sessionId'
+      responses:
+        '204':
+          description: Session logoff initiated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Session not found
+  /Sessions/{sessionId}/$disconnect:
+    post:
+      operationId: disconnectSession
+      summary: Citrix Disconnect a session
+      description: Disconnect an active user session without logging off.
+      tags:
+      - Sessions
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/sessionId'
+      responses:
+        '204':
+          description: Session disconnect initiated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Session not found
+  /Sessions/List:
+    post:
+      operationId: listSessions
+      summary: Citrix List active sessions
+      description: Retrieve all active HDX sessions for the authenticated user.
+      tags:
+      - Sessions
+      parameters:
+      - $ref: '#/components/parameters/CsrfToken'
+      responses:
+        '200':
+          description: List of active sessions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Session_2'
+        '401':
+          description: Not authenticated
+  /Sessions/Disconnect:
+    post:
+      operationId: disconnectSession
+      summary: Citrix Disconnect a session
+      description: Disconnect an active HDX session without logging off.
+      tags:
+      - Sessions
+      parameters:
+      - $ref: '#/components/parameters/CsrfToken'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - sessionId
+              properties:
+                sessionId:
+                  type: string
+                  description: Session ID to disconnect
+      responses:
+        '200':
+          description: Session disconnected
+        '401':
+          description: Not authenticated
+        '404':
+          description: Session not found
+  /Sessions/Logoff:
+    post:
+      operationId: logoffSession
+      summary: Citrix Log off a session
+      description: Log off an active HDX session.
+      tags:
+      - Sessions
+      parameters:
+      - $ref: '#/components/parameters/CsrfToken'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - sessionId
+              properties:
+                sessionId:
+                  type: string
+                  description: Session ID to log off
+      responses:
+        '200':
+          description: Session logged off
+        '401':
+          description: Not authenticated
+        '404':
+          description: Session not found
+components:
+  schemas:
+    SessionCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Session'
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the session
+        userName:
+          type: string
+          description: Username of the session owner
+        state:
+          type: string
+          enum:
+          - Active
+          - Disconnected
+          description: Current session state
+        startTime:
+          type: string
+          format: date-time
+          description: When the session started
+        machineName:
+          type: string
+          description: Name of the machine hosting the session
+        clientName:
+          type: string
+          description: Name of the client device
+        applicationNames:
+          type: array
+          items:
+            type: string
+          description: Applications running in the session
+    Session_2:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          description: Session unique identifier
+        appName:
+          type: string
+          description: Name of the application
+        publishedName:
+          type: string
+          description: Published name of the resource
+        initialApp:
+          type: string
+          description: Initial application that created the session
+        isActive:
+          type: boolean
+          description: Whether the session is currently active
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CsrfToken:
+      name: Csrf-Token
+      in: header
+      required: true
+      description: CSRF token read from the session cookie
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    sessionId:
+      name: sessionId
+      in: path
+      required: true
+      description: Session unique identifier
+      schema:
+        type: string
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html

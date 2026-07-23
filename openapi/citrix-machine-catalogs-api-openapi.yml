@@ -1,0 +1,260 @@
+openapi: 3.1.0
+info:
+  title: Citrix ADC (NetScaler) NITRO Access Policies Machine Catalogs API
+  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
+  version: '14.1'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+servers:
+- url: https://{netscaler-ip}/nitro/v1
+  description: Citrix ADC NITRO API
+  variables:
+    netscaler-ip:
+      default: 192.168.1.1
+      description: NetScaler management IP address
+security:
+- nitroAuth: []
+tags:
+- name: Machine Catalogs
+  description: Manage machine catalogs and provisioning
+paths:
+  /MachineCatalogs:
+    get:
+      operationId: listMachineCatalogs
+      summary: Citrix List machine catalogs
+      description: Retrieve all machine catalogs configured within the customer site.
+      tags:
+      - Machine Catalogs
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      responses:
+        '200':
+          description: List of machine catalogs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalogCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createMachineCatalog
+      summary: Citrix Create a machine catalog
+      description: Create a new machine catalog for provisioning virtual machines.
+      tags:
+      - Machine Catalogs
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMachineCatalogRequest'
+      responses:
+        '201':
+          description: Machine catalog created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalog'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /MachineCatalogs/{catalogId}:
+    get:
+      operationId: getMachineCatalog
+      summary: Citrix Get a machine catalog
+      description: Retrieve details of a specific machine catalog.
+      tags:
+      - Machine Catalogs
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/catalogId'
+      responses:
+        '200':
+          description: Machine catalog details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalog'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Machine catalog not found
+    put:
+      operationId: updateMachineCatalog
+      summary: Citrix Update a machine catalog
+      description: Update properties of an existing machine catalog.
+      tags:
+      - Machine Catalogs
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/catalogId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMachineCatalogRequest'
+      responses:
+        '200':
+          description: Machine catalog updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineCatalog'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Machine catalog not found
+    delete:
+      operationId: deleteMachineCatalog
+      summary: Citrix Delete a machine catalog
+      description: Delete an existing machine catalog.
+      tags:
+      - Machine Catalogs
+      parameters:
+      - $ref: '#/components/parameters/CitrixCustomerId'
+      - $ref: '#/components/parameters/CitrixInstanceId'
+      - $ref: '#/components/parameters/catalogId'
+      responses:
+        '204':
+          description: Machine catalog deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Machine catalog not found
+components:
+  schemas:
+    MachineCatalog:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the machine catalog
+        name:
+          type: string
+          description: Name of the machine catalog
+        description:
+          type: string
+          description: Description of the machine catalog
+        allocationType:
+          type: string
+          enum:
+          - Static
+          - Random
+          description: How machines are allocated to users
+        provisioningType:
+          type: string
+          enum:
+          - MCS
+          - PVS
+          - Manual
+          description: Provisioning method for machines
+        sessionSupport:
+          type: string
+          enum:
+          - SingleSession
+          - MultiSession
+          description: Session support type
+        machineCount:
+          type: integer
+          description: Number of machines in the catalog
+        zone:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Zone identifier
+            name:
+              type: string
+              description: Zone name
+    CreateMachineCatalogRequest:
+      type: object
+      required:
+      - name
+      - allocationType
+      - provisioningType
+      - sessionSupport
+      properties:
+        name:
+          type: string
+          description: Name for the new machine catalog
+        description:
+          type: string
+          description: Description for the machine catalog
+        allocationType:
+          type: string
+          enum:
+          - Static
+          - Random
+          description: Machine allocation type
+        provisioningType:
+          type: string
+          enum:
+          - MCS
+          - PVS
+          - Manual
+          description: Provisioning method
+        sessionSupport:
+          type: string
+          enum:
+          - SingleSession
+          - MultiSession
+          description: Session support type
+    UpdateMachineCatalogRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated name
+        description:
+          type: string
+          description: Updated description
+    MachineCatalogCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachineCatalog'
+  parameters:
+    catalogId:
+      name: catalogId
+      in: path
+      required: true
+      description: Machine catalog unique identifier
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+  securitySchemes:
+    nitroAuth:
+      type: apiKey
+      in: cookie
+      name: NITRO_AUTH_TOKEN
+      description: Session cookie from NITRO login
+externalDocs:
+  description: Citrix ADC NITRO API Reference
+  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html
