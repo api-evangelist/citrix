@@ -7,6 +7,19 @@ description: >-
   developer-docs.citrix.com, with REST APIs spanning Virtual Apps and Desktops, DaaS, Workspace, Citrix Cloud, ADC
   (NetScaler) NITRO, Endpoint Management, Secure Private Access, and Analytics. Authentication uses OAuth 2.0 bearer
   tokens issued through Citrix Cloud customer-id-scoped credentials.
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/citrix/refs/heads/main/apis.yml
 created: '2024-01-01'
@@ -23,222 +36,1194 @@ tags:
   - Workspace
   - Fortune 1000
 apis:
-  - name: Citrix Virtual Apps and Desktops REST API
-    description: Manage and monitor Citrix Virtual Apps and Desktops deployments.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
-    baseURL: https://{customer-id}.xendesktop.net
-    tags:
-      - Remote Access
-      - VDI
-      - Virtual Desktop
-    properties:
-      - type: Documentation
-        url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
-      - type: OpenAPI
-        url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/openapi
-      - type: Authentication
-        url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
-      - type: OpenAPI
-        url: openapi/citrix-daas-openapi.yml
-  - name: Citrix Workspace API
-    description: Integrate and customize Citrix Workspace for end users.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer.citrix.com/citrix-workspace
-    baseURL: https://api.cloud.com
-    tags:
-      - SSO
-      - User Experience
-      - Workspace
-    properties:
-      - type: Documentation
-        url: https://developer.citrix.com/citrix-workspace/citrix-workspace-platform
-      - type: APIReference
-        url: https://developer.citrix.com/citrix-workspace/citrix-workspace-platform/build/api-reference
-  - name: Citrix ADC (NetScaler) NITRO API
-    description: Configure and monitor Citrix ADC application delivery controllers.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer.citrix.com/citrix-adc
-    baseURL: https://{netscaler-ip}/nitro/v1
-    tags:
-      - ADC
-      - Application Delivery
-      - Load Balancing
-      - Networking
-    properties:
-      - type: Documentation
-        url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
-      - type: APIReference
-        url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
-      - type: SDKs
-        url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
-      - type: OpenAPI
-        url: openapi/citrix-adc-nitro-openapi.yml
-  - name: Citrix DaaS REST API
-    description: Manage Citrix Desktop as a Service (DaaS) cloud deployments.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer.citrix.com/citrix-daas
-    baseURL: https://api.cloud.com/cvad
-    tags:
-      - Cloud
-      - DaaS
-      - Desktop as a Service
-    properties:
-      - type: Documentation
-        url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
-      - type: OpenAPI
-        url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/openapi
-      - type: GettingStarted
-        url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
-      - type: OpenAPI
-        url: openapi/citrix-daas-openapi.yml
-  - name: Citrix Analytics API
-    description: Access analytics data for security and performance insights.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer.citrix.com/citrix-analytics
-    baseURL: https://api.analytics.cloud.com
-    tags:
-      - Analytics
-      - Insights
-      - Monitoring
-      - Security
-    properties:
-      - type: Documentation
-        url: https://developer.citrix.com/citrix-analytics/api-overview
-      - type: APIReference
-        url: https://developer.citrix.com/citrix-analytics/api-reference
-  - name: Citrix Cloud API
-    description: >-
-      Platform-level API for managing Citrix Cloud services, including authentication, service principals, resource
-      locations, and notifications across the Citrix Cloud platform.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: >-
+- name: Citrix Workspace API
+  description: Integrate and customize Citrix Workspace for end users.
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer.citrix.com/citrix-workspace
+  baseURL: https://api.cloud.com
+  tags:
+  - SSO
+  - User Experience
+  - Workspace
+  properties:
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-workspace/citrix-workspace-platform
+  - type: APIReference
+    url: >-
+      https://developer.citrix.com/citrix-workspace/citrix-workspace-platform/build/api-reference
+- name: Citrix Analytics API
+  description: Access analytics data for security and performance insights.
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer.citrix.com/citrix-analytics
+  baseURL: https://api.analytics.cloud.com
+  tags:
+  - Analytics
+  - Insights
+  - Monitoring
+  - Security
+  properties:
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-analytics/api-overview
+  - type: APIReference
+    url: https://developer.citrix.com/citrix-analytics/api-reference
+- name: Citrix Monitor Service OData API
+  description: >-
+    OData-based API for querying monitoring data from Citrix Virtual Apps and Desktops deployments, including
+    session, connection, machine, and application usage data for reporting and analytics.
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html
+  baseURL: https://{delivery-controller}/Citrix/Monitor/OData/v4/Data
+  tags:
+  - Analytics
+  - Monitoring
+  - OData
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html
+  - type: Reference
+    url: >-
+      https://developer-docs.citrix.com/en-us/monitor-service-odata-api/monitor-service-resources.html
+  - type: GettingStarted
+    url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/access-methods.html
+- name: Citrix StoreFront Store Services API
+  description: >-
+    Server-side API for customizing and extending the Citrix StoreFront store services, including endpoint
+    management, authentication, and resource enumeration behaviors.
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: >-
+    https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/overview.html
+  baseURL: https://{storefront-server}/Citrix/Store
+  tags:
+  - Customization
+  - Server
+  - StoreFront
+  properties:
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/overview.html
+  - type: Reference
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/endpoints-service/
+- name: Citrix StoreFront Authentication SDK
+  description: >-
+    SDK for building custom authentication methods for Citrix StoreFront, allowing integration with third-party
+    identity providers and custom authentication workflows.
+  image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
+  humanURL: >-
+    https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html
+  baseURL: https://{storefront-server}
+  tags:
+  - Authentication
+  - Identity
+  - StoreFront
+  properties:
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html
+- aid: citrix:citrix-access-policies-api
+  name: Citrix Access Policies API
+  description: Manage zero trust access policies
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Access Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-access-policies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
       https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
-    baseURL: https://api.cloud.com
-    tags:
-      - Cloud
-      - Identity
-      - Management
-      - Platform
-    properties:
-      - type: Documentation
-        url: >-
-          https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
-      - type: GettingStarted
-        url: >-
-          https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
-      - type: Authentication
-        url: >-
-          https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
-      - type: OpenAPI
-        url: openapi/citrix-cloud-openapi.yml
-  - name: Citrix Monitor Service OData API
-    description: >-
-      OData-based API for querying monitoring data from Citrix Virtual Apps and Desktops deployments, including session,
-      connection, machine, and application usage data for reporting and analytics.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html
-    baseURL: https://{delivery-controller}/Citrix/Monitor/OData/v4/Data
-    tags:
-      - Analytics
-      - Monitoring
-      - OData
-      - Reporting
-    properties:
-      - type: Documentation
-        url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html
-      - type: Reference
-        url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/monitor-service-resources.html
-      - type: GettingStarted
-        url: https://developer-docs.citrix.com/en-us/monitor-service-odata-api/access-methods.html
-  - name: Citrix StoreFront Web API
-    description: >-
-      HTTP API for building custom client applications that authenticate users, enumerate available applications and
-      desktops, manage HDX sessions, and launch resources from Citrix StoreFront.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
-    baseURL: https://{storefront-server}/Citrix/Store
-    tags:
-      - Client
-      - Resources
-      - Sessions
-      - StoreFront
-    properties:
-      - type: Documentation
-        url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
-      - type: GettingStarted
-        url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
-      - type: Reference
-        url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
-      - type: OpenAPI
-        url: openapi/citrix-storefront-web-openapi.yml
-  - name: Citrix StoreFront Store Services API
-    description: >-
-      Server-side API for customizing and extending the Citrix StoreFront store services, including endpoint management,
-      authentication, and resource enumeration behaviors.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/overview.html
-    baseURL: https://{storefront-server}/Citrix/Store
-    tags:
-      - Customization
-      - Server
-      - StoreFront
-    properties:
-      - type: Documentation
-        url: https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/overview.html
-      - type: Reference
-        url: https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/endpoints-service/
-  - name: Citrix StoreFront Authentication SDK
-    description: >-
-      SDK for building custom authentication methods for Citrix StoreFront, allowing integration with third-party
-      identity providers and custom authentication workflows.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html
-    baseURL: https://{storefront-server}
-    tags:
-      - Authentication
-      - Identity
-      - StoreFront
-    properties:
-      - type: Documentation
-        url: https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html
-  - name: Citrix Endpoint Management REST API
-    description: >-
-      REST API for managing mobile devices, applications, and policies in Citrix Endpoint Management, enabling
-      integration with external systems for device lifecycle management and compliance.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
-    baseURL: https://{xms-server}:4443/xenmobile/api/v1
-    tags:
-      - Endpoint Management
-      - MDM
-      - Mobile
-      - UEM
-    properties:
-      - type: Documentation
-        url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
-      - type: OpenAPI
-        url: openapi/citrix-endpoint-management-openapi.yml
-  - name: Citrix Secure Private Access API
-    description: >-
-      REST API for managing zero trust network access policies, applications, application domains, and certificates in
-      Citrix Secure Private Access, providing secure access to internal web and SaaS applications.
-    image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
-    humanURL: https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
-    baseURL: https://api.cloud.com/accessSecurity
-    tags:
-      - Access Control
-      - Security
-      - Zero Trust
-      - ZTNA
-    properties:
-      - type: Documentation
-        url: https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
-      - type: GettingStarted
-        url: https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
-      - type: OpenAPI
-        url: openapi/citrix-secure-private-access-openapi.yml
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-application-domains-api
+  name: Citrix Application Domains API
+  description: Manage application domain configurations
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Application Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-application-domains-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-applications-api
+  name: Citrix Applications API
+  description: Manage published applications
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-applications-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-authentication-api
+  name: Citrix Authentication API
+  description: Login and session management
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-certificates-api
+  name: Citrix Certificates API
+  description: Manage application certificates
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Certificates
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-certificates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-content-switching-api
+  name: Citrix Content Switching API
+  description: Content switching virtual servers and policies
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Content Switching
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-content-switching-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-delivery-groups-api
+  name: Citrix Delivery Groups API
+  description: Manage delivery groups for resource assignment
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Delivery Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-delivery-groups-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-devices-api
+  name: Citrix Devices API
+  description: Device enrollment and lifecycle management
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-devices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-hypervisors-api
+  name: Citrix Hypervisors API
+  description: Manage hypervisor connections
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Hypervisors
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-hypervisors-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-launch-api
+  name: Citrix Launch API
+  description: Launch applications and desktops
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Launch
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-launch-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-load-balancing-api
+  name: Citrix Load Balancing API
+  description: Load balancing virtual servers and services
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Load Balancing
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-load-balancing-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-machine-catalogs-api
+  name: Citrix Machine Catalogs API
+  description: Manage machine catalogs and provisioning
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Machine Catalogs
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-machine-catalogs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-machines-api
+  name: Citrix Machines API
+  description: Manage individual machines in catalogs
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Machines
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-machines-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-notifications-api
+  name: Citrix Notifications API
+  description: Manage platform notifications
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-policies-api
+  name: Citrix Policies API
+  description: Device and app policy management
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-policies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-resource-locations-api
+  name: Citrix Resource Locations API
+  description: Manage resource locations within a customer
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Resource Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-resource-locations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-resources-api
+  name: Citrix Resources API
+  description: Enumerate available applications and desktops
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-resources-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-service-principals-api
+  name: Citrix Service Principals API
+  description: Manage service principals for API automation
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Service Principals
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-service-principals-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-sessions-api
+  name: Citrix Sessions API
+  description: Manage and monitor active sessions
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-ssl-api
+  name: Citrix SSL API
+  description: SSL certificates and configuration
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - SSL
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-ssl-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-system-api
+  name: Citrix System API
+  description: System configuration and statistics
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-system-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-users-api
+  name: Citrix Users API
+  description: User and group management
+  humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
+  baseURL: https://{customer-id}.xendesktop.net
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis
+  - type: Authentication
+    url: >-
+      https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started
+  - type: Documentation
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/
+  - type: APIReference
+    url: https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/
+  - type: SDKs
+    url: >-
+      https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/
+  - type: Documentation
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis
+  - type: GettingStarted
+    url: https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html
+  - type: Authentication
+    url: >-
+      https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
+  - type: Documentation
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html
+  - type: Reference
+    url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/
+  - type: Documentation
+    url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+  - type: Documentation
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html
+  - type: GettingStarted
+    url: >-
+      https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/citrix/overview
   - type: AgenticAccess
     url: agentic-access/citrix-agentic-access.yml
   - type: DomainSecurity
