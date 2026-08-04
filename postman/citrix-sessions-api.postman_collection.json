@@ -1,0 +1,1379 @@
+{
+  "info": {
+    "_postman_id": "02072755-ee20-4416-a759-dde955acb203",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Sessions API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:28.000Z",
+    "updatedAt": "2026-07-28T01:22:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-02072755-ee20-4416-a759-dde955acb203"
+  },
+  "item": [
+    {
+      "name": "Sessions",
+      "item": [
+        {
+          "name": "{sessionId}",
+          "item": [
+            {
+              "name": "$logoff",
+              "item": [
+                {
+                  "name": "Citrix Log off a session",
+                  "id": "05ee6019-2c7d-4da5-8de0-0632d4d29f36",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/:sessionId/$logoff",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        ":sessionId",
+                        "$logoff"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2c185fc5-8c69-42b6-b1b8-15f5428f7c33",
+                          "key": "sessionId",
+                          "value": "<string>",
+                          "description": "(Required) Session unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Log off an active user session."
+                  },
+                  "response": [
+                    {
+                      "id": "2ab9bc18-d273-424c-b9ce-c50a48be17bf",
+                      "name": "Session logoff initiated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "(Required) Citrix DaaS site instance ID",
+                            "key": "Citrix-InstanceId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Sessions/:sessionId/$logoff",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Sessions",
+                            ":sessionId",
+                            "$logoff"
+                          ],
+                          "variable": [
+                            {
+                              "key": "sessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:28.000Z",
+                      "updatedAt": "2026-07-28T01:22:28.000Z",
+                      "uid": "35240-2ab9bc18-d273-424c-b9ce-c50a48be17bf"
+                    },
+                    {
+                      "id": "bb31abfe-0023-487f-b87a-e21989be0d28",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "(Required) Citrix DaaS site instance ID",
+                            "key": "Citrix-InstanceId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Sessions/:sessionId/$logoff",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Sessions",
+                            ":sessionId",
+                            "$logoff"
+                          ],
+                          "variable": [
+                            {
+                              "key": "sessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:28.000Z",
+                      "updatedAt": "2026-07-28T01:22:28.000Z",
+                      "uid": "35240-bb31abfe-0023-487f-b87a-e21989be0d28"
+                    },
+                    {
+                      "id": "3113654c-a9dd-4f46-9a1e-53e88e447472",
+                      "name": "Session not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "(Required) Citrix DaaS site instance ID",
+                            "key": "Citrix-InstanceId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Sessions/:sessionId/$logoff",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Sessions",
+                            ":sessionId",
+                            "$logoff"
+                          ],
+                          "variable": [
+                            {
+                              "key": "sessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:28.000Z",
+                      "updatedAt": "2026-07-28T01:22:28.000Z",
+                      "uid": "35240-3113654c-a9dd-4f46-9a1e-53e88e447472"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-05ee6019-2c7d-4da5-8de0-0632d4d29f36"
+                }
+              ],
+              "id": "e05fbb16-955c-4789-83b2-c5d35b82c811",
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-e05fbb16-955c-4789-83b2-c5d35b82c811"
+            },
+            {
+              "name": "$disconnect",
+              "item": [
+                {
+                  "name": "Citrix Disconnect a session",
+                  "id": "3a0757c5-a2aa-4320-be33-0afe14a368fd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/:sessionId/$disconnect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        ":sessionId",
+                        "$disconnect"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f9415770-a0e0-4fa4-9728-b7420e3d056e",
+                          "key": "sessionId",
+                          "value": "<string>",
+                          "description": "(Required) Session unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Disconnect an active user session without logging off."
+                  },
+                  "response": [
+                    {
+                      "id": "1d0c7efc-8b8a-4fa7-944e-8fa120fdcbbb",
+                      "name": "Session disconnect initiated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "(Required) Citrix DaaS site instance ID",
+                            "key": "Citrix-InstanceId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Sessions/:sessionId/$disconnect",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Sessions",
+                            ":sessionId",
+                            "$disconnect"
+                          ],
+                          "variable": [
+                            {
+                              "key": "sessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:28.000Z",
+                      "updatedAt": "2026-07-28T01:22:28.000Z",
+                      "uid": "35240-1d0c7efc-8b8a-4fa7-944e-8fa120fdcbbb"
+                    },
+                    {
+                      "id": "56e07d80-3294-466d-869f-0a7826c37363",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "(Required) Citrix DaaS site instance ID",
+                            "key": "Citrix-InstanceId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Sessions/:sessionId/$disconnect",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Sessions",
+                            ":sessionId",
+                            "$disconnect"
+                          ],
+                          "variable": [
+                            {
+                              "key": "sessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:28.000Z",
+                      "updatedAt": "2026-07-28T01:22:28.000Z",
+                      "uid": "35240-56e07d80-3294-466d-869f-0a7826c37363"
+                    },
+                    {
+                      "id": "aa8c0042-234f-4b5a-89a7-8160abfddda5",
+                      "name": "Session not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "(Required) Citrix DaaS site instance ID",
+                            "key": "Citrix-InstanceId",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Sessions/:sessionId/$disconnect",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Sessions",
+                            ":sessionId",
+                            "$disconnect"
+                          ],
+                          "variable": [
+                            {
+                              "key": "sessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:28.000Z",
+                      "updatedAt": "2026-07-28T01:22:28.000Z",
+                      "uid": "35240-aa8c0042-234f-4b5a-89a7-8160abfddda5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-3a0757c5-a2aa-4320-be33-0afe14a368fd"
+                }
+              ],
+              "id": "f073c762-8c84-4515-b7eb-be0150616fa6",
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-f073c762-8c84-4515-b7eb-be0150616fa6"
+            },
+            {
+              "name": "Citrix Get a session",
+              "id": "6ab8007f-3b8d-4c09-a830-e1394158cda1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Sessions/:sessionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Sessions",
+                    ":sessionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "753443ac-edd2-4143-a100-dc9ab2624ccb",
+                      "key": "sessionId",
+                      "value": "<string>",
+                      "description": "(Required) Session unique identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details of a specific session."
+              },
+              "response": [
+                {
+                  "id": "55af345f-2ddc-43c8-b87a-c9aebd014587",
+                  "name": "Session details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/:sessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        ":sessionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sessionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"userName\": \"<string>\",\n  \"state\": \"Active\",\n  \"startTime\": \"<dateTime>\",\n  \"machineName\": \"<string>\",\n  \"clientName\": \"<string>\",\n  \"applicationNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-55af345f-2ddc-43c8-b87a-c9aebd014587"
+                },
+                {
+                  "id": "bce8055c-1307-45cd-897e-f322bb385585",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/:sessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        ":sessionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sessionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-bce8055c-1307-45cd-897e-f322bb385585"
+                },
+                {
+                  "id": "157ed5ca-a896-4197-a01d-f77afe77e04d",
+                  "name": "Session not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/:sessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        ":sessionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sessionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-157ed5ca-a896-4197-a01d-f77afe77e04d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-6ab8007f-3b8d-4c09-a830-e1394158cda1"
+            }
+          ],
+          "id": "9d51fa75-007e-42f9-9d1e-3bd353532a56",
+          "createdAt": "2026-07-28T01:22:28.000Z",
+          "updatedAt": "2026-07-28T01:22:28.000Z",
+          "uid": "35240-9d51fa75-007e-42f9-9d1e-3bd353532a56"
+        },
+        {
+          "name": "List",
+          "item": [
+            {
+              "name": "Citrix List active sessions",
+              "id": "6581c03d-85e0-40c5-84c7-dfd2bf027f5e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Sessions/List",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Sessions",
+                    "List"
+                  ]
+                },
+                "description": "Retrieve all active HDX sessions for the authenticated user."
+              },
+              "response": [
+                {
+                  "id": "336393ad-a35d-420c-8aa6-b387ada678a4",
+                  "name": "List of active sessions",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/List",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "List"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sessions\": [\n    {\n      \"sessionId\": \"<string>\",\n      \"appName\": \"<string>\",\n      \"publishedName\": \"<string>\",\n      \"initialApp\": \"<string>\",\n      \"isActive\": \"<boolean>\"\n    },\n    {\n      \"sessionId\": \"<string>\",\n      \"appName\": \"<string>\",\n      \"publishedName\": \"<string>\",\n      \"initialApp\": \"<string>\",\n      \"isActive\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-336393ad-a35d-420c-8aa6-b387ada678a4"
+                },
+                {
+                  "id": "34e10349-27ef-42bf-bbd4-041967d75bf4",
+                  "name": "Not authenticated",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/List",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "List"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-34e10349-27ef-42bf-bbd4-041967d75bf4"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-6581c03d-85e0-40c5-84c7-dfd2bf027f5e"
+            }
+          ],
+          "id": "a86a0eaa-09d3-4831-90fa-65ff91fde7da",
+          "createdAt": "2026-07-28T01:22:28.000Z",
+          "updatedAt": "2026-07-28T01:22:28.000Z",
+          "uid": "35240-a86a0eaa-09d3-4831-90fa-65ff91fde7da"
+        },
+        {
+          "name": "Disconnect",
+          "item": [
+            {
+              "name": "Citrix Disconnect a session",
+              "id": "ce22f6d6-31b2-44c2-bfa6-12c5fe968c1a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Session ID to disconnect",
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Sessions/Disconnect",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Sessions",
+                    "Disconnect"
+                  ]
+                },
+                "description": "Disconnect an active HDX session without logging off."
+              },
+              "response": [
+                {
+                  "id": "5aede467-e491-41e7-996f-cfba01aa68ae",
+                  "name": "Session disconnected",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Session ID to disconnect",
+                          "key": "sessionId",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/Disconnect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "Disconnect"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-5aede467-e491-41e7-996f-cfba01aa68ae"
+                },
+                {
+                  "id": "5981fd44-c42e-4984-8a04-ffce0115ea46",
+                  "name": "Not authenticated",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Session ID to disconnect",
+                          "key": "sessionId",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/Disconnect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "Disconnect"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-5981fd44-c42e-4984-8a04-ffce0115ea46"
+                },
+                {
+                  "id": "d606f803-7d63-4ca0-9c52-204244895e2d",
+                  "name": "Session not found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Session ID to disconnect",
+                          "key": "sessionId",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/Disconnect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "Disconnect"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-d606f803-7d63-4ca0-9c52-204244895e2d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-ce22f6d6-31b2-44c2-bfa6-12c5fe968c1a"
+            }
+          ],
+          "id": "02edc487-1746-4a45-9cc4-a083e1b6e797",
+          "createdAt": "2026-07-28T01:22:28.000Z",
+          "updatedAt": "2026-07-28T01:22:28.000Z",
+          "uid": "35240-02edc487-1746-4a45-9cc4-a083e1b6e797"
+        },
+        {
+          "name": "Logoff",
+          "item": [
+            {
+              "name": "Citrix Log off a session",
+              "id": "b792e2f4-eb1a-4158-b555-f1f68b6cdd99",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Session ID to log off",
+                      "key": "sessionId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Sessions/Logoff",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Sessions",
+                    "Logoff"
+                  ]
+                },
+                "description": "Log off an active HDX session."
+              },
+              "response": [
+                {
+                  "id": "5aea0cad-12ec-4cf3-b055-d2196dd9402f",
+                  "name": "Session logged off",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Session ID to log off",
+                          "key": "sessionId",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/Logoff",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "Logoff"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-5aea0cad-12ec-4cf3-b055-d2196dd9402f"
+                },
+                {
+                  "id": "1764d8dc-e734-4bac-bfdb-c9dff3acd75f",
+                  "name": "Not authenticated",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Session ID to log off",
+                          "key": "sessionId",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/Logoff",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "Logoff"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-1764d8dc-e734-4bac-bfdb-c9dff3acd75f"
+                },
+                {
+                  "id": "125c93ca-6c00-40cd-aeb0-626b66a17a73",
+                  "name": "Session not found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Session ID to log off",
+                          "key": "sessionId",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Sessions/Logoff",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Sessions",
+                        "Logoff"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:28.000Z",
+                  "updatedAt": "2026-07-28T01:22:28.000Z",
+                  "uid": "35240-125c93ca-6c00-40cd-aeb0-626b66a17a73"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-b792e2f4-eb1a-4158-b555-f1f68b6cdd99"
+            }
+          ],
+          "id": "efad8c84-0056-4705-8519-6bd3c01827f8",
+          "createdAt": "2026-07-28T01:22:28.000Z",
+          "updatedAt": "2026-07-28T01:22:28.000Z",
+          "uid": "35240-efad8c84-0056-4705-8519-6bd3c01827f8"
+        },
+        {
+          "name": "Citrix List sessions",
+          "id": "76f05a58-83e1-4606-8c89-76af46c4c5f9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Sessions"
+              ]
+            },
+            "description": "Retrieve all active sessions within the customer site."
+          },
+          "response": [
+            {
+              "id": "320fa304-39b1-4c51-a526-2e5d51976b08",
+              "name": "List of sessions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Sessions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"userName\": \"<string>\",\n      \"state\": \"Active\",\n      \"startTime\": \"<dateTime>\",\n      \"machineName\": \"<string>\",\n      \"clientName\": \"<string>\",\n      \"applicationNames\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"userName\": \"<string>\",\n      \"state\": \"Active\",\n      \"startTime\": \"<dateTime>\",\n      \"machineName\": \"<string>\",\n      \"clientName\": \"<string>\",\n      \"applicationNames\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-320fa304-39b1-4c51-a526-2e5d51976b08"
+            },
+            {
+              "id": "141ad449-74df-4c53-bd71-6f8b942a18ac",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Sessions"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:28.000Z",
+              "updatedAt": "2026-07-28T01:22:28.000Z",
+              "uid": "35240-141ad449-74df-4c53-bd71-6f8b942a18ac"
+            }
+          ],
+          "createdAt": "2026-07-28T01:22:28.000Z",
+          "updatedAt": "2026-07-28T01:22:28.000Z",
+          "uid": "35240-76f05a58-83e1-4606-8c89-76af46c4c5f9"
+        }
+      ],
+      "id": "89200e3d-288f-425b-9d6f-87541c857229",
+      "createdAt": "2026-07-28T01:22:28.000Z",
+      "updatedAt": "2026-07-28T01:22:28.000Z",
+      "uid": "35240-89200e3d-288f-425b-9d6f-87541c857229"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

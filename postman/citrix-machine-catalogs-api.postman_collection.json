@@ -1,0 +1,1157 @@
+{
+  "info": {
+    "_postman_id": "da3dc5a3-e73f-4f55-b6e0-6e36df18a880",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Machine Catalogs API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:22.000Z",
+    "updatedAt": "2026-07-28T01:22:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-da3dc5a3-e73f-4f55-b6e0-6e36df18a880"
+  },
+  "item": [
+    {
+      "name": "MachineCatalogs",
+      "item": [
+        {
+          "name": "{catalogId}",
+          "item": [
+            {
+              "name": "Citrix Get a machine catalog",
+              "id": "7e023c47-1dd1-48c5-b776-51f905286a86",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs",
+                    ":catalogId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "92d2114b-9763-4808-8f16-e8fcc132a63e",
+                      "key": "catalogId",
+                      "value": "<string>",
+                      "description": "(Required) Machine catalog unique identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details of a specific machine catalog."
+              },
+              "response": [
+                {
+                  "id": "56fa6327-5ef2-4517-8f30-ffcd84447755",
+                  "name": "Machine catalog details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allocationType\": \"Static\",\n  \"provisioningType\": \"Manual\",\n  \"sessionSupport\": \"SingleSession\",\n  \"machineCount\": \"<integer>\",\n  \"zone\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-56fa6327-5ef2-4517-8f30-ffcd84447755"
+                },
+                {
+                  "id": "30b4d8f3-50a8-49f6-bc2c-5c1a3993875a",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-30b4d8f3-50a8-49f6-bc2c-5c1a3993875a"
+                },
+                {
+                  "id": "46f01bb5-82ef-47b1-8dd5-502373607583",
+                  "name": "Machine catalog not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-46f01bb5-82ef-47b1-8dd5-502373607583"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-7e023c47-1dd1-48c5-b776-51f905286a86"
+            },
+            {
+              "name": "Citrix Update a machine catalog",
+              "id": "ff578169-eb4d-43d4-8699-8fd6f8e5a8dd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs",
+                    ":catalogId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c04c501a-7ea5-47cd-8ecc-c391a09a6a73",
+                      "key": "catalogId",
+                      "value": "<string>",
+                      "description": "(Required) Machine catalog unique identifier"
+                    }
+                  ]
+                },
+                "description": "Update properties of an existing machine catalog."
+              },
+              "response": [
+                {
+                  "id": "99826521-2416-42bd-89ea-15b4a69b03ef",
+                  "name": "Machine catalog updated",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allocationType\": \"Static\",\n  \"provisioningType\": \"Manual\",\n  \"sessionSupport\": \"SingleSession\",\n  \"machineCount\": \"<integer>\",\n  \"zone\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-99826521-2416-42bd-89ea-15b4a69b03ef"
+                },
+                {
+                  "id": "108516c4-ab23-41b6-9b5f-5fc83a0331fd",
+                  "name": "Invalid request",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-108516c4-ab23-41b6-9b5f-5fc83a0331fd"
+                },
+                {
+                  "id": "b2e8b770-89c1-419a-85aa-f0329f9def14",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-b2e8b770-89c1-419a-85aa-f0329f9def14"
+                },
+                {
+                  "id": "14467259-ac35-4793-bf59-3edaa0718fdd",
+                  "name": "Machine catalog not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-14467259-ac35-4793-bf59-3edaa0718fdd"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-ff578169-eb4d-43d4-8699-8fd6f8e5a8dd"
+            },
+            {
+              "name": "Citrix Delete a machine catalog",
+              "id": "379edbc5-3ce6-40cf-8f71-a7af99f91220",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs",
+                    ":catalogId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d66e5c3a-9606-410a-847f-fea92f3eed47",
+                      "key": "catalogId",
+                      "value": "<string>",
+                      "description": "(Required) Machine catalog unique identifier"
+                    }
+                  ]
+                },
+                "description": "Delete an existing machine catalog."
+              },
+              "response": [
+                {
+                  "id": "8ad5190c-5d5b-446a-84db-c5525aaf2783",
+                  "name": "Machine catalog deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-8ad5190c-5d5b-446a-84db-c5525aaf2783"
+                },
+                {
+                  "id": "e651c919-c7e1-4348-9ded-7e21eb378776",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-e651c919-c7e1-4348-9ded-7e21eb378776"
+                },
+                {
+                  "id": "abeaad01-3ab4-4efc-af97-64610ed24186",
+                  "name": "Machine catalog not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "(Required) Citrix DaaS site instance ID",
+                        "key": "Citrix-InstanceId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/MachineCatalogs/:catalogId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "MachineCatalogs",
+                        ":catalogId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "catalogId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:22.000Z",
+                  "updatedAt": "2026-07-28T01:22:22.000Z",
+                  "uid": "35240-abeaad01-3ab4-4efc-af97-64610ed24186"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-379edbc5-3ce6-40cf-8f71-a7af99f91220"
+            }
+          ],
+          "id": "e18896e5-921d-4a53-bd15-d2a0e8744446",
+          "createdAt": "2026-07-28T01:22:22.000Z",
+          "updatedAt": "2026-07-28T01:22:22.000Z",
+          "uid": "35240-e18896e5-921d-4a53-bd15-d2a0e8744446"
+        },
+        {
+          "name": "Citrix List machine catalogs",
+          "id": "051567e6-c358-4614-b899-db915536cf63",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/MachineCatalogs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "MachineCatalogs"
+              ]
+            },
+            "description": "Retrieve all machine catalogs configured within the customer site."
+          },
+          "response": [
+            {
+              "id": "fe55bd40-b28e-4be4-8e33-75bd8ecad1d6",
+              "name": "List of machine catalogs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"allocationType\": \"Static\",\n      \"provisioningType\": \"Manual\",\n      \"sessionSupport\": \"MultiSession\",\n      \"machineCount\": \"<integer>\",\n      \"zone\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"allocationType\": \"Static\",\n      \"provisioningType\": \"PVS\",\n      \"sessionSupport\": \"MultiSession\",\n      \"machineCount\": \"<integer>\",\n      \"zone\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-fe55bd40-b28e-4be4-8e33-75bd8ecad1d6"
+            },
+            {
+              "id": "836afa8e-2936-4560-9bd3-721ca762f192",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-836afa8e-2936-4560-9bd3-721ca762f192"
+            }
+          ],
+          "createdAt": "2026-07-28T01:22:22.000Z",
+          "updatedAt": "2026-07-28T01:22:22.000Z",
+          "uid": "35240-051567e6-c358-4614-b899-db915536cf63"
+        },
+        {
+          "name": "Citrix Create a machine catalog",
+          "id": "cac7de67-845b-4369-8a82-5b12412487aa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"allocationType\": \"Static\",\n  \"provisioningType\": \"Manual\",\n  \"sessionSupport\": \"MultiSession\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/MachineCatalogs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "MachineCatalogs"
+              ]
+            },
+            "description": "Create a new machine catalog for provisioning virtual machines."
+          },
+          "response": [
+            {
+              "id": "3263f8de-9d9d-49ba-b0c1-09a1b576b40c",
+              "name": "Machine catalog created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"allocationType\": \"Static\",\n  \"provisioningType\": \"Manual\",\n  \"sessionSupport\": \"MultiSession\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allocationType\": \"Static\",\n  \"provisioningType\": \"Manual\",\n  \"sessionSupport\": \"SingleSession\",\n  \"machineCount\": \"<integer>\",\n  \"zone\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-3263f8de-9d9d-49ba-b0c1-09a1b576b40c"
+            },
+            {
+              "id": "6a786376-2b94-4b87-8ff8-8a879610abc7",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"allocationType\": \"Static\",\n  \"provisioningType\": \"Manual\",\n  \"sessionSupport\": \"MultiSession\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-6a786376-2b94-4b87-8ff8-8a879610abc7"
+            },
+            {
+              "id": "7a565da3-cb38-4e68-bac2-3743f94b916b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"allocationType\": \"Static\",\n  \"provisioningType\": \"Manual\",\n  \"sessionSupport\": \"MultiSession\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/MachineCatalogs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "MachineCatalogs"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:22.000Z",
+              "updatedAt": "2026-07-28T01:22:22.000Z",
+              "uid": "35240-7a565da3-cb38-4e68-bac2-3743f94b916b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:22:22.000Z",
+          "updatedAt": "2026-07-28T01:22:22.000Z",
+          "uid": "35240-cac7de67-845b-4369-8a82-5b12412487aa"
+        }
+      ],
+      "id": "08519cf7-a738-4d27-899e-4f316e79f908",
+      "createdAt": "2026-07-28T01:22:22.000Z",
+      "updatedAt": "2026-07-28T01:22:22.000Z",
+      "uid": "35240-08519cf7-a738-4d27-899e-4f316e79f908"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

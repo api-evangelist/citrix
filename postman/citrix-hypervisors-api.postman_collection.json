@@ -1,0 +1,189 @@
+{
+  "info": {
+    "_postman_id": "c96cfcf5-41ff-420f-bb37-274abef21a1c",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Hypervisors API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:19.000Z",
+    "updatedAt": "2026-07-28T01:22:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c96cfcf5-41ff-420f-bb37-274abef21a1c"
+  },
+  "item": [
+    {
+      "name": "Hypervisors",
+      "item": [
+        {
+          "name": "Citrix List hypervisor connections",
+          "id": "aa0cf8b5-404a-4e4b-b3f5-d71835624450",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Hypervisors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Hypervisors"
+              ]
+            },
+            "description": "Retrieve all hypervisor connections configured within the customer site."
+          },
+          "response": [
+            {
+              "id": "ab0559d0-a7e6-4e77-ad0b-0be52cf6cae4",
+              "name": "List of hypervisor connections",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Hypervisors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Hypervisors"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"connectionType\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"connectionType\": \"<string>\",\n      \"state\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:22:20.000Z",
+              "updatedAt": "2026-07-28T01:22:20.000Z",
+              "uid": "35240-ab0559d0-a7e6-4e77-ad0b-0be52cf6cae4"
+            },
+            {
+              "id": "064dd672-9d54-4a33-8154-5388f35d7cb9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Hypervisors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Hypervisors"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:20.000Z",
+              "updatedAt": "2026-07-28T01:22:20.000Z",
+              "uid": "35240-064dd672-9d54-4a33-8154-5388f35d7cb9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:22:20.000Z",
+          "updatedAt": "2026-07-28T01:22:20.000Z",
+          "uid": "35240-aa0cf8b5-404a-4e4b-b3f5-d71835624450"
+        }
+      ],
+      "id": "0c8fb4cd-ef53-4e26-aaf6-0fe2bded251f",
+      "createdAt": "2026-07-28T01:22:20.000Z",
+      "updatedAt": "2026-07-28T01:22:20.000Z",
+      "uid": "35240-0c8fb4cd-ef53-4e26-aaf6-0fe2bded251f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

@@ -1,0 +1,604 @@
+{
+  "info": {
+    "_postman_id": "3b7c05ba-9e29-443d-9bdc-ba99e6b73e76",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Application Domains API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:21:57.000Z",
+    "updatedAt": "2026-07-28T01:21:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3b7c05ba-9e29-443d-9bdc-ba99e6b73e76"
+  },
+  "item": [
+    {
+      "name": "application",
+      "item": [
+        {
+          "name": "{applicationId}",
+          "item": [
+            {
+              "name": "domain",
+              "item": [
+                {
+                  "name": "{encodedURL}",
+                  "item": [
+                    {
+                      "name": "Citrix Get domain certificate for an application",
+                      "id": "be924255-d328-4623-a9fd-1e86e84757e0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application",
+                            ":applicationId",
+                            "domain",
+                            ":encodedURL"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e5f2cc48-6660-40d6-9f8e-12c15b93a14d",
+                              "key": "applicationId",
+                              "value": "<uuid>",
+                              "description": "(Required) Application unique identifier"
+                            },
+                            {
+                              "id": "959722dc-b3d3-44ff-a355-f420ff37b789",
+                              "key": "encodedURL",
+                              "value": "<string>",
+                              "description": "(Required) URL-encoded domain name"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the certificate associated with a specific application domain."
+                      },
+                      "response": [
+                        {
+                          "id": "f00ca6f4-3fef-452b-9b6d-218dfe8a175a",
+                          "name": "Certificate details for the domain",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Citrix Cloud customer ID",
+                                "key": "Citrix-CustomerId",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "application",
+                                ":applicationId",
+                                "domain",
+                                ":encodedURL"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "applicationId"
+                                },
+                                {
+                                  "key": "encodedURL"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"expirationDate\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:21:58.000Z",
+                          "updatedAt": "2026-07-28T01:21:58.000Z",
+                          "uid": "35240-f00ca6f4-3fef-452b-9b6d-218dfe8a175a"
+                        },
+                        {
+                          "id": "2097bd0e-abed-4c61-85bd-fe9dbb2e1adb",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Citrix Cloud customer ID",
+                                "key": "Citrix-CustomerId",
+                                "value": "<string>"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "application",
+                                ":applicationId",
+                                "domain",
+                                ":encodedURL"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "applicationId"
+                                },
+                                {
+                                  "key": "encodedURL"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:21:58.000Z",
+                          "updatedAt": "2026-07-28T01:21:58.000Z",
+                          "uid": "35240-2097bd0e-abed-4c61-85bd-fe9dbb2e1adb"
+                        },
+                        {
+                          "id": "d747cae8-cfb4-4c8e-bddb-e9538105b307",
+                          "name": "Domain or certificate not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Citrix Cloud customer ID",
+                                "key": "Citrix-CustomerId",
+                                "value": "<string>"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "application",
+                                ":applicationId",
+                                "domain",
+                                ":encodedURL"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "applicationId"
+                                },
+                                {
+                                  "key": "encodedURL"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:21:58.000Z",
+                          "updatedAt": "2026-07-28T01:21:58.000Z",
+                          "uid": "35240-d747cae8-cfb4-4c8e-bddb-e9538105b307"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:21:58.000Z",
+                      "updatedAt": "2026-07-28T01:21:58.000Z",
+                      "uid": "35240-be924255-d328-4623-a9fd-1e86e84757e0"
+                    },
+                    {
+                      "name": "Citrix Associate certificate with application domain",
+                      "id": "c6e4a92c-5328-4230-b0aa-972994356d4f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "(Required) Citrix Cloud customer ID",
+                            "key": "Citrix-CustomerId",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"certificateId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application",
+                            ":applicationId",
+                            "domain",
+                            ":encodedURL"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c41d20ff-4330-4aae-b322-e5e0078654d5",
+                              "key": "applicationId",
+                              "value": "<uuid>",
+                              "description": "(Required) Application unique identifier"
+                            },
+                            {
+                              "id": "6aa4ebec-4a58-4f4d-839f-ead6d212e572",
+                              "key": "encodedURL",
+                              "value": "<string>",
+                              "description": "(Required) URL-encoded domain name"
+                            }
+                          ]
+                        },
+                        "description": "Associate an SSL certificate with a specific application domain."
+                      },
+                      "response": [
+                        {
+                          "id": "28d667cc-56c3-4735-a1ed-66c1fd9de3cd",
+                          "name": "Certificate associated",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "(Required) Citrix Cloud customer ID",
+                                "key": "Citrix-CustomerId",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"certificateId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "application",
+                                ":applicationId",
+                                "domain",
+                                ":encodedURL"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "applicationId"
+                                },
+                                {
+                                  "key": "encodedURL"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:21:58.000Z",
+                          "updatedAt": "2026-07-28T01:21:58.000Z",
+                          "uid": "35240-28d667cc-56c3-4735-a1ed-66c1fd9de3cd"
+                        },
+                        {
+                          "id": "c5cc24c8-d9d5-4cfa-9e9a-a1aeb5a4379b",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "(Required) Citrix Cloud customer ID",
+                                "key": "Citrix-CustomerId",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"certificateId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "application",
+                                ":applicationId",
+                                "domain",
+                                ":encodedURL"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "applicationId"
+                                },
+                                {
+                                  "key": "encodedURL"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:21:58.000Z",
+                          "updatedAt": "2026-07-28T01:21:58.000Z",
+                          "uid": "35240-c5cc24c8-d9d5-4cfa-9e9a-a1aeb5a4379b"
+                        },
+                        {
+                          "id": "04918b08-c331-471a-9490-2d5efa404dcd",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "(Required) Citrix Cloud customer ID",
+                                "key": "Citrix-CustomerId",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"certificateId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "application",
+                                ":applicationId",
+                                "domain",
+                                ":encodedURL"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "applicationId"
+                                },
+                                {
+                                  "key": "encodedURL"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:21:58.000Z",
+                          "updatedAt": "2026-07-28T01:21:58.000Z",
+                          "uid": "35240-04918b08-c331-471a-9490-2d5efa404dcd"
+                        },
+                        {
+                          "id": "6da30025-c3e6-4d7e-ae4d-6bb2bf5d24d9",
+                          "name": "Application or domain not found",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "(Required) Citrix Cloud customer ID",
+                                "key": "Citrix-CustomerId",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"certificateId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/application/:applicationId/domain/:encodedURL",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "application",
+                                ":applicationId",
+                                "domain",
+                                ":encodedURL"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "applicationId"
+                                },
+                                {
+                                  "key": "encodedURL"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:21:58.000Z",
+                          "updatedAt": "2026-07-28T01:21:58.000Z",
+                          "uid": "35240-6da30025-c3e6-4d7e-ae4d-6bb2bf5d24d9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:21:58.000Z",
+                      "updatedAt": "2026-07-28T01:21:58.000Z",
+                      "uid": "35240-c6e4a92c-5328-4230-b0aa-972994356d4f"
+                    }
+                  ],
+                  "id": "803b8402-0b60-4575-9ea4-e6360bca1279",
+                  "createdAt": "2026-07-28T01:21:58.000Z",
+                  "updatedAt": "2026-07-28T01:21:58.000Z",
+                  "uid": "35240-803b8402-0b60-4575-9ea4-e6360bca1279"
+                }
+              ],
+              "id": "1abd7414-154b-473c-8436-013c442d3cec",
+              "createdAt": "2026-07-28T01:21:58.000Z",
+              "updatedAt": "2026-07-28T01:21:58.000Z",
+              "uid": "35240-1abd7414-154b-473c-8436-013c442d3cec"
+            }
+          ],
+          "id": "f3f3c589-ba90-48db-8259-27ea61223290",
+          "createdAt": "2026-07-28T01:21:58.000Z",
+          "updatedAt": "2026-07-28T01:21:58.000Z",
+          "uid": "35240-f3f3c589-ba90-48db-8259-27ea61223290"
+        }
+      ],
+      "id": "7278180c-c9d5-45d4-a1dd-01384bb00f29",
+      "createdAt": "2026-07-28T01:21:58.000Z",
+      "updatedAt": "2026-07-28T01:21:58.000Z",
+      "uid": "35240-7278180c-c9d5-45d4-a1dd-01384bb00f29"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

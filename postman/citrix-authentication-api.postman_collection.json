@@ -1,0 +1,1053 @@
+{
+  "info": {
+    "_postman_id": "e96fe950-53eb-4be2-a7ff-6af23ac2e948",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Authentication API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:21:59.000Z",
+    "updatedAt": "2026-07-28T01:21:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e96fe950-53eb-4be2-a7ff-6af23ac2e948"
+  },
+  "item": [
+    {
+      "name": "config",
+      "item": [
+        {
+          "name": "login",
+          "item": [
+            {
+              "name": "Citrix Log in to NITRO",
+              "id": "76fa6bc7-6dc9-414f-a9f1-b43a3d9ba6b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"login\": {\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/config/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "config",
+                    "login"
+                  ]
+                },
+                "description": "Authenticate to the NITRO API and receive a session cookie for subsequent requests."
+              },
+              "response": [
+                {
+                  "id": "806bd25d-511e-4a9e-b083-4c8a34a08966",
+                  "name": "Login successful",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"login\": {\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/config/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "config",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errorcode\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"sessionid\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-806bd25d-511e-4a9e-b083-4c8a34a08966"
+                },
+                {
+                  "id": "9bfa1c73-e9ec-4eaa-9685-64fca01703bd",
+                  "name": "Authentication failed",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"login\": {\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/config/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "config",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-9bfa1c73-e9ec-4eaa-9685-64fca01703bd"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:00.000Z",
+              "updatedAt": "2026-07-28T01:22:00.000Z",
+              "uid": "35240-76fa6bc7-6dc9-414f-a9f1-b43a3d9ba6b2"
+            }
+          ],
+          "id": "3599bdbe-246d-45ea-9291-3869e4e4626f",
+          "createdAt": "2026-07-28T01:22:00.000Z",
+          "updatedAt": "2026-07-28T01:22:00.000Z",
+          "uid": "35240-3599bdbe-246d-45ea-9291-3869e4e4626f"
+        }
+      ],
+      "id": "f08ec091-a11b-4cd2-81e6-e67606dd73e5",
+      "createdAt": "2026-07-28T01:22:00.000Z",
+      "updatedAt": "2026-07-28T01:22:00.000Z",
+      "uid": "35240-f08ec091-a11b-4cd2-81e6-e67606dd73e5"
+    },
+    {
+      "name": "cctrustoauth2",
+      "item": [
+        {
+          "name": "{customerId}",
+          "item": [
+            {
+              "name": "tokens",
+              "item": [
+                {
+                  "name": "clients",
+                  "item": [
+                    {
+                      "name": "Citrix Obtain access token",
+                      "id": "d5ed7edf-bf67-4287-a431-ce765ebffc66",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) OAuth 2.0 grant type",
+                              "key": "grant_type",
+                              "value": "client_credentials"
+                            },
+                            {
+                              "description": "(Required) Service principal client ID",
+                              "key": "client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Service principal client secret",
+                              "key": "client_secret",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cctrustoauth2/:customerId/tokens/clients",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cctrustoauth2",
+                            ":customerId",
+                            "tokens",
+                            "clients"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d2681acd-383c-46da-a841-fdacbe430e0d",
+                              "key": "customerId",
+                              "value": "<string>",
+                              "description": "(Required) Citrix Cloud customer ID"
+                            }
+                          ]
+                        },
+                        "description": "Authenticate using OAuth 2.0 Client Credentials grant to obtain a bearer token for accessing Citrix Cloud APIs."
+                      },
+                      "response": [
+                        {
+                          "id": "513ec0a5-5350-4dae-a25c-b6667c14d39d",
+                          "name": "Access token returned successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) OAuth 2.0 grant type",
+                                  "key": "grant_type",
+                                  "value": "client_credentials"
+                                },
+                                {
+                                  "description": "(Required) Service principal client ID",
+                                  "key": "client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Service principal client secret",
+                                  "key": "client_secret",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/cctrustoauth2/:customerId/tokens/clients",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cctrustoauth2",
+                                ":customerId",
+                                "tokens",
+                                "clients"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "customerId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"token_type\": \"<string>\",\n  \"access_token\": \"<string>\",\n  \"expires_in\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:22:00.000Z",
+                          "updatedAt": "2026-07-28T01:22:00.000Z",
+                          "uid": "35240-513ec0a5-5350-4dae-a25c-b6667c14d39d"
+                        },
+                        {
+                          "id": "bbf8cb74-df09-4537-9a6c-d4b6c3b66d1b",
+                          "name": "Invalid credentials",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "NITRO_AUTH_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) OAuth 2.0 grant type",
+                                  "key": "grant_type",
+                                  "value": "client_credentials"
+                                },
+                                {
+                                  "description": "(Required) Service principal client ID",
+                                  "key": "client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Service principal client secret",
+                                  "key": "client_secret",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/cctrustoauth2/:customerId/tokens/clients",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cctrustoauth2",
+                                ":customerId",
+                                "tokens",
+                                "clients"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "customerId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:22:00.000Z",
+                          "updatedAt": "2026-07-28T01:22:00.000Z",
+                          "uid": "35240-bbf8cb74-df09-4537-9a6c-d4b6c3b66d1b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:22:00.000Z",
+                      "updatedAt": "2026-07-28T01:22:00.000Z",
+                      "uid": "35240-d5ed7edf-bf67-4287-a431-ce765ebffc66"
+                    }
+                  ],
+                  "id": "6e8ed2bd-90cd-4f0a-9ae0-945570452dba",
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-6e8ed2bd-90cd-4f0a-9ae0-945570452dba"
+                }
+              ],
+              "id": "088b2506-535e-4495-9c2c-8abca5f36606",
+              "createdAt": "2026-07-28T01:22:00.000Z",
+              "updatedAt": "2026-07-28T01:22:00.000Z",
+              "uid": "35240-088b2506-535e-4495-9c2c-8abca5f36606"
+            }
+          ],
+          "id": "a3a1b6c1-7f6a-46ed-886e-e9bd2027ab86",
+          "createdAt": "2026-07-28T01:22:00.000Z",
+          "updatedAt": "2026-07-28T01:22:00.000Z",
+          "uid": "35240-a3a1b6c1-7f6a-46ed-886e-e9bd2027ab86"
+        }
+      ],
+      "id": "49124015-3c1c-4ff0-973a-8a1a46eade9e",
+      "createdAt": "2026-07-28T01:22:00.000Z",
+      "updatedAt": "2026-07-28T01:22:00.000Z",
+      "uid": "35240-49124015-3c1c-4ff0-973a-8a1a46eade9e"
+    },
+    {
+      "name": "authentication",
+      "item": [
+        {
+          "name": "login",
+          "item": [
+            {
+              "name": "Citrix Authenticate to the API",
+              "id": "2dc42b11-f4ea-4eb3-b70b-b81dc755e94f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/authentication/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "authentication",
+                    "login"
+                  ]
+                },
+                "description": "Log in with administrator credentials to obtain an authentication token."
+              },
+              "response": [
+                {
+                  "id": "3df37d65-02d1-4b55-93ce-d78d7aeda53a",
+                  "name": "Authentication successful",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/authentication/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "authentication",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"auth_token\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-3df37d65-02d1-4b55-93ce-d78d7aeda53a"
+                },
+                {
+                  "id": "85d21b42-4bff-4bb0-920e-07b010c6323d",
+                  "name": "Authentication failed",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/authentication/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "authentication",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-85d21b42-4bff-4bb0-920e-07b010c6323d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:00.000Z",
+              "updatedAt": "2026-07-28T01:22:00.000Z",
+              "uid": "35240-2dc42b11-f4ea-4eb3-b70b-b81dc755e94f"
+            }
+          ],
+          "id": "03df1802-dd64-4269-b9f3-3738ce5a2836",
+          "createdAt": "2026-07-28T01:22:00.000Z",
+          "updatedAt": "2026-07-28T01:22:00.000Z",
+          "uid": "35240-03df1802-dd64-4269-b9f3-3738ce5a2836"
+        },
+        {
+          "name": "logout",
+          "item": [
+            {
+              "name": "Citrix Log out",
+              "id": "49d733f5-7b64-4ee6-bacd-12a92066f42c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/authentication/logout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "authentication",
+                    "logout"
+                  ]
+                },
+                "description": "Invalidate the current authentication token."
+              },
+              "response": [
+                {
+                  "id": "d5f485c5-13d4-4935-8de8-133e7809cf6d",
+                  "name": "Logout successful",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/authentication/logout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "authentication",
+                        "logout"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-d5f485c5-13d4-4935-8de8-133e7809cf6d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:00.000Z",
+              "updatedAt": "2026-07-28T01:22:00.000Z",
+              "uid": "35240-49d733f5-7b64-4ee6-bacd-12a92066f42c"
+            }
+          ],
+          "id": "e4c1ca9f-0f54-43df-ac86-a2ee4eb8dfdb",
+          "createdAt": "2026-07-28T01:22:00.000Z",
+          "updatedAt": "2026-07-28T01:22:00.000Z",
+          "uid": "35240-e4c1ca9f-0f54-43df-ac86-a2ee4eb8dfdb"
+        }
+      ],
+      "id": "35acb08d-c7ca-439f-9f0b-53db541007e3",
+      "createdAt": "2026-07-28T01:22:00.000Z",
+      "updatedAt": "2026-07-28T01:22:00.000Z",
+      "uid": "35240-35acb08d-c7ca-439f-9f0b-53db541007e3"
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "GetAuthMethods",
+          "item": [
+            {
+              "name": "Citrix Get authentication methods",
+              "id": "22f724d8-6270-4191-b7bd-bd358343afbc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Authentication/GetAuthMethods",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Authentication",
+                    "GetAuthMethods"
+                  ]
+                },
+                "description": "Retrieve available authentication methods for the StoreFront store."
+              },
+              "response": [
+                {
+                  "id": "a407ee4a-3ef4-42f2-955c-22a26857a581",
+                  "name": "Available authentication methods",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/xml"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Authentication/GetAuthMethods",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Authentication",
+                        "GetAuthMethods"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "xml",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/xml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-a407ee4a-3ef4-42f2-955c-22a26857a581"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:00.000Z",
+              "updatedAt": "2026-07-28T01:22:00.000Z",
+              "uid": "35240-22f724d8-6270-4191-b7bd-bd358343afbc"
+            }
+          ],
+          "id": "2dde4ce9-eb26-4ec0-bebe-7dffd0224556",
+          "createdAt": "2026-07-28T01:22:00.000Z",
+          "updatedAt": "2026-07-28T01:22:00.000Z",
+          "uid": "35240-2dde4ce9-eb26-4ec0-bebe-7dffd0224556"
+        }
+      ],
+      "id": "f3490d2d-d64e-4b5d-976a-8b815a2130f2",
+      "createdAt": "2026-07-28T01:22:00.000Z",
+      "updatedAt": "2026-07-28T01:22:00.000Z",
+      "uid": "35240-f3490d2d-d64e-4b5d-976a-8b815a2130f2"
+    },
+    {
+      "name": "ExplicitAuth",
+      "item": [
+        {
+          "name": "Login",
+          "item": [
+            {
+              "name": "Citrix Log in with explicit credentials",
+              "id": "43436937-4603-4669-b0ab-a432946b9f81",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Username for authentication",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Password for authentication",
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Domain name",
+                      "key": "domain",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ExplicitAuth/Login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ExplicitAuth",
+                    "Login"
+                  ]
+                },
+                "description": "Authenticate using explicit username and password credentials."
+              },
+              "response": [
+                {
+                  "id": "eca652a4-20d3-44c8-9019-46832a917a9c",
+                  "name": "Login successful with session cookies set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Username for authentication",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Password for authentication",
+                          "key": "password",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Domain name",
+                          "key": "domain",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ExplicitAuth/Login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ExplicitAuth",
+                        "Login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-eca652a4-20d3-44c8-9019-46832a917a9c"
+                },
+                {
+                  "id": "81008e2d-b56b-4c46-80bd-43a6df856ecf",
+                  "name": "Authentication failed",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Username for authentication",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Password for authentication",
+                          "key": "password",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Domain name",
+                          "key": "domain",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ExplicitAuth/Login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ExplicitAuth",
+                        "Login"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-81008e2d-b56b-4c46-80bd-43a6df856ecf"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:00.000Z",
+              "updatedAt": "2026-07-28T01:22:00.000Z",
+              "uid": "35240-43436937-4603-4669-b0ab-a432946b9f81"
+            }
+          ],
+          "id": "9bbe67d1-63ed-46d9-8713-3896bf41089d",
+          "createdAt": "2026-07-28T01:22:00.000Z",
+          "updatedAt": "2026-07-28T01:22:00.000Z",
+          "uid": "35240-9bbe67d1-63ed-46d9-8713-3896bf41089d"
+        },
+        {
+          "name": "Logout",
+          "item": [
+            {
+              "name": "Citrix Log out",
+              "id": "d4e7e431-4eff-452f-a4f4-6c4d5bbff740",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ExplicitAuth/Logout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ExplicitAuth",
+                    "Logout"
+                  ]
+                },
+                "description": "End the current authenticated session."
+              },
+              "response": [
+                {
+                  "id": "35643541-9c4a-44f0-b974-6a6039595aa8",
+                  "name": "Logout successful",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ExplicitAuth/Logout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ExplicitAuth",
+                        "Logout"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:00.000Z",
+                  "updatedAt": "2026-07-28T01:22:00.000Z",
+                  "uid": "35240-35643541-9c4a-44f0-b974-6a6039595aa8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:00.000Z",
+              "updatedAt": "2026-07-28T01:22:00.000Z",
+              "uid": "35240-d4e7e431-4eff-452f-a4f4-6c4d5bbff740"
+            }
+          ],
+          "id": "bf35db2c-ee49-4566-a525-bae9f344cb16",
+          "createdAt": "2026-07-28T01:22:00.000Z",
+          "updatedAt": "2026-07-28T01:22:00.000Z",
+          "uid": "35240-bf35db2c-ee49-4566-a525-bae9f344cb16"
+        }
+      ],
+      "id": "b89576cd-8ed6-4dc5-bc7f-c77d6d9c699d",
+      "createdAt": "2026-07-28T01:22:00.000Z",
+      "updatedAt": "2026-07-28T01:22:00.000Z",
+      "uid": "35240-b89576cd-8ed6-4dc5-bc7f-c77d6d9c699d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

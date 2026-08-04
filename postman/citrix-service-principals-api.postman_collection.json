@@ -1,0 +1,757 @@
+{
+  "info": {
+    "_postman_id": "4220d978-f082-4429-b061-8659a9f0b831",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Service Principals API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:27.000Z",
+    "updatedAt": "2026-07-28T01:22:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4220d978-f082-4429-b061-8659a9f0b831"
+  },
+  "item": [
+    {
+      "name": "serviceprincipals",
+      "item": [
+        {
+          "name": "{principalId}",
+          "item": [
+            {
+              "name": "Citrix Get a service principal",
+              "id": "2ed4b1fa-eeb7-426b-b449-1c0e3c949df4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e6b0c48d-e810-46c6-8be1-1ae5653719bc",
+                      "key": "principalId",
+                      "value": "<string>",
+                      "description": "(Required) Service principal unique identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details of a specific service principal by ID."
+              },
+              "response": [
+                {
+                  "id": "0830b7dd-7158-4447-bc74-7d683b952739",
+                  "name": "Service principal details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "serviceprincipals",
+                        ":principalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "principalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:22:27.000Z",
+                  "updatedAt": "2026-07-28T01:22:27.000Z",
+                  "uid": "35240-0830b7dd-7158-4447-bc74-7d683b952739"
+                },
+                {
+                  "id": "5a6a0c21-7ee1-4dbe-aa29-6ebd490e2909",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "serviceprincipals",
+                        ":principalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "principalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:27.000Z",
+                  "updatedAt": "2026-07-28T01:22:27.000Z",
+                  "uid": "35240-5a6a0c21-7ee1-4dbe-aa29-6ebd490e2909"
+                },
+                {
+                  "id": "54701497-fbb5-4faf-8bea-fbe5857f4f57",
+                  "name": "Service principal not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "serviceprincipals",
+                        ":principalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "principalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:27.000Z",
+                  "updatedAt": "2026-07-28T01:22:27.000Z",
+                  "uid": "35240-54701497-fbb5-4faf-8bea-fbe5857f4f57"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:27.000Z",
+              "updatedAt": "2026-07-28T01:22:27.000Z",
+              "uid": "35240-2ed4b1fa-eeb7-426b-b449-1c0e3c949df4"
+            },
+            {
+              "name": "Citrix Delete a service principal",
+              "id": "518493da-5ef9-47b8-b38a-b30854d1d567",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a0fa2df0-d494-44ff-9aaf-3ffc7d11be38",
+                      "key": "principalId",
+                      "value": "<string>",
+                      "description": "(Required) Service principal unique identifier"
+                    }
+                  ]
+                },
+                "description": "Delete a service principal by ID."
+              },
+              "response": [
+                {
+                  "id": "ea8591d3-ba3a-46e7-9ef9-713d75ad90e2",
+                  "name": "Service principal deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "serviceprincipals",
+                        ":principalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "principalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:27.000Z",
+                  "updatedAt": "2026-07-28T01:22:27.000Z",
+                  "uid": "35240-ea8591d3-ba3a-46e7-9ef9-713d75ad90e2"
+                },
+                {
+                  "id": "417b201e-6f8e-4b23-8c3e-67ca19121791",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "serviceprincipals",
+                        ":principalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "principalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:27.000Z",
+                  "updatedAt": "2026-07-28T01:22:27.000Z",
+                  "uid": "35240-417b201e-6f8e-4b23-8c3e-67ca19121791"
+                },
+                {
+                  "id": "1976c9b7-1686-42e1-bdcf-bc551ac8dfeb",
+                  "name": "Service principal not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/serviceprincipals/:principalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "serviceprincipals",
+                        ":principalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "principalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:27.000Z",
+                  "updatedAt": "2026-07-28T01:22:27.000Z",
+                  "uid": "35240-1976c9b7-1686-42e1-bdcf-bc551ac8dfeb"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:27.000Z",
+              "updatedAt": "2026-07-28T01:22:27.000Z",
+              "uid": "35240-518493da-5ef9-47b8-b38a-b30854d1d567"
+            }
+          ],
+          "id": "2fd0445d-e64c-4c2e-93a4-574c35e606ec",
+          "createdAt": "2026-07-28T01:22:27.000Z",
+          "updatedAt": "2026-07-28T01:22:27.000Z",
+          "uid": "35240-2fd0445d-e64c-4c2e-93a4-574c35e606ec"
+        },
+        {
+          "name": "Citrix List service principals",
+          "id": "6580cdb2-ebca-4143-b454-8413c7df33bd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Citrix Cloud customer ID header",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/serviceprincipals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "serviceprincipals"
+              ]
+            },
+            "description": "Retrieve all service principals for the authenticated customer."
+          },
+          "response": [
+            {
+              "id": "edc63f6f-79f1-45a9-9aba-fc014b15b6bb",
+              "name": "List of service principals",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/serviceprincipals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "serviceprincipals"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:22:27.000Z",
+              "updatedAt": "2026-07-28T01:22:27.000Z",
+              "uid": "35240-edc63f6f-79f1-45a9-9aba-fc014b15b6bb"
+            },
+            {
+              "id": "7067f6ad-ed8f-47e9-8af7-006ca643b462",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/serviceprincipals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "serviceprincipals"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:27.000Z",
+              "updatedAt": "2026-07-28T01:22:27.000Z",
+              "uid": "35240-7067f6ad-ed8f-47e9-8af7-006ca643b462"
+            }
+          ],
+          "createdAt": "2026-07-28T01:22:27.000Z",
+          "updatedAt": "2026-07-28T01:22:27.000Z",
+          "uid": "35240-6580cdb2-ebca-4143-b454-8413c7df33bd"
+        },
+        {
+          "name": "Citrix Create a service principal",
+          "id": "a21ab35d-00e3-406f-9951-4fd8b478845b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) Citrix Cloud customer ID header",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/serviceprincipals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "serviceprincipals"
+              ]
+            },
+            "description": "Create a new service principal for API automation within the customer."
+          },
+          "response": [
+            {
+              "id": "ba996644-286a-475e-9acb-692404bc4e23",
+              "name": "Service principal created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/serviceprincipals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "serviceprincipals"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T01:22:27.000Z",
+              "updatedAt": "2026-07-28T01:22:27.000Z",
+              "uid": "35240-ba996644-286a-475e-9acb-692404bc4e23"
+            },
+            {
+              "id": "f156c3d3-f98f-4894-818d-8e899391d556",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/serviceprincipals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "serviceprincipals"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:27.000Z",
+              "updatedAt": "2026-07-28T01:22:27.000Z",
+              "uid": "35240-f156c3d3-f98f-4894-818d-8e899391d556"
+            },
+            {
+              "id": "073d63ce-26a6-44aa-aa33-86f04b9752f6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/serviceprincipals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "serviceprincipals"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:27.000Z",
+              "updatedAt": "2026-07-28T01:22:27.000Z",
+              "uid": "35240-073d63ce-26a6-44aa-aa33-86f04b9752f6"
+            }
+          ],
+          "createdAt": "2026-07-28T01:22:27.000Z",
+          "updatedAt": "2026-07-28T01:22:27.000Z",
+          "uid": "35240-a21ab35d-00e3-406f-9951-4fd8b478845b"
+        }
+      ],
+      "id": "40f4bddd-aff1-492b-a8b7-7dff54d7330c",
+      "createdAt": "2026-07-28T01:22:27.000Z",
+      "updatedAt": "2026-07-28T01:22:27.000Z",
+      "uid": "35240-40f4bddd-aff1-492b-a8b7-7dff54d7330c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

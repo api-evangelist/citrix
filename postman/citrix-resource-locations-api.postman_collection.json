@@ -1,0 +1,369 @@
+{
+  "info": {
+    "_postman_id": "a911935a-a82d-4815-9335-35170ee0f39b",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Resource Locations API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:25.000Z",
+    "updatedAt": "2026-07-28T01:22:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a911935a-a82d-4815-9335-35170ee0f39b"
+  },
+  "item": [
+    {
+      "name": "resourcelocations",
+      "item": [
+        {
+          "name": "{locationId}",
+          "item": [
+            {
+              "name": "Citrix Get a resource location",
+              "id": "d3204a85-0a98-4a8a-874b-2c3f798278a7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/resourcelocations/:locationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resourcelocations",
+                    ":locationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f2ba50d3-f709-42fd-86e1-4c1f60a500e6",
+                      "key": "locationId",
+                      "value": "<string>",
+                      "description": "(Required) Resource location unique identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details of a specific resource location by ID."
+              },
+              "response": [
+                {
+                  "id": "9a5fcbda-95e7-49c4-a959-097b11be5b81",
+                  "name": "Resource location details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resourcelocations/:locationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resourcelocations",
+                        ":locationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "locationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"internalOnly\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"readOnly\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T01:22:26.000Z",
+                  "updatedAt": "2026-07-28T01:22:26.000Z",
+                  "uid": "35240-9a5fcbda-95e7-49c4-a959-097b11be5b81"
+                },
+                {
+                  "id": "3365c571-b9e7-4cd0-9d4b-4e908ba089ad",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resourcelocations/:locationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resourcelocations",
+                        ":locationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "locationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:26.000Z",
+                  "updatedAt": "2026-07-28T01:22:26.000Z",
+                  "uid": "35240-3365c571-b9e7-4cd0-9d4b-4e908ba089ad"
+                },
+                {
+                  "id": "e818284a-ed74-47e3-b22f-e3c35741ffff",
+                  "name": "Resource location not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Citrix Cloud customer ID header",
+                        "key": "Citrix-CustomerId",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resourcelocations/:locationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resourcelocations",
+                        ":locationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "locationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:26.000Z",
+                  "updatedAt": "2026-07-28T01:22:26.000Z",
+                  "uid": "35240-e818284a-ed74-47e3-b22f-e3c35741ffff"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:26.000Z",
+              "updatedAt": "2026-07-28T01:22:26.000Z",
+              "uid": "35240-d3204a85-0a98-4a8a-874b-2c3f798278a7"
+            }
+          ],
+          "id": "4557a483-bf94-48e0-86f0-7a05c90ff311",
+          "createdAt": "2026-07-28T01:22:26.000Z",
+          "updatedAt": "2026-07-28T01:22:26.000Z",
+          "uid": "35240-4557a483-bf94-48e0-86f0-7a05c90ff311"
+        },
+        {
+          "name": "Citrix List resource locations",
+          "id": "a6577956-2d14-4114-9c6d-bcd4f2439325",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) Citrix Cloud customer ID header",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resourcelocations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "resourcelocations"
+              ]
+            },
+            "description": "Retrieve all resource locations configured for the customer."
+          },
+          "response": [
+            {
+              "id": "72ff4f82-3fec-4181-a4f9-10085664ae04",
+              "name": "List of resource locations",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/resourcelocations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resourcelocations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"internalOnly\": \"<boolean>\",\n      \"timeZone\": \"<string>\",\n      \"readOnly\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"internalOnly\": \"<boolean>\",\n      \"timeZone\": \"<string>\",\n      \"readOnly\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:22:26.000Z",
+              "updatedAt": "2026-07-28T01:22:26.000Z",
+              "uid": "35240-72ff4f82-3fec-4181-a4f9-10085664ae04"
+            },
+            {
+              "id": "215f8262-b7bc-4ac8-8dfa-a5a3c2eb20e8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/resourcelocations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resourcelocations"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:22:26.000Z",
+              "updatedAt": "2026-07-28T01:22:26.000Z",
+              "uid": "35240-215f8262-b7bc-4ac8-8dfa-a5a3c2eb20e8"
+            }
+          ],
+          "createdAt": "2026-07-28T01:22:26.000Z",
+          "updatedAt": "2026-07-28T01:22:26.000Z",
+          "uid": "35240-a6577956-2d14-4114-9c6d-bcd4f2439325"
+        }
+      ],
+      "id": "3e3c4ee6-280a-4188-bec8-411459c3a6d6",
+      "createdAt": "2026-07-28T01:22:26.000Z",
+      "updatedAt": "2026-07-28T01:22:26.000Z",
+      "uid": "35240-3e3c4ee6-280a-4188-bec8-411459c3a6d6"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

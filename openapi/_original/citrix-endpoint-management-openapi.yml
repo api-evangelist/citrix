@@ -1,0 +1,455 @@
+openapi: 3.1.0
+info:
+  title: Citrix Endpoint Management REST API
+  description: >-
+    REST API for managing mobile devices, applications, and policies in Citrix
+    Endpoint Management (formerly XenMobile), enabling integration with
+    external systems for device lifecycle management and compliance.
+  version: '1.0'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+externalDocs:
+  description: Citrix Endpoint Management REST APIs
+  url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html
+servers:
+  - url: https://{xms-server}:4443/xenmobile/api/v1
+    description: Citrix Endpoint Management Server
+    variables:
+      xms-server:
+        default: xms.example.com
+        description: XenMobile server hostname
+tags:
+  - name: Applications
+    description: Application management and deployment
+  - name: Authentication
+    description: Login and token management
+  - name: Delivery Groups
+    description: Delivery group management
+  - name: Devices
+    description: Device enrollment and lifecycle management
+  - name: Policies
+    description: Device and app policy management
+  - name: Users
+    description: User and group management
+security:
+  - authToken: []
+paths:
+  /authentication/login:
+    post:
+      operationId: login
+      summary: Citrix Authenticate to the API
+      description: >-
+        Log in with administrator credentials to obtain an authentication token.
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - login
+                - password
+              properties:
+                login:
+                  type: string
+                  description: Administrator username
+                password:
+                  type: string
+                  description: Administrator password
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  auth_token:
+                    type: string
+                    description: Authentication token for subsequent requests
+        '401':
+          description: Authentication failed
+      security: []
+  /authentication/logout:
+    post:
+      operationId: logout
+      summary: Citrix Log out
+      description: >-
+        Invalidate the current authentication token.
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: Logout successful
+  /device/filter:
+    post:
+      operationId: filterDevices
+      summary: Citrix Filter devices
+      description: >-
+        Search and filter enrolled devices based on criteria.
+      tags:
+        - Devices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceFilterRequest'
+      responses:
+        '200':
+          description: Filtered device list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filteredDevicesDataList:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Device'
+        '401':
+          description: Unauthorized
+  /device/{deviceId}:
+    get:
+      operationId: getDevice
+      summary: Citrix Get device details
+      description: >-
+        Retrieve detailed information about a specific enrolled device.
+      tags:
+        - Devices
+      parameters:
+        - name: deviceId
+          in: path
+          required: true
+          description: Device unique identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Device details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Device not found
+  /device/wipe:
+    post:
+      operationId: wipeDevice
+      summary: Citrix Wipe a device
+      description: >-
+        Issue a full wipe command to a managed device.
+      tags:
+        - Devices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - deviceId
+              properties:
+                deviceId:
+                  type: string
+                  description: Device ID to wipe
+      responses:
+        '200':
+          description: Wipe command sent
+        '401':
+          description: Unauthorized
+        '404':
+          description: Device not found
+  /device/selectivewipe:
+    post:
+      operationId: selectiveWipeDevice
+      summary: Citrix Selective wipe a device
+      description: >-
+        Issue a selective wipe to remove only corporate data from a device.
+      tags:
+        - Devices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - deviceId
+              properties:
+                deviceId:
+                  type: string
+                  description: Device ID for selective wipe
+      responses:
+        '200':
+          description: Selective wipe command sent
+        '401':
+          description: Unauthorized
+        '404':
+          description: Device not found
+  /application/filter:
+    post:
+      operationId: filterApplications
+      summary: Citrix Filter applications
+      description: >-
+        Search and filter managed applications.
+      tags:
+        - Applications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationFilterRequest'
+      responses:
+        '200':
+          description: Filtered application list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applicationListData:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+  /device/policy/deploy:
+    post:
+      operationId: deployPolicy
+      summary: Citrix Deploy policies to devices
+      description: >-
+        Deploy device or application policies to specified devices.
+      tags:
+        - Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - deviceIds
+              properties:
+                deviceIds:
+                  type: array
+                  items:
+                    type: string
+                  description: List of device IDs to receive the policy
+      responses:
+        '200':
+          description: Policy deployment initiated
+        '401':
+          description: Unauthorized
+  /user/filter:
+    post:
+      operationId: filterUsers
+      summary: Citrix Filter users
+      description: >-
+        Search and filter users and groups.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserFilterRequest'
+      responses:
+        '200':
+          description: Filtered user list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userListData:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+  /deliverygroup/filter:
+    post:
+      operationId: filterDeliveryGroups
+      summary: Citrix Filter delivery groups
+      description: >-
+        Search and filter delivery groups.
+      tags:
+        - Delivery Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryGroupFilterRequest'
+      responses:
+        '200':
+          description: Filtered delivery group list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dgListData:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeliveryGroup'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    authToken:
+      type: apiKey
+      in: header
+      name: auth_token
+      description: Authentication token from login endpoint
+  schemas:
+    DeviceFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+        sortOrder:
+          type: string
+          enum:
+            - ASC
+            - DESC
+          description: Sort order
+        search:
+          type: string
+          description: Search text
+    Device:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Device unique identifier
+        serialNumber:
+          type: string
+          description: Device serial number
+        deviceModel:
+          type: string
+          description: Device model name
+        platform:
+          type: string
+          enum:
+            - iOS
+            - Android
+            - Windows
+            - macOS
+          description: Device platform
+        osVersion:
+          type: string
+          description: Operating system version
+        lastAccess:
+          type: string
+          format: date-time
+          description: Last access timestamp
+        userName:
+          type: string
+          description: Enrolled user name
+        jailbroken:
+          type: boolean
+          description: Whether the device is jailbroken or rooted
+        managed:
+          type: boolean
+          description: Whether the device is managed
+        compliant:
+          type: boolean
+          description: Whether the device is compliant with policies
+    ApplicationFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Application unique identifier
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        appType:
+          type: string
+          description: Application type
+        platform:
+          type: string
+          description: Target platform
+        disabled:
+          type: boolean
+          description: Whether the application is disabled
+    UserFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+        search:
+          type: string
+          description: Search text
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: User unique identifier
+        userName:
+          type: string
+          description: Username
+        displayName:
+          type: string
+          description: Display name
+        email:
+          type: string
+          description: Email address
+        domain:
+          type: string
+          description: Active Directory domain
+    DeliveryGroupFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+    DeliveryGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Delivery group unique identifier
+        name:
+          type: string
+          description: Delivery group name
+        description:
+          type: string
+          description: Description
+        disabled:
+          type: boolean
+          description: Whether the delivery group is disabled

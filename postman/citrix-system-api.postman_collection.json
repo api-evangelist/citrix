@@ -1,0 +1,230 @@
+{
+  "info": {
+    "_postman_id": "d14f0c5f-3d09-4950-9500-3977fa9435a6",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies System API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:30.000Z",
+    "updatedAt": "2026-07-28T01:22:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d14f0c5f-3d09-4950-9500-3977fa9435a6"
+  },
+  "item": [
+    {
+      "name": "stat",
+      "item": [
+        {
+          "name": "ns",
+          "item": [
+            {
+              "name": "Citrix Get system statistics",
+              "id": "313806ef-8e8e-4871-85f0-f66c52deffb6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/stat/ns",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "stat",
+                    "ns"
+                  ]
+                },
+                "description": "Retrieve system-level statistics including CPU, memory, and throughput."
+              },
+              "response": [
+                {
+                  "id": "6cdb6a5e-1eff-4749-84d7-b9f89edfd24d",
+                  "name": "System statistics",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/stat/ns",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "stat",
+                        "ns"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"ns\": {\n    \"cpuusagepcnt\": \"<number>\",\n    \"memusagepcnt\": \"<number>\",\n    \"mgmtcpuusagepcnt\": \"<number>\",\n    \"pktcpuusagepcnt\": \"<number>\",\n    \"disk0perusage\": \"<number>\",\n    \"disk1perusage\": \"<number>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:22:30.000Z",
+                  "updatedAt": "2026-07-28T01:22:30.000Z",
+                  "uid": "35240-6cdb6a5e-1eff-4749-84d7-b9f89edfd24d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:30.000Z",
+              "updatedAt": "2026-07-28T01:22:30.000Z",
+              "uid": "35240-313806ef-8e8e-4871-85f0-f66c52deffb6"
+            }
+          ],
+          "id": "9187221f-ed67-49ed-95e5-467194591fcf",
+          "createdAt": "2026-07-28T01:22:30.000Z",
+          "updatedAt": "2026-07-28T01:22:30.000Z",
+          "uid": "35240-9187221f-ed67-49ed-95e5-467194591fcf"
+        }
+      ],
+      "id": "15e61229-f10d-4ef0-9176-b3ce91ee5542",
+      "createdAt": "2026-07-28T01:22:30.000Z",
+      "updatedAt": "2026-07-28T01:22:30.000Z",
+      "uid": "35240-15e61229-f10d-4ef0-9176-b3ce91ee5542"
+    },
+    {
+      "name": "config",
+      "item": [
+        {
+          "name": "nsconfig",
+          "item": [
+            {
+              "name": "Citrix Get system configuration",
+              "id": "364cb8f0-eb4a-49fc-a74a-20bf64b3065d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/config/nsconfig",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "config",
+                    "nsconfig"
+                  ]
+                },
+                "description": "Retrieve the current NetScaler system configuration."
+              },
+              "response": [
+                {
+                  "id": "650c3891-f987-486e-9779-60fb8c411dc9",
+                  "name": "System configuration",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/config/nsconfig",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "config",
+                        "nsconfig"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"nsconfig\": {\n    \"ipaddress\": \"<string>\",\n    \"netmask\": \"<string>\",\n    \"systemtype\": \"<string>\",\n    \"primaryip\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:22:30.000Z",
+                  "updatedAt": "2026-07-28T01:22:30.000Z",
+                  "uid": "35240-650c3891-f987-486e-9779-60fb8c411dc9"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:30.000Z",
+              "updatedAt": "2026-07-28T01:22:30.000Z",
+              "uid": "35240-364cb8f0-eb4a-49fc-a74a-20bf64b3065d"
+            }
+          ],
+          "id": "b2b1a7fc-a46e-4390-b5fb-2b1ef9798d6b",
+          "createdAt": "2026-07-28T01:22:30.000Z",
+          "updatedAt": "2026-07-28T01:22:30.000Z",
+          "uid": "35240-b2b1a7fc-a46e-4390-b5fb-2b1ef9798d6b"
+        }
+      ],
+      "id": "ebedffdf-9b2a-4d70-a7b0-f6f89d66958e",
+      "createdAt": "2026-07-28T01:22:30.000Z",
+      "updatedAt": "2026-07-28T01:22:30.000Z",
+      "uid": "35240-ebedffdf-9b2a-4d70-a7b0-f6f89d66958e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

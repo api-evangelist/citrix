@@ -1,0 +1,438 @@
+{
+  "info": {
+    "_postman_id": "f8f10e67-7eac-4cf7-82d5-8b75e0ee9d83",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Launch API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:20.000Z",
+    "updatedAt": "2026-07-28T01:22:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f8f10e67-7eac-4cf7-82d5-8b75e0ee9d83"
+  },
+  "item": [
+    {
+      "name": "Resources",
+      "item": [
+        {
+          "name": "GetLaunchStatus",
+          "item": [
+            {
+              "name": "{resourceId}",
+              "item": [
+                {
+                  "name": "Citrix Get launch status",
+                  "id": "346813fd-b2e3-4012-94dc-d00036ff4a20",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Resources/GetLaunchStatus/:resourceId?CsrfToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Resources",
+                        "GetLaunchStatus",
+                        ":resourceId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) CSRF token as query parameter for GET requests",
+                          "key": "CsrfToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "cbb18bdf-0627-4db1-9f99-8bdb36a08f78",
+                          "key": "resourceId",
+                          "value": "<string>",
+                          "description": "(Required) Resource identifier to check"
+                        }
+                      ]
+                    },
+                    "description": "Check if a resource is ready to launch. If not ready, returns a retry interval."
+                  },
+                  "response": [
+                    {
+                      "id": "f5221dda-b767-468f-8670-11e3bdd60e5e",
+                      "name": "Launch status",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Resources/GetLaunchStatus/:resourceId?CsrfToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Resources",
+                            "GetLaunchStatus",
+                            ":resourceId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) CSRF token as query parameter for GET requests",
+                              "key": "CsrfToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "resourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"notReady\",\n  \"pollTimeout\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T01:22:20.000Z",
+                      "updatedAt": "2026-07-28T01:22:20.000Z",
+                      "uid": "35240-f5221dda-b767-468f-8670-11e3bdd60e5e"
+                    },
+                    {
+                      "id": "14ee6a1e-d97c-4ec9-848a-58367914f2c4",
+                      "name": "Not authenticated",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Resources/GetLaunchStatus/:resourceId?CsrfToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Resources",
+                            "GetLaunchStatus",
+                            ":resourceId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) CSRF token as query parameter for GET requests",
+                              "key": "CsrfToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "resourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:20.000Z",
+                      "updatedAt": "2026-07-28T01:22:20.000Z",
+                      "uid": "35240-14ee6a1e-d97c-4ec9-848a-58367914f2c4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:22:20.000Z",
+                  "updatedAt": "2026-07-28T01:22:20.000Z",
+                  "uid": "35240-346813fd-b2e3-4012-94dc-d00036ff4a20"
+                }
+              ],
+              "id": "cc85b339-1a28-46c5-a8a4-9402bbd4173e",
+              "createdAt": "2026-07-28T01:22:20.000Z",
+              "updatedAt": "2026-07-28T01:22:20.000Z",
+              "uid": "35240-cc85b339-1a28-46c5-a8a4-9402bbd4173e"
+            }
+          ],
+          "id": "fdc8e696-068b-474f-9091-af580ea9e554",
+          "createdAt": "2026-07-28T01:22:20.000Z",
+          "updatedAt": "2026-07-28T01:22:20.000Z",
+          "uid": "35240-fdc8e696-068b-474f-9091-af580ea9e554"
+        },
+        {
+          "name": "LaunchIca",
+          "item": [
+            {
+              "name": "{resourceId}",
+              "item": [
+                {
+                  "name": "Citrix Launch a resource",
+                  "id": "dfcc90b8-2649-41e0-8147-cd676d7cdb89",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/x-ica"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Resources/LaunchIca/:resourceId?CsrfToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Resources",
+                        "LaunchIca",
+                        ":resourceId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) CSRF token as query parameter for GET requests",
+                          "key": "CsrfToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "95a9768e-ebcf-492d-a0e3-8c97d260fd82",
+                          "key": "resourceId",
+                          "value": "<string>",
+                          "description": "(Required) Resource identifier to launch"
+                        }
+                      ]
+                    },
+                    "description": "Get an ICA file to launch a specific application or desktop resource."
+                  },
+                  "response": [
+                    {
+                      "id": "1c7749b0-e5ee-4035-be0a-9d4db8775804",
+                      "name": "ICA launch file",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/x-ica"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Resources/LaunchIca/:resourceId?CsrfToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Resources",
+                            "LaunchIca",
+                            ":resourceId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) CSRF token as query parameter for GET requests",
+                              "key": "CsrfToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "resourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/x-ica"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-07-28T01:22:20.000Z",
+                      "updatedAt": "2026-07-28T01:22:20.000Z",
+                      "uid": "35240-1c7749b0-e5ee-4035-be0a-9d4db8775804"
+                    },
+                    {
+                      "id": "d42ecc56-ac96-4fd5-ab5b-c56dd7146aac",
+                      "name": "Not authenticated",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Resources/LaunchIca/:resourceId?CsrfToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Resources",
+                            "LaunchIca",
+                            ":resourceId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) CSRF token as query parameter for GET requests",
+                              "key": "CsrfToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "resourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:20.000Z",
+                      "updatedAt": "2026-07-28T01:22:20.000Z",
+                      "uid": "35240-d42ecc56-ac96-4fd5-ab5b-c56dd7146aac"
+                    },
+                    {
+                      "id": "d36ff7ec-7bb7-47a0-8111-92e3c85d6dae",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "NITRO_AUTH_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Resources/LaunchIca/:resourceId?CsrfToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Resources",
+                            "LaunchIca",
+                            ":resourceId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) CSRF token as query parameter for GET requests",
+                              "key": "CsrfToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "resourceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:22:20.000Z",
+                      "updatedAt": "2026-07-28T01:22:20.000Z",
+                      "uid": "35240-d36ff7ec-7bb7-47a0-8111-92e3c85d6dae"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:22:20.000Z",
+                  "updatedAt": "2026-07-28T01:22:20.000Z",
+                  "uid": "35240-dfcc90b8-2649-41e0-8147-cd676d7cdb89"
+                }
+              ],
+              "id": "7faf18e4-04aa-48f2-9bf1-a201c6cd90e8",
+              "createdAt": "2026-07-28T01:22:20.000Z",
+              "updatedAt": "2026-07-28T01:22:20.000Z",
+              "uid": "35240-7faf18e4-04aa-48f2-9bf1-a201c6cd90e8"
+            }
+          ],
+          "id": "897bc2c1-68f0-4351-a39b-63c51e7435c3",
+          "createdAt": "2026-07-28T01:22:20.000Z",
+          "updatedAt": "2026-07-28T01:22:20.000Z",
+          "uid": "35240-897bc2c1-68f0-4351-a39b-63c51e7435c3"
+        }
+      ],
+      "id": "4aff9058-75dd-4598-8acb-929721692a48",
+      "createdAt": "2026-07-28T01:22:20.000Z",
+      "updatedAt": "2026-07-28T01:22:20.000Z",
+      "uid": "35240-4aff9058-75dd-4598-8acb-929721692a48"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

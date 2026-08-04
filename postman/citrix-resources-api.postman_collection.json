@@ -1,0 +1,243 @@
+{
+  "info": {
+    "_postman_id": "04eff5d9-4cac-42f6-8b56-d3525f0e0dcf",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Resources API",
+    "description": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:22:26.000Z",
+    "updatedAt": "2026-07-28T01:22:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-04eff5d9-4cac-42f6-8b56-d3525f0e0dcf"
+  },
+  "item": [
+    {
+      "name": "Resources",
+      "item": [
+        {
+          "name": "List",
+          "item": [
+            {
+              "name": "Citrix List available resources",
+              "id": "c14cd631-8007-410e-967a-9830c9a73a16",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) CSRF token read from the session cookie",
+                    "key": "Csrf-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "Response format",
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "description": "Level of detail in response",
+                      "key": "resourcesDetails",
+                      "value": "Full"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Resources/List",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Resources",
+                    "List"
+                  ]
+                },
+                "description": "Enumerate all applications and desktops available to the authenticated user."
+              },
+              "response": [
+                {
+                  "id": "aa2bcec5-8327-4bfa-bf1b-162dbea57db0",
+                  "name": "List of available resources",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Response format",
+                          "key": "format",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Level of detail in response",
+                          "key": "resourcesDetails",
+                          "value": "Full"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Resources/List",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Resources",
+                        "List"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"resources\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"Citrix.MPS.Desktop\",\n      \"iconurl\": \"<string>\",\n      \"launchurl\": \"<string>\",\n      \"launchstatusurl\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"Citrix.MPS.Application\",\n      \"iconurl\": \"<string>\",\n      \"launchurl\": \"<string>\",\n      \"launchstatusurl\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:22:26.000Z",
+                  "updatedAt": "2026-07-28T01:22:26.000Z",
+                  "uid": "35240-aa2bcec5-8327-4bfa-bf1b-162dbea57db0"
+                },
+                {
+                  "id": "08eb9d95-e654-41db-90f0-dfc80470c484",
+                  "name": "Not authenticated",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) CSRF token read from the session cookie",
+                        "key": "Csrf-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "NITRO_AUTH_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Response format",
+                          "key": "format",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Level of detail in response",
+                          "key": "resourcesDetails",
+                          "value": "Full"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Resources/List",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Resources",
+                        "List"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:22:26.000Z",
+                  "updatedAt": "2026-07-28T01:22:26.000Z",
+                  "uid": "35240-08eb9d95-e654-41db-90f0-dfc80470c484"
+                }
+              ],
+              "createdAt": "2026-07-28T01:22:26.000Z",
+              "updatedAt": "2026-07-28T01:22:26.000Z",
+              "uid": "35240-c14cd631-8007-410e-967a-9830c9a73a16"
+            }
+          ],
+          "id": "046b6b2b-9898-48b5-9397-57dd016f033b",
+          "createdAt": "2026-07-28T01:22:26.000Z",
+          "updatedAt": "2026-07-28T01:22:26.000Z",
+          "uid": "35240-046b6b2b-9898-48b5-9397-57dd016f033b"
+        }
+      ],
+      "id": "d8d59379-cba1-43c4-b268-271a5517894d",
+      "createdAt": "2026-07-28T01:22:26.000Z",
+      "updatedAt": "2026-07-28T01:22:26.000Z",
+      "uid": "35240-d8d59379-cba1-43c4-b268-271a5517894d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "netscaler-ip",
+      "value": "192.168.1.1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{netscaler-ip}}/nitro/v1"
+    }
+  ]
+}

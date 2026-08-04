@@ -1,0 +1,356 @@
+openapi: 3.1.0
+info:
+  title: Citrix StoreFront Web API
+  description: >-
+    HTTP API for building custom client applications that authenticate users,
+    enumerate available applications and desktops, manage HDX sessions, and
+    launch resources from Citrix StoreFront.
+  version: '1.0'
+  contact:
+    name: Citrix Support
+    url: https://support.citrix.com/
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+externalDocs:
+  description: StoreFront Web API Documentation
+  url: https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html
+servers:
+  - url: https://{storefront-server}/Citrix/Store
+    description: StoreFront Server
+    variables:
+      storefront-server:
+        default: storefront.example.com
+        description: StoreFront server hostname
+tags:
+  - name: Authentication
+    description: User authentication and session management
+  - name: Launch
+    description: Launch applications and desktops
+  - name: Resources
+    description: Enumerate available applications and desktops
+  - name: Sessions
+    description: Manage HDX session lifecycle
+security:
+  - csrfToken: []
+paths:
+  /Authentication/GetAuthMethods:
+    post:
+      operationId: getAuthMethods
+      summary: Citrix Get authentication methods
+      description: >-
+        Retrieve available authentication methods for the StoreFront store.
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: Available authentication methods
+          content:
+            application/xml:
+              schema:
+                type: string
+                description: XML document listing available auth methods
+      security: []
+  /ExplicitAuth/Login:
+    post:
+      operationId: explicitLogin
+      summary: Citrix Log in with explicit credentials
+      description: >-
+        Authenticate using explicit username and password credentials.
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                  description: Username for authentication
+                password:
+                  type: string
+                  description: Password for authentication
+                domain:
+                  type: string
+                  description: Domain name
+      responses:
+        '200':
+          description: Login successful with session cookies set
+        '401':
+          description: Authentication failed
+      security: []
+  /ExplicitAuth/Logout:
+    post:
+      operationId: explicitLogout
+      summary: Citrix Log out
+      description: >-
+        End the current authenticated session.
+      tags:
+        - Authentication
+      parameters:
+        - $ref: '#/components/parameters/CsrfToken'
+      responses:
+        '200':
+          description: Logout successful
+  /Resources/List:
+    post:
+      operationId: listResources
+      summary: Citrix List available resources
+      description: >-
+        Enumerate all applications and desktops available to the
+        authenticated user.
+      tags:
+        - Resources
+      parameters:
+        - $ref: '#/components/parameters/CsrfToken'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                format:
+                  type: string
+                  enum:
+                    - json
+                    - xml
+                  description: Response format
+                resourcesDetails:
+                  type: string
+                  enum:
+                    - Default
+                    - Full
+                  description: Level of detail in response
+      responses:
+        '200':
+          description: List of available resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcesResponse'
+        '401':
+          description: Not authenticated
+  /Sessions/List:
+    post:
+      operationId: listSessions
+      summary: Citrix List active sessions
+      description: >-
+        Retrieve all active HDX sessions for the authenticated user.
+      tags:
+        - Sessions
+      parameters:
+        - $ref: '#/components/parameters/CsrfToken'
+      responses:
+        '200':
+          description: List of active sessions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Session'
+        '401':
+          description: Not authenticated
+  /Sessions/Disconnect:
+    post:
+      operationId: disconnectSession
+      summary: Citrix Disconnect a session
+      description: >-
+        Disconnect an active HDX session without logging off.
+      tags:
+        - Sessions
+      parameters:
+        - $ref: '#/components/parameters/CsrfToken'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - sessionId
+              properties:
+                sessionId:
+                  type: string
+                  description: Session ID to disconnect
+      responses:
+        '200':
+          description: Session disconnected
+        '401':
+          description: Not authenticated
+        '404':
+          description: Session not found
+  /Sessions/Logoff:
+    post:
+      operationId: logoffSession
+      summary: Citrix Log off a session
+      description: >-
+        Log off an active HDX session.
+      tags:
+        - Sessions
+      parameters:
+        - $ref: '#/components/parameters/CsrfToken'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - sessionId
+              properties:
+                sessionId:
+                  type: string
+                  description: Session ID to log off
+      responses:
+        '200':
+          description: Session logged off
+        '401':
+          description: Not authenticated
+        '404':
+          description: Session not found
+  /Resources/GetLaunchStatus/{resourceId}:
+    get:
+      operationId: getLaunchStatus
+      summary: Citrix Get launch status
+      description: >-
+        Check if a resource is ready to launch. If not ready, returns a
+        retry interval.
+      tags:
+        - Launch
+      parameters:
+        - $ref: '#/components/parameters/CsrfTokenQuery'
+        - name: resourceId
+          in: path
+          required: true
+          description: Resource identifier to check
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Launch status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LaunchStatus'
+        '401':
+          description: Not authenticated
+  /Resources/LaunchIca/{resourceId}:
+    get:
+      operationId: launchResource
+      summary: Citrix Launch a resource
+      description: >-
+        Get an ICA file to launch a specific application or desktop resource.
+      tags:
+        - Launch
+      parameters:
+        - $ref: '#/components/parameters/CsrfTokenQuery'
+        - name: resourceId
+          in: path
+          required: true
+          description: Resource identifier to launch
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ICA launch file
+          content:
+            application/x-ica:
+              schema:
+                type: string
+                description: ICA file contents for launching the resource
+        '401':
+          description: Not authenticated
+        '404':
+          description: Resource not found
+components:
+  securitySchemes:
+    csrfToken:
+      type: apiKey
+      in: header
+      name: Csrf-Token
+      description: CSRF token from session cookie for POST requests
+  parameters:
+    CsrfToken:
+      name: Csrf-Token
+      in: header
+      required: true
+      description: CSRF token read from the session cookie
+      schema:
+        type: string
+    CsrfTokenQuery:
+      name: CsrfToken
+      in: query
+      required: true
+      description: CSRF token as query parameter for GET requests
+      schema:
+        type: string
+  schemas:
+    ResourcesResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+          description: Available applications and desktops
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Resource identifier
+        name:
+          type: string
+          description: Resource display name
+        type:
+          type: string
+          enum:
+            - Citrix.MPS.Application
+            - Citrix.MPS.Desktop
+          description: Resource type
+        iconurl:
+          type: string
+          description: URL to the resource icon
+        launchurl:
+          type: string
+          description: URL to launch the resource
+        launchstatusurl:
+          type: string
+          description: URL to check launch readiness
+    Session:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          description: Session unique identifier
+        appName:
+          type: string
+          description: Name of the application
+        publishedName:
+          type: string
+          description: Published name of the resource
+        initialApp:
+          type: string
+          description: Initial application that created the session
+        isActive:
+          type: boolean
+          description: Whether the session is currently active
+    LaunchStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - ready
+            - notReady
+          description: Whether the resource is ready to launch
+        pollTimeout:
+          type: integer
+          description: Seconds to wait before polling again
