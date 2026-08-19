@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Service Principals API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service Principals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List service principals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/serviceprincipals",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all service principals for the authenticated customer."
+        },
+        {
+          "info": {
+            "name": "Citrix Create a service principal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/serviceprincipals",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new service principal for API automation within the customer."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a service principal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/serviceprincipals/:principalId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "principalId",
+                "value": "",
+                "type": "path",
+                "description": "Service principal unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific service principal by ID."
+        },
+        {
+          "info": {
+            "name": "Citrix Delete a service principal",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{netscaler-ip}/nitro/v1/serviceprincipals/:principalId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "principalId",
+                "value": "",
+                "type": "path",
+                "description": "Service principal unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a service principal by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,931 @@
+{
+  "item": [
+    {
+      "id": "72009a42-11dc-4e8b-8a6e-f1a46df5dcdc",
+      "name": "Service Principals",
+      "description": {
+        "content": "Manage service principals for API automation",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "734d9228-81d2-41d8-9d3e-830830db7095",
+          "name": "Citrix List service principals",
+          "request": {
+            "name": "Citrix List service principals",
+            "description": {
+              "content": "Retrieve all service principals for the authenticated customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "serviceprincipals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID header",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "629c7179-c747-4764-9640-9ebabfd1a643",
+              "name": "List of service principals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"clientId\": \"string\",\n      \"customerId\": \"string\",\n      \"createdAt\": \"1962-12-06T18:57:41.446Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"clientId\": \"string\",\n      \"customerId\": \"string\",\n      \"createdAt\": \"1985-10-15T06:10:34.626Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3c16b2c-d8fd-4768-a920-5c9570dd09ab",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0f3448d-929e-4f7c-a869-b51009f560e9",
+          "name": "Citrix Create a service principal",
+          "request": {
+            "name": "Citrix Create a service principal",
+            "description": {
+              "content": "Create a new service principal for API automation within the customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "serviceprincipals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID header",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0183eb4-5ac2-4100-bda5-06868045e159",
+              "name": "Service principal created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"clientId\": \"string\",\n  \"customerId\": \"string\",\n  \"createdAt\": \"1961-03-12T13:16:45.030Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14cb08b2-df3c-4d8c-823a-3354d9c23252",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e5d0fb0-ae92-4f17-975e-0b241968cf4c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a3231f9-ef2f-448b-b4b6-5b90a7595c85",
+          "name": "Citrix Get a service principal",
+          "request": {
+            "name": "Citrix Get a service principal",
+            "description": {
+              "content": "Retrieve details of a specific service principal by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "serviceprincipals",
+                ":principalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "principalId",
+                  "description": "(Required) Service principal unique identifier"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID header",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca53a07b-b177-404d-81b3-0408a3c7b319",
+              "name": "Service principal details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "principalId",
+                      "description": "(Required) Service principal unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"clientId\": \"string\",\n  \"customerId\": \"string\",\n  \"createdAt\": \"1961-03-12T13:16:45.030Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bf6f3e8-67c0-4f04-a93f-ddb00c193262",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "principalId",
+                      "description": "(Required) Service principal unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9df67819-8e68-4875-bbf6-97eee0192f7d",
+              "name": "Service principal not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "principalId",
+                      "description": "(Required) Service principal unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c631bcf-ad01-4c36-8109-4db9af48aa23",
+          "name": "Citrix Delete a service principal",
+          "request": {
+            "name": "Citrix Delete a service principal",
+            "description": {
+              "content": "Delete a service principal by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "serviceprincipals",
+                ":principalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "principalId",
+                  "description": "(Required) Service principal unique identifier"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID header",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fdad3e0-dd93-424a-8cc4-87f5c1109530",
+              "name": "Service principal deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "principalId",
+                      "description": "(Required) Service principal unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32e771f9-dc0f-49ff-96a8-ad50ef5a30e8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "principalId",
+                      "description": "(Required) Service principal unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03d4c0da-2fed-4431-9a9d-815d855c64a7",
+              "name": "Service principal not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serviceprincipals",
+                    ":principalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "principalId",
+                      "description": "(Required) Service principal unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID header",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "NetScaler management IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "192.168.1.1",
+      "key": "netscaler-ip"
+    },
+    {
+      "type": "string",
+      "value": "https://{{netscaler-ip}}/nitro/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "685870f7-5532-4ac4-81bb-8601f809b5bc",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Service Principals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}

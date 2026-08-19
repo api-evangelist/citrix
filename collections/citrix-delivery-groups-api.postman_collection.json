@@ -1,0 +1,1558 @@
+{
+  "item": [
+    {
+      "id": "f8a73e99-7e96-4d11-b68e-3889dd6e093e",
+      "name": "Delivery Groups",
+      "description": {
+        "content": "Manage delivery groups for resource assignment",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0d91d81-1ff9-47ae-b095-774a7fc796d4",
+          "name": "Citrix List delivery groups",
+          "request": {
+            "name": "Citrix List delivery groups",
+            "description": {
+              "content": "Retrieve all delivery groups configured within the customer site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeliveryGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fbec9d3-9948-4def-bbdc-8b5f18281ee8",
+              "name": "List of delivery groups",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"totalMachines\": 1392,\n      \"sessionsCount\": 4732,\n      \"deliveryType\": \"DesktopsOnly\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": true,\n      \"totalMachines\": 8637,\n      \"sessionsCount\": 4137,\n      \"deliveryType\": \"AppsOnly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4b74a03-feeb-4597-b51d-1ba2246d1ab8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02c7647a-f38e-409d-8d07-1954c37054c9",
+          "name": "Citrix Create a delivery group",
+          "request": {
+            "name": "Citrix Create a delivery group",
+            "description": {
+              "content": "Create a new delivery group for assigning resources to users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeliveryGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"deliveryType\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "295b02b3-d2ce-4906-a752-8bca183fdcee",
+              "name": "Delivery group created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"deliveryType\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"totalMachines\": 9227,\n  \"sessionsCount\": 291,\n  \"deliveryType\": \"DesktopsOnly\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18e2d261-f0e9-45c1-9ec0-774b158dbe43",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"deliveryType\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a0196085-71bd-4648-a475-3823187b4fb1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"deliveryType\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3cc4b75-158d-49f5-abb2-06c0d9784c1f",
+          "name": "Citrix Get a delivery group",
+          "request": {
+            "name": "Citrix Get a delivery group",
+            "description": {
+              "content": "Retrieve details of a specific delivery group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeliveryGroups",
+                ":deliveryGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deliveryGroupId",
+                  "description": "(Required) Delivery group unique identifier"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dde96da8-5482-4910-87f7-d162dfba014e",
+              "name": "Delivery group details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"totalMachines\": 9227,\n  \"sessionsCount\": 291,\n  \"deliveryType\": \"DesktopsOnly\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73f4d96b-9b2c-406c-a1d4-276133a9735c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2a6ed25-bed6-4d61-bc67-fd035a89026f",
+              "name": "Delivery group not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfa032f3-c06b-4669-b24c-d73deccc1d7f",
+          "name": "Citrix Update a delivery group",
+          "request": {
+            "name": "Citrix Update a delivery group",
+            "description": {
+              "content": "Update properties of an existing delivery group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeliveryGroups",
+                ":deliveryGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deliveryGroupId",
+                  "description": "(Required) Delivery group unique identifier"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34101714-5771-4b31-8598-478d9911f04f",
+              "name": "Delivery group updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f60f9ea2-c531-4187-81c3-74cbcfdb97ae",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80cc6aa9-c9b1-4638-943f-d08e37f17193",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb4ed7df-f613-41ba-bfba-67f49fe52840",
+              "name": "Delivery group not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8ae83cd-8322-4f1b-8ea3-cde187935f43",
+          "name": "Citrix Delete a delivery group",
+          "request": {
+            "name": "Citrix Delete a delivery group",
+            "description": {
+              "content": "Delete an existing delivery group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeliveryGroups",
+                ":deliveryGroupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deliveryGroupId",
+                  "description": "(Required) Delivery group unique identifier"
+                },
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Citrix Cloud customer ID",
+                "key": "Citrix-CustomerId",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Citrix DaaS site instance ID",
+                "key": "Citrix-InstanceId",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fcee6c0-00d3-4616-ae33-533239de959f",
+              "name": "Delivery group deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "18745e0c-d60c-43b3-9d44-711fd2b5109d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56b1fbcf-a157-4c4c-8fdc-4b8d49cc06a6",
+              "name": "Delivery group not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeliveryGroups",
+                    ":deliveryGroupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryGroupId",
+                      "description": "(Required) Delivery group unique identifier"
+                    },
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix Cloud customer ID",
+                    "key": "Citrix-CustomerId",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Citrix DaaS site instance ID",
+                    "key": "Citrix-InstanceId",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9fbe409-1f45-4e8a-b134-c3a0e4035769",
+          "name": "Citrix Filter delivery groups",
+          "request": {
+            "name": "Citrix Filter delivery groups",
+            "description": {
+              "content": "Search and filter delivery groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deliverygroup",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32d5e6f3-7ac6-42ad-94ec-bb9c20120b55",
+              "name": "Filtered delivery group list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deliverygroup",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dgListData\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"disabled\": false\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"disabled\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0cb5105-d756-47a8-ae45-2e7988f7930f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deliverygroup",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<integer>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "NetScaler management IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "192.168.1.1",
+      "key": "netscaler-ip"
+    },
+    {
+      "type": "string",
+      "value": "https://{{netscaler-ip}}/nitro/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f9716da2-b04c-4bf4-b54f-3b92716b196f",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Delivery Groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}

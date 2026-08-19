@@ -1,0 +1,203 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Sessions API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/Sessions",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all active sessions within the customer site."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/Sessions/:sessionId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific session."
+        },
+        {
+          "info": {
+            "name": "Citrix Log off a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/Sessions/:sessionId/$logoff",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session unique identifier"
+              }
+            ]
+          },
+          "docs": "Log off an active user session."
+        },
+        {
+          "info": {
+            "name": "Citrix Disconnect a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/Sessions/:sessionId/$disconnect",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "Session unique identifier"
+              }
+            ]
+          },
+          "docs": "Disconnect an active user session without logging off."
+        },
+        {
+          "info": {
+            "name": "Citrix List active sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/Sessions/List",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all active HDX sessions for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Citrix Disconnect a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/Sessions/Disconnect",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "sessionId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Disconnect an active HDX session without logging off."
+        },
+        {
+          "info": {
+            "name": "Citrix Log off a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/Sessions/Logoff",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "sessionId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Log off an active HDX session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

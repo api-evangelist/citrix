@@ -1,0 +1,152 @@
+{
+  "item": [
+    {
+      "id": "c6b6af63-46e6-4269-bd3a-9f94a5b8e5a7",
+      "name": "SSL",
+      "description": {
+        "content": "SSL certificates and configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62c4a9c3-76b6-45ef-8112-4b2c818a294e",
+          "name": "Citrix List SSL certificate-key pairs",
+          "request": {
+            "name": "Citrix List SSL certificate-key pairs",
+            "description": {
+              "content": "Retrieve all SSL certificate and key pair configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "sslcertkey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9d32697-f049-40f5-93ca-dc6a759fe9aa",
+              "name": "List of SSL certificate-key pairs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "sslcertkey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sslcertkey\": [\n    {\n      \"certkey\": \"string\",\n      \"cert\": \"string\",\n      \"key\": \"string\",\n      \"daystoexpiration\": 2723,\n      \"status\": \"string\"\n    },\n    {\n      \"certkey\": \"string\",\n      \"cert\": \"string\",\n      \"key\": \"string\",\n      \"daystoexpiration\": 6940,\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "NetScaler management IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "192.168.1.1",
+      "key": "netscaler-ip"
+    },
+    {
+      "type": "string",
+      "value": "https://{{netscaler-ip}}/nitro/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bc983dfc-626a-4d00-87ab-2f481ecd5440",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies SSL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}

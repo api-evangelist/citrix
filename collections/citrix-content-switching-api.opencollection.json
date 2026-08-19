@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Content Switching API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Content Switching",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List content switching virtual servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/config/csvserver"
+          },
+          "docs": "Retrieve all content switching virtual server configurations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

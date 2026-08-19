@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Application Domains API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application Domains",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Get domain certificate for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/application/:applicationId/domain/:encodedURL",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "Application unique identifier"
+              },
+              {
+                "name": "encodedURL",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded domain name"
+              }
+            ]
+          },
+          "docs": "Retrieve the certificate associated with a specific application domain."
+        },
+        {
+          "info": {
+            "name": "Citrix Associate certificate with application domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{netscaler-ip}/nitro/v1/application/:applicationId/domain/:encodedURL",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "Application unique identifier"
+              },
+              {
+                "name": "encodedURL",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded domain name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associate an SSL certificate with a specific application domain."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

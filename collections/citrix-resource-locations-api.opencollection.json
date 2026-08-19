@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Resource Locations API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resource Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List resource locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/resourcelocations",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all resource locations configured for the customer."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a resource location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/resourcelocations/:locationId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "Resource location unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific resource location by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

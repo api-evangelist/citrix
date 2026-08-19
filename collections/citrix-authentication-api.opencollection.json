@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Authentication API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Log in to NITRO",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/config/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticate to the NITRO API and receive a session cookie for subsequent requests."
+        },
+        {
+          "info": {
+            "name": "Citrix Obtain access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/cctrustoauth2/:customerId/tokens/clients",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path",
+                "description": "Citrix Cloud customer ID"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Authenticate using OAuth 2.0 Client Credentials grant to obtain a bearer token for accessing Citrix Cloud APIs."
+        },
+        {
+          "info": {
+            "name": "Citrix Authenticate to the API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/authentication/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Log in with administrator credentials to obtain an authentication token."
+        },
+        {
+          "info": {
+            "name": "Citrix Log out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/authentication/logout"
+          },
+          "docs": "Invalidate the current authentication token."
+        },
+        {
+          "info": {
+            "name": "Citrix Get authentication methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/Authentication/GetAuthMethods"
+          },
+          "docs": "Retrieve available authentication methods for the StoreFront store."
+        },
+        {
+          "info": {
+            "name": "Citrix Log in with explicit credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/ExplicitAuth/Login",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                },
+                {
+                  "name": "domain",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Authenticate using explicit username and password credentials."
+        },
+        {
+          "info": {
+            "name": "Citrix Log out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{netscaler-ip}/nitro/v1/ExplicitAuth/Logout",
+            "headers": [
+              {
+                "name": "Csrf-Token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "End the current authenticated session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

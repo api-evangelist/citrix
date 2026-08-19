@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Machines API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Machines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix List machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/Machines",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve all machines registered within the customer site."
+        },
+        {
+          "info": {
+            "name": "Citrix Get a machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/Machines/:machineId",
+            "headers": [
+              {
+                "name": "Citrix-CustomerId",
+                "value": ""
+              },
+              {
+                "name": "Citrix-InstanceId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "machineId",
+                "value": "",
+                "type": "path",
+                "description": "Machine unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific machine."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

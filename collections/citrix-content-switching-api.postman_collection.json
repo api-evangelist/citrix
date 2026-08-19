@@ -1,0 +1,152 @@
+{
+  "item": [
+    {
+      "id": "138ec1e9-56b3-46f3-9476-8c0c272fe06e",
+      "name": "Content Switching",
+      "description": {
+        "content": "Content switching virtual servers and policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "789dd3b1-4c4e-4ff8-8357-ebbd638b5116",
+          "name": "Citrix List content switching virtual servers",
+          "request": {
+            "name": "Citrix List content switching virtual servers",
+            "description": {
+              "content": "Retrieve all content switching virtual server configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "csvserver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b28f98f7-419b-4457-8f16-4c956b4cfd5d",
+              "name": "List of content switching virtual servers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "csvserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"csvserver\": [\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 7293,\n      \"servicetype\": \"string\",\n      \"curstate\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"ipv46\": \"string\",\n      \"port\": 6358,\n      \"servicetype\": \"string\",\n      \"curstate\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "NetScaler management IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "192.168.1.1",
+      "key": "netscaler-ip"
+    },
+    {
+      "type": "string",
+      "value": "https://{{netscaler-ip}}/nitro/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9bada67e-3e4f-45ce-beee-3486c51b5444",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Content Switching API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}

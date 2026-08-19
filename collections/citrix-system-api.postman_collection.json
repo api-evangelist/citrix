@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "46606735-217a-40f3-bab1-7340573d9242",
+      "name": "System",
+      "description": {
+        "content": "System configuration and statistics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e6a60d8-df81-4a99-9f13-9ec654488a01",
+          "name": "Citrix Get system statistics",
+          "request": {
+            "name": "Citrix Get system statistics",
+            "description": {
+              "content": "Retrieve system-level statistics including CPU, memory, and throughput.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stat",
+                "ns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfb35179-377c-4310-ab72-ebe1202373b9",
+              "name": "System statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stat",
+                    "ns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ns\": {\n    \"cpuusagepcnt\": 227.37877049950782,\n    \"memusagepcnt\": 7952.822203475695,\n    \"mgmtcpuusagepcnt\": 7169.235589356533,\n    \"pktcpuusagepcnt\": 1629.0347073460186,\n    \"disk0perusage\": 118.07885667012185,\n    \"disk1perusage\": 7566.122540124006\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4474081c-6cce-4df7-9935-a0ee254f7953",
+          "name": "Citrix Get system configuration",
+          "request": {
+            "name": "Citrix Get system configuration",
+            "description": {
+              "content": "Retrieve the current NetScaler system configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "nsconfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "NetScaler management IP address",
+                  "type": "any",
+                  "value": "{{netscaler-ip}}",
+                  "key": "netscaler-ip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "622f94cb-0ab3-4d30-a70b-b3e2754cc991",
+              "name": "System configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "nsconfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "NetScaler management IP address",
+                      "type": "any",
+                      "value": "{{netscaler-ip}}",
+                      "key": "netscaler-ip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "NITRO_AUTH_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nsconfig\": {\n    \"ipaddress\": \"string\",\n    \"netmask\": \"string\",\n    \"systemtype\": \"string\",\n    \"primaryip\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "NetScaler management IP address",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "192.168.1.1",
+      "key": "netscaler-ip"
+    },
+    {
+      "type": "string",
+      "value": "https://{{netscaler-ip}}/nitro/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "NITRO_AUTH_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "af239fc3-ce7d-4cb9-9bea-92c8dba4d9e8",
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.\n\nContact Support:\n Name: Citrix Support",
+      "type": "text/plain"
+    }
+  }
+}

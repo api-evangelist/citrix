@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Citrix ADC (NetScaler) NITRO Access Policies Launch API",
+    "version": "14.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "NITRO_AUTH_TOKEN",
+      "value": "{{NITRO_AUTH_TOKEN}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Launch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Citrix Get launch status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/Resources/GetLaunchStatus/:resourceId",
+            "params": [
+              {
+                "name": "CsrfToken",
+                "value": "",
+                "type": "query",
+                "description": "CSRF token as query parameter for GET requests"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier to check"
+              }
+            ]
+          },
+          "docs": "Check if a resource is ready to launch. If not ready, returns a retry interval."
+        },
+        {
+          "info": {
+            "name": "Citrix Launch a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{netscaler-ip}/nitro/v1/Resources/LaunchIca/:resourceId",
+            "params": [
+              {
+                "name": "CsrfToken",
+                "value": "",
+                "type": "query",
+                "description": "CSRF token as query parameter for GET requests"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier to launch"
+              }
+            ]
+          },
+          "docs": "Get an ICA file to launch a specific application or desktop resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
