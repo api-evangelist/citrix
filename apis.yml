@@ -30,6 +30,13 @@ position: Consumer
 specificationVersion: '0.23'
 tags:
   - Application Delivery
+  - Desktop as a Service
+  - Networking
+  - Virtualization
+  - Workspace
+  - Fortune 1000
+tags_raw:
+  - Application Delivery
   - Desktop-As-A-Service
   - Networking
   - Virtualization
@@ -97,6 +104,10 @@ apis:
   tags:
   - Customization
   - Server
+  - Storefront
+  tags_raw:
+  - Customization
+  - Server
   - StoreFront
   properties:
   - type: Documentation
@@ -114,6 +125,10 @@ apis:
     https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html
   baseURL: https://{storefront-server}
   tags:
+  - Authentication
+  - Identity
+  - Storefront
+  tags_raw:
   - Authentication
   - Identity
   - StoreFront
@@ -227,6 +242,8 @@ apis:
   humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
   baseURL: https://{customer-id}.xendesktop.net
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -777,6 +794,8 @@ apis:
   humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
   baseURL: https://{customer-id}.xendesktop.net
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -1177,6 +1196,8 @@ apis:
   humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
   baseURL: https://{customer-id}.xendesktop.net
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
