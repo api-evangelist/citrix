@@ -7,6 +7,18 @@ description: >-
   developer-docs.citrix.com, with REST APIs spanning Virtual Apps and Desktops, DaaS, Workspace, Citrix Cloud, ADC
   (NetScaler) NITRO, Endpoint Management, Secure Private Access, and Analytics. Authentication uses OAuth 2.0 bearer
   tokens issued through Citrix Cloud customer-id-scoped credentials.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
@@ -1243,6 +1255,9 @@ apis:
     url: >-
       https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
 common:
+  - type: CapabilityMap
+    url: capabilities/citrix-capability-edges.yml
+    name: Citrix Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/citrix/overview
   - type: AgenticAccess

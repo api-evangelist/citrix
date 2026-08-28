@@ -1,0 +1,63 @@
+slug: citrix
+provider: Citrix
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Load Balancing
+  spec_file: citrix-load-balancing-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.9
+  evidence: POST /config/lbvserver createLbVserver "Create a load balancing virtual server"; GET /stat/lbvserver
+    getLbVserverStats; schemas LbVserver, ServiceGroup
+  reason: Configuration and statistics of load-balancing virtual servers and service groups is unambiguously
+    network infrastructure management.
+- tag: Hypervisors
+  spec_file: citrix-hypervisors-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: GET /Hypervisors listHypervisors "List hypervisor connections"; schemas HypervisorCollection,
+    Hypervisor
+  reason: Hypervisor connection inventory is compute/virtualisation infrastructure management.
+- tag: Machine Catalogs
+  spec_file: citrix-machine-catalogs-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.82
+  evidence: POST /MachineCatalogs createMachineCatalog "Create a machine catalog"; schemas MachineCatalog,
+    MachineCatalogCollection
+  reason: Machine catalogs define pools of virtual machines provisioned for desktop/app delivery — compute
+    infrastructure provisioning and administration.
+- tag: Content Switching
+  spec_file: citrix-content-switching-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: GET /config/csvserver listCsVservers "List content switching virtual servers"; schema CsVserver
+  reason: Configuration of content-switching virtual servers on a network appliance is network infrastructure
+    management.
+- tag: Service Principals
+  spec_file: citrix-service-principals-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /serviceprincipals createServicePrincipal Citrix Create a service principal; DELETE /serviceprincipals/{principalId}
+  reason: CRUD over service principals (machine identities used for API authentication) is identity and
+    access management.
