@@ -3,8 +3,7 @@ provider: Citrix
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Banking & Capital Markets
-- Software & Technology
+- Telecommunications
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -12,52 +11,80 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 5
+edge_count: 8
 edges:
-- tag: Load Balancing
-  spec_file: citrix-load-balancing-api-openapi.yml
-  capability_id: BC-600.50
-  capability_id_l1: BC-600
-  capability_name: IT Infrastructure Management
-  confidence: 0.9
-  evidence: POST /config/lbvserver createLbVserver "Create a load balancing virtual server"; GET /stat/lbvserver
-    getLbVserverStats; schemas LbVserver, ServiceGroup
-  reason: Configuration and statistics of load-balancing virtual servers and service groups is unambiguously
-    network infrastructure management.
 - tag: Hypervisors
   spec_file: citrix-hypervisors-api-openapi.yml
   capability_id: BC-600.50
   capability_id_l1: BC-600
   capability_name: IT Infrastructure Management
   confidence: 0.85
-  evidence: GET /Hypervisors listHypervisors "List hypervisor connections"; schemas HypervisorCollection,
-    Hypervisor
-  reason: Hypervisor connection inventory is compute/virtualisation infrastructure management.
-- tag: Machine Catalogs
-  spec_file: citrix-machine-catalogs-api-openapi.yml
+  evidence: GET /Hypervisors listHypervisors Citrix List hypervisor connections
+  reason: Hypervisor connection inventory is compute/virtualization infrastructure management.
+- tag: Load Balancing
+  spec_file: citrix-load-balancing-api-openapi.yml
   capability_id: BC-600.50
   capability_id_l1: BC-600
   capability_name: IT Infrastructure Management
-  confidence: 0.82
-  evidence: POST /MachineCatalogs createMachineCatalog "Create a machine catalog"; schemas MachineCatalog,
-    MachineCatalogCollection
-  reason: Machine catalogs define pools of virtual machines provisioned for desktop/app delivery — compute
-    infrastructure provisioning and administration.
+  confidence: 0.85
+  evidence: Create a load balancing virtual server / Get load balancing statistics
+  reason: Configuring ADC load-balancing virtual servers and services is IT network infrastructure management.
+- tag: Access Policies
+  spec_file: citrix-access-policies-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: REST API for managing zero trust network access policies ... Create an access policy
+  reason: Zero-trust access policy management for applications is identity and access control tooling,
+    mapping to Identity & Access Management.
 - tag: Content Switching
   spec_file: citrix-content-switching-api-openapi.yml
   capability_id: BC-600.50
   capability_id_l1: BC-600
   capability_name: IT Infrastructure Management
   confidence: 0.8
-  evidence: GET /config/csvserver listCsVservers "List content switching virtual servers"; schema CsVserver
-  reason: Configuration of content-switching virtual servers on a network appliance is network infrastructure
-    management.
+  evidence: List content switching virtual servers ... configuring and monitoring Citrix ADC (NetScaler)
+    application delivery controllers
+  reason: Configuration of ADC content-switching virtual servers is network infrastructure management
+    within enterprise IT, not telecom carrier network operations.
+- tag: Machine Catalogs
+  spec_file: citrix-machine-catalogs-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: Create a machine catalog / List machine catalogs (Citrix DaaS ... machine catalogs, delivery
+    groups)
+  reason: Machine catalogs are pools of virtual machines for desktop delivery — compute infrastructure
+    provisioning and administration, not a product catalogue.
+- tag: Applications
+  spec_file: citrix-applications-api-openapi.yml
+  capability_id: BC-600.60
+  capability_id_l1: BC-600
+  capability_name: IT Application Management
+  confidence: 0.7
+  evidence: List applications / Create an application / Delete an application across citrix-daas-openapi.yml,
+    citrix-endpoint-management-openapi.yml
+  reason: Managing published/delivered application entities in virtualization and endpoint management
+    platforms is IT application lifecycle administration, not a business product catalogue.
+- tag: Devices
+  spec_file: citrix-devices-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: REST API for managing mobile devices, applications, and policies in Citrix Endpoint Management
+    ... Wipe a device
+  reason: Enterprise mobile device management (endpoint lifecycle and wipe) is corporate IT endpoint/infrastructure
+    administration, not telecom subscriber device identity management.
 - tag: Service Principals
   spec_file: citrix-service-principals-api-openapi.yml
   capability_id: BC-620.20
   capability_id_l1: BC-620
   capability_name: Identity & Access Management
-  confidence: 0.75
-  evidence: POST /serviceprincipals createServicePrincipal Citrix Create a service principal; DELETE /serviceprincipals/{principalId}
-  reason: CRUD over service principals (machine identities used for API authentication) is identity and
-    access management.
+  confidence: 0.7
+  evidence: POST /serviceprincipals createServicePrincipal; "authentication via OAuth 2.0 client credentials,
+    service principals"
+  reason: Lifecycle CRUD over machine identities used for OAuth client-credential authentication is identity
+    and access management for the platform.
