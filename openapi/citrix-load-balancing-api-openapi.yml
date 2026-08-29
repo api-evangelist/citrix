@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Citrix ADC (NetScaler) NITRO Access Policies Load Balancing API
+  title: Citrix ADC (NetScaler) NITRO Load Balancing API
   description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
   version: '14.1'
   contact:
@@ -209,45 +209,6 @@ components:
         svrstate:
           type: string
           description: Current state of the service
-    ServiceGroup:
-      type: object
-      properties:
-        servicegroupname:
-          type: string
-          description: Service group name
-        servicetype:
-          type: string
-          description: Protocol type
-        state:
-          type: string
-          description: Current state
-    LbVserverStats:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Virtual server name
-        requestsrate:
-          type: number
-          description: Requests per second
-        responsesrate:
-          type: number
-          description: Responses per second
-        totalrequests:
-          type: integer
-          description: Total requests received
-        totalresponses:
-          type: integer
-          description: Total responses sent
-        curclntconnections:
-          type: integer
-          description: Current client connections
-        cursrvrconnections:
-          type: integer
-          description: Current server connections
-        health:
-          type: number
-          description: Health percentage
     LbVserver:
       type: object
       properties:
@@ -286,6 +247,45 @@ components:
         effectivestate:
           type: string
           description: Effective state considering bound services
+    LbVserverStats:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Virtual server name
+        requestsrate:
+          type: number
+          description: Requests per second
+        responsesrate:
+          type: number
+          description: Responses per second
+        totalrequests:
+          type: integer
+          description: Total requests received
+        totalresponses:
+          type: integer
+          description: Total responses sent
+        curclntconnections:
+          type: integer
+          description: Current client connections
+        cursrvrconnections:
+          type: integer
+          description: Current server connections
+        health:
+          type: number
+          description: Health percentage
+    ServiceGroup:
+      type: object
+      properties:
+        servicegroupname:
+          type: string
+          description: Service group name
+        servicetype:
+          type: string
+          description: Protocol type
+        state:
+          type: string
+          description: Current state
   securitySchemes:
     nitroAuth:
       type: apiKey

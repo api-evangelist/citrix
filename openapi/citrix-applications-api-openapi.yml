@@ -1,21 +1,23 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Citrix ADC (NetScaler) NITRO Access Policies Applications API
-  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
-  version: '14.1'
+  title: Citrix Applications API
+  version: '1.0'
   contact:
     name: Citrix Support
     url: https://support.citrix.com/
   termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+  description: 'Operations tagged Applications across 3 of this provider''s published API definitions: citrix-daas-openapi.yml, citrix-endpoint-management-openapi.yml, citrix-secure-private-access-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{netscaler-ip}/nitro/v1
-  description: Citrix ADC NITRO API
+- url: https://api.cloud.com/cvad/manage
+  description: Citrix DaaS Production
+- url: https://{xms-server}:4443/xenmobile/api/v1
+  description: Citrix Endpoint Management Server
   variables:
-    netscaler-ip:
-      default: 192.168.1.1
-      description: NetScaler management IP address
-security:
-- nitroAuth: []
+    xms-server:
+      default: xms.example.com
+      description: XenMobile server hostname
+- url: https://api.cloud.com/accessSecurity
+  description: Citrix Cloud Production
 tags:
 - name: Applications
   description: Manage published applications
@@ -39,6 +41,11 @@ paths:
                 $ref: '#/components/schemas/ApplicationCollection'
         '401':
           description: Unauthorized
+      security:
+      - bearerAuth: []
+    servers:
+    - url: https://api.cloud.com/cvad/manage
+      description: Citrix DaaS Production
   /Applications/{applicationId}:
     get:
       operationId: getApplication
@@ -61,6 +68,11 @@ paths:
           description: Unauthorized
         '404':
           description: Application not found
+      security:
+      - bearerAuth: []
+    servers:
+    - url: https://api.cloud.com/cvad/manage
+      description: Citrix DaaS Production
   /application/filter:
     post:
       operationId: filterApplications
@@ -88,6 +100,15 @@ paths:
                       $ref: '#/components/schemas/Application_2'
         '401':
           description: Unauthorized
+      security:
+      - authToken: []
+    servers:
+    - url: https://{xms-server}:4443/xenmobile/api/v1
+      description: Citrix Endpoint Management Server
+      variables:
+        xms-server:
+          default: xms.example.com
+          description: XenMobile server hostname
   /applications:
     get:
       operationId: listApplications
@@ -111,6 +132,8 @@ paths:
                       $ref: '#/components/schemas/Application_3'
         '401':
           description: Unauthorized
+      security:
+      - bearerAuth: []
     post:
       operationId: createApplication
       summary: Citrix Create an application
@@ -136,6 +159,11 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+      security:
+      - bearerAuth: []
+    servers:
+    - url: https://api.cloud.com/accessSecurity
+      description: Citrix Cloud Production
   /applications/{applicationId}:
     get:
       operationId: getApplication
@@ -157,6 +185,8 @@ paths:
           description: Unauthorized
         '404':
           description: Application not found
+      security:
+      - bearerAuth: []
     put:
       operationId: updateApplication
       summary: Citrix Update an application
@@ -181,6 +211,8 @@ paths:
           description: Unauthorized
         '404':
           description: Application not found
+      security:
+      - bearerAuth: []
     delete:
       operationId: deleteApplication
       summary: Citrix Delete an application
@@ -197,38 +229,37 @@ paths:
           description: Unauthorized
         '404':
           description: Application not found
+      security:
+      - bearerAuth: []
+    servers:
+    - url: https://api.cloud.com/accessSecurity
+      description: Citrix Cloud Production
 components:
-  parameters:
-    applicationId:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    applicationId_2:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-        format: uuid
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   schemas:
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the application
+        name:
+          type: string
+          description: Application name
+        publishedName:
+          type: string
+          description: Published display name
+        description:
+          type: string
+          description: Application description
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
+        commandLineExecutable:
+          type: string
+          description: Path to the application executable
+        applicationFolder:
+          type: string
+          description: Folder containing the application
     ApplicationCollection:
       type: object
       properties:
@@ -236,29 +267,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Application'
-    CreateApplicationRequest:
+    Application_2:
       type: object
-      required:
-      - name
-      - url
-      - appType
       properties:
+        id:
+          type: string
+          description: Application unique identifier
         name:
           type: string
           description: Application name
         description:
           type: string
           description: Application description
-        url:
-          type: string
-          format: uri
-          description: Application URL
         appType:
           type: string
-          enum:
-          - SaaS
-          - Web
-          description: Type of application
+          description: Application type
+        platform:
+          type: string
+          description: Target platform
+        disabled:
+          type: boolean
+          description: Whether the application is disabled
+    ApplicationFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
     Application_3:
       type: object
       properties:
@@ -290,6 +328,29 @@ components:
           items:
             type: string
           description: Associated domains
+    CreateApplicationRequest:
+      type: object
+      required:
+      - name
+      - url
+      - appType
+      properties:
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        url:
+          type: string
+          format: uri
+          description: Application URL
+        appType:
+          type: string
+          enum:
+          - SaaS
+          - Web
+          description: Type of application
     UpdateApplicationRequest:
       type: object
       properties:
@@ -306,66 +367,48 @@ components:
         enabled:
           type: boolean
           description: Whether the application is enabled
-    Application:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the application
-        name:
-          type: string
-          description: Application name
-        publishedName:
-          type: string
-          description: Published display name
-        description:
-          type: string
-          description: Application description
-        enabled:
-          type: boolean
-          description: Whether the application is enabled
-        commandLineExecutable:
-          type: string
-          description: Path to the application executable
-        applicationFolder:
-          type: string
-          description: Folder containing the application
-    Application_2:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Application unique identifier
-        name:
-          type: string
-          description: Application name
-        description:
-          type: string
-          description: Application description
-        appType:
-          type: string
-          description: Application type
-        platform:
-          type: string
-          description: Target platform
-        disabled:
-          type: boolean
-          description: Whether the application is disabled
-    ApplicationFilterRequest:
-      type: object
-      properties:
-        start:
-          type: integer
-          description: Start index for pagination
-        limit:
-          type: integer
-          description: Maximum number of results
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    applicationId_2:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
-    nitroAuth:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token from Citrix Cloud authentication
+    authToken:
       type: apiKey
-      in: cookie
-      name: NITRO_AUTH_TOKEN
-      description: Session cookie from NITRO login
-externalDocs:
-  description: Citrix ADC NITRO API Reference
-  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html
+      in: header
+      name: auth_token
+      description: Authentication token from login endpoint
+x-refined-from:
+- citrix-daas-openapi.yml
+- citrix-endpoint-management-openapi.yml
+- citrix-secure-private-access-openapi.yml

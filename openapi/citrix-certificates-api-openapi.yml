@@ -1,21 +1,17 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Citrix ADC (NetScaler) NITRO Access Policies Certificates API
-  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
-  version: '14.1'
+  title: Citrix Secure Private Access Certificates API
+  description: REST API for managing zero trust network access policies, applications, application domains, and certificates in Citrix Secure Private Access, providing secure access to internal web and SaaS applications.
+  version: '1.0'
   contact:
     name: Citrix Support
     url: https://support.citrix.com/
   termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
 servers:
-- url: https://{netscaler-ip}/nitro/v1
-  description: Citrix ADC NITRO API
-  variables:
-    netscaler-ip:
-      default: 192.168.1.1
-      description: NetScaler management IP address
+- url: https://api.cloud.com/accessSecurity
+  description: Citrix Cloud Production
 security:
-- nitroAuth: []
+- bearerAuth: []
 tags:
 - name: Certificates
   description: Manage application certificates
@@ -47,7 +43,31 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
   schemas:
+    CreateCertificateRequest:
+      type: object
+      required:
+      - name
+      - certificate
+      - privateKey
+      properties:
+        name:
+          type: string
+          description: Certificate name
+        certificate:
+          type: string
+          description: PEM-encoded certificate
+        privateKey:
+          type: string
+          description: PEM-encoded private key
     Certificate:
       type: object
       properties:
@@ -68,36 +88,12 @@ components:
           type: string
           format: date-time
           description: Certificate expiration date
-    CreateCertificateRequest:
-      type: object
-      required:
-      - name
-      - certificate
-      - privateKey
-      properties:
-        name:
-          type: string
-          description: Certificate name
-        certificate:
-          type: string
-          description: PEM-encoded certificate
-        privateKey:
-          type: string
-          description: PEM-encoded private key
-  parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   securitySchemes:
-    nitroAuth:
-      type: apiKey
-      in: cookie
-      name: NITRO_AUTH_TOKEN
-      description: Session cookie from NITRO login
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token from Citrix Cloud authentication
 externalDocs:
-  description: Citrix ADC NITRO API Reference
-  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html
+  description: Secure Private Access API Documentation
+  url: https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html

@@ -1,21 +1,21 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Citrix ADC (NetScaler) NITRO Access Policies Users API
-  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
-  version: '14.1'
+  title: Citrix Endpoint Management REST Users API
+  description: REST API for managing mobile devices, applications, and policies in Citrix Endpoint Management (formerly XenMobile), enabling integration with external systems for device lifecycle management and compliance.
+  version: '1.0'
   contact:
     name: Citrix Support
     url: https://support.citrix.com/
   termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
 servers:
-- url: https://{netscaler-ip}/nitro/v1
-  description: Citrix ADC NITRO API
+- url: https://{xms-server}:4443/xenmobile/api/v1
+  description: Citrix Endpoint Management Server
   variables:
-    netscaler-ip:
-      default: 192.168.1.1
-      description: NetScaler management IP address
+    xms-server:
+      default: xms.example.com
+      description: XenMobile server hostname
 security:
-- nitroAuth: []
+- authToken: []
 tags:
 - name: Users
   description: User and group management
@@ -49,6 +49,18 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    UserFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+        search:
+          type: string
+          description: Search text
     User:
       type: object
       properties:
@@ -67,24 +79,12 @@ components:
         domain:
           type: string
           description: Active Directory domain
-    UserFilterRequest:
-      type: object
-      properties:
-        start:
-          type: integer
-          description: Start index for pagination
-        limit:
-          type: integer
-          description: Maximum number of results
-        search:
-          type: string
-          description: Search text
   securitySchemes:
-    nitroAuth:
+    authToken:
       type: apiKey
-      in: cookie
-      name: NITRO_AUTH_TOKEN
-      description: Session cookie from NITRO login
+      in: header
+      name: auth_token
+      description: Authentication token from login endpoint
 externalDocs:
-  description: Citrix ADC NITRO API Reference
-  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html
+  description: Citrix Endpoint Management REST APIs
+  url: https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html

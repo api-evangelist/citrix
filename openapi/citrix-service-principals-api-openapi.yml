@@ -1,21 +1,19 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Citrix ADC (NetScaler) NITRO Access Policies Service Principals API
-  description: REST API for configuring and monitoring Citrix ADC (NetScaler) application delivery controllers, including load balancing virtual servers, services, service groups, SSL certificates, content switching, and system statistics.
-  version: '14.1'
+  title: Citrix Cloud Service Principals API
+  description: Platform-level API for managing Citrix Cloud services, including authentication via OAuth 2.0 client credentials, service principals, resource locations, and notifications across the Citrix Cloud platform.
+  version: '1.0'
   contact:
     name: Citrix Support
     url: https://support.citrix.com/
   termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
 servers:
-- url: https://{netscaler-ip}/nitro/v1
-  description: Citrix ADC NITRO API
-  variables:
-    netscaler-ip:
-      default: 192.168.1.1
-      description: NetScaler management IP address
+- url: https://api.cloud.com
+  description: Citrix Cloud Production (US)
+- url: https://api.citrixcloud.jp
+  description: Citrix Cloud Production (Japan)
 security:
-- nitroAuth: []
+- bearerAuth: []
 tags:
 - name: Service Principals
   description: Manage service principals for API automation
@@ -107,13 +105,6 @@ paths:
           description: Service principal not found
 components:
   parameters:
-    principalId:
-      name: principalId
-      in: path
-      required: true
-      description: Service principal unique identifier
-      schema:
-        type: string
     CitrixCustomerId:
       name: Citrix-CustomerId
       in: header
@@ -121,7 +112,22 @@ components:
       description: Citrix Cloud customer ID header
       schema:
         type: string
+    principalId:
+      name: principalId
+      in: path
+      required: true
+      description: Service principal unique identifier
+      schema:
+        type: string
   schemas:
+    CreateServicePrincipalRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+          description: Display name for the new service principal
     ServicePrincipal:
       type: object
       properties:
@@ -141,20 +147,12 @@ components:
           type: string
           format: date-time
           description: Creation timestamp
-    CreateServicePrincipalRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-          description: Display name for the new service principal
   securitySchemes:
-    nitroAuth:
-      type: apiKey
-      in: cookie
-      name: NITRO_AUTH_TOKEN
-      description: Session cookie from NITRO login
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token from client credentials grant
 externalDocs:
-  description: Citrix ADC NITRO API Reference
-  url: https://developer-docs.netscaler.com/en-us/adc-nitro-api/current-release.html
+  description: Citrix Cloud API Documentation
+  url: https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html
