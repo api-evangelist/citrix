@@ -42,7 +42,7 @@ position: Consumer
 specificationVersion: '0.23'
 tags:
   - Application Delivery
-  - Desktop-As-A-Service
+  - Desktop as a Service
   - Networking
   - Virtualization
   - Workspace
@@ -116,7 +116,7 @@ apis:
   tags:
   - Customization
   - Server
-  - StoreFront
+  - Storefront
   tags_raw:
   - Customization
   - Server
@@ -139,7 +139,7 @@ apis:
   tags:
   - Authentication
   - Identity
-  - StoreFront
+  - Storefront
   tags_raw:
   - Authentication
   - Identity
