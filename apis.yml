@@ -21,16 +21,17 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: paid
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Paid · Self-serve signup
-  confidence: high
+  label: Paid
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://www.citrix.com/content/dam/citrix/en_us/images/logos/citrix-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/citrix/refs/heads/main/apis.yml
@@ -38,7 +39,7 @@ created: '2024-01-01'
 modified: '2026-05-19'
 type: Index
 access: 3rd-Party
-position: Consumer
+position: Consuming
 specificationVersion: '0.23'
 tags:
   - Application Delivery
