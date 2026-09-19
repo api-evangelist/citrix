@@ -116,7 +116,7 @@ apis:
   baseURL: https://{storefront-server}/Citrix/Store
   tags:
   - Customization
-  - Server
+  - Servers
   - Storefront
   tags_raw:
   - Customization
@@ -607,6 +607,8 @@ apis:
   humanURL: https://developer.citrix.com/citrix-virtual-apps-and-desktops
   baseURL: https://{customer-id}.xendesktop.net
   tags:
+  - Launches
+  tags_raw:
   - Launch
   properties:
   - type: OpenAPI
