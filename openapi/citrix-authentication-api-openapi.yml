@@ -282,19 +282,6 @@ paths:
           default: storefront.example.com
           description: StoreFront server hostname
 components:
-  schemas:
-    TokenResponse:
-      type: object
-      properties:
-        token_type:
-          type: string
-          description: Token type (bearer)
-        access_token:
-          type: string
-          description: OAuth 2.0 access token
-        expires_in:
-          type: integer
-          description: Token expiration time in seconds
   parameters:
     customerId:
       name: customerId
@@ -310,6 +297,19 @@ components:
       description: CSRF token read from the session cookie
       schema:
         type: string
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        token_type:
+          type: string
+          description: Token type (bearer)
+        access_token:
+          type: string
+          description: OAuth 2.0 access token
+        expires_in:
+          type: integer
+          description: Token expiration time in seconds
   securitySchemes:
     nitroAuth:
       type: apiKey

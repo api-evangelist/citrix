@@ -1,7 +1,9 @@
 ---
 title: Top Citrix Systems Alternatives 2026 — Best Cloud Computing ...
 url: https://www.startuphub.ai/startups/citrix-systems/alternatives
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Citrix Systems" press release artificial intelligence'
 position: 5
 source: serpapi-google

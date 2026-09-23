@@ -105,13 +105,6 @@ paths:
           description: Service principal not found
 components:
   parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID header
-      schema:
-        type: string
     principalId:
       name: principalId
       in: path
@@ -119,15 +112,14 @@ components:
       description: Service principal unique identifier
       schema:
         type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID header
+      schema:
+        type: string
   schemas:
-    CreateServicePrincipalRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-          description: Display name for the new service principal
     ServicePrincipal:
       type: object
       properties:
@@ -147,6 +139,14 @@ components:
           type: string
           format: date-time
           description: Creation timestamp
+    CreateServicePrincipalRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+          description: Display name for the new service principal
   securitySchemes:
     bearerAuth:
       type: http

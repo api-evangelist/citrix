@@ -328,6 +328,22 @@ components:
           items:
             type: string
           description: Associated domains
+    UpdateApplicationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated application name
+        description:
+          type: string
+          description: Updated description
+        url:
+          type: string
+          format: uri
+          description: Updated URL
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
     CreateApplicationRequest:
       type: object
       required:
@@ -351,22 +367,6 @@ components:
           - SaaS
           - Web
           description: Type of application
-    UpdateApplicationRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Updated application name
-        description:
-          type: string
-          description: Updated description
-        url:
-          type: string
-          format: uri
-          description: Updated URL
-        enabled:
-          type: boolean
-          description: Whether the application is enabled
   parameters:
     CitrixInstanceId:
       name: Citrix-InstanceId
@@ -375,18 +375,18 @@ components:
       description: Citrix DaaS site instance ID
       schema:
         type: string
-    applicationId:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
     CitrixCustomerId:
       name: Citrix-CustomerId
       in: header
       required: true
       description: Citrix Cloud customer ID
+      schema:
+        type: string
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
       schema:
         type: string
     applicationId_2:

@@ -72,6 +72,14 @@ paths:
         '404':
           description: Resource not found
 components:
+  parameters:
+    CsrfTokenQuery:
+      name: CsrfToken
+      in: query
+      required: true
+      description: CSRF token as query parameter for GET requests
+      schema:
+        type: string
   schemas:
     LaunchStatus:
       type: object
@@ -85,14 +93,6 @@ components:
         pollTimeout:
           type: integer
           description: Seconds to wait before polling again
-  parameters:
-    CsrfTokenQuery:
-      name: CsrfToken
-      in: query
-      required: true
-      description: CSRF token as query parameter for GET requests
-      schema:
-        type: string
   securitySchemes:
     csrfToken:
       type: apiKey

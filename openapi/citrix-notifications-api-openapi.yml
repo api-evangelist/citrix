@@ -42,14 +42,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID header
-      schema:
-        type: string
   schemas:
     Notification:
       type: object
@@ -74,6 +66,14 @@ components:
           type: string
           format: date-time
           description: When the notification was created
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID header
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

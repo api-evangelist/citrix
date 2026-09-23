@@ -224,35 +224,6 @@ paths:
           default: storefront.example.com
           description: StoreFront server hostname
 components:
-  parameters:
-    sessionId:
-      name: sessionId
-      in: path
-      required: true
-      description: Session unique identifier
-      schema:
-        type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
-    CsrfToken:
-      name: Csrf-Token
-      in: header
-      required: true
-      description: CSRF token read from the session cookie
-      schema:
-        type: string
   schemas:
     SessionCollection:
       type: object
@@ -309,6 +280,35 @@ components:
         isActive:
           type: boolean
           description: Whether the session is currently active
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    sessionId:
+      name: sessionId
+      in: path
+      required: true
+      description: Session unique identifier
+      schema:
+        type: string
+    CsrfToken:
+      name: Csrf-Token
+      in: header
+      required: true
+      description: CSRF token read from the session cookie
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -37,18 +37,18 @@ paths:
           description: Unauthorized
 components:
   parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
     CitrixInstanceId:
       name: Citrix-InstanceId
       in: header
       required: true
       description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
       schema:
         type: string
   schemas:

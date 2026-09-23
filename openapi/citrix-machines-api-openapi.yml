@@ -59,6 +59,13 @@ paths:
           description: Machine not found
 components:
   parameters:
+    machineId:
+      name: machineId
+      in: path
+      required: true
+      description: Machine unique identifier
+      schema:
+        type: string
     CitrixInstanceId:
       name: Citrix-InstanceId
       in: header
@@ -71,13 +78,6 @@ components:
       in: header
       required: true
       description: Citrix Cloud customer ID
-      schema:
-        type: string
-    machineId:
-      name: machineId
-      in: path
-      required: true
-      description: Machine unique identifier
       schema:
         type: string
   schemas:

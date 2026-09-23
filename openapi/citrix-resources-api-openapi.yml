@@ -57,14 +57,6 @@ paths:
         '401':
           description: Not authenticated
 components:
-  parameters:
-    CsrfToken:
-      name: Csrf-Token
-      in: header
-      required: true
-      description: CSRF token read from the session cookie
-      schema:
-        type: string
   schemas:
     Resource:
       type: object
@@ -98,6 +90,14 @@ components:
           items:
             $ref: '#/components/schemas/Resource'
           description: Available applications and desktops
+  parameters:
+    CsrfToken:
+      name: Csrf-Token
+      in: header
+      required: true
+      description: CSRF token read from the session cookie
+      schema:
+        type: string
   securitySchemes:
     csrfToken:
       type: apiKey

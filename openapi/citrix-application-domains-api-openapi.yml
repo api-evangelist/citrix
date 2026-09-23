@@ -78,22 +78,6 @@ paths:
         '404':
           description: Application or domain not found
 components:
-  parameters:
-    applicationId:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-        format: uuid
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   schemas:
     Certificate:
       type: object
@@ -115,6 +99,22 @@ components:
           type: string
           format: date-time
           description: Certificate expiration date
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     bearerAuth:
       type: http

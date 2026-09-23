@@ -43,31 +43,7 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   schemas:
-    CreateCertificateRequest:
-      type: object
-      required:
-      - name
-      - certificate
-      - privateKey
-      properties:
-        name:
-          type: string
-          description: Certificate name
-        certificate:
-          type: string
-          description: PEM-encoded certificate
-        privateKey:
-          type: string
-          description: PEM-encoded private key
     Certificate:
       type: object
       properties:
@@ -88,6 +64,30 @@ components:
           type: string
           format: date-time
           description: Certificate expiration date
+    CreateCertificateRequest:
+      type: object
+      required:
+      - name
+      - certificate
+      - privateKey
+      properties:
+        name:
+          type: string
+          description: Certificate name
+        certificate:
+          type: string
+          description: PEM-encoded certificate
+        privateKey:
+          type: string
+          description: PEM-encoded private key
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

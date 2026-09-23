@@ -1,7 +1,9 @@
 ---
 title: Citrix Systems Archives - Software Strategies Blog
 url: http://softwarestrategiesblog.com/tag/citrix-systems/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Citrix Systems" press release artificial intelligence'
 position: 3
 source: serpapi-google

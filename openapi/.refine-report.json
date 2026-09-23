@@ -46,7 +46,8 @@
     "tag 'Authentication' spans 4 source specs (citrix-adc-nitro-openapi.yml, citrix-cloud-openapi.yml, citrix-endpoint-management-openapi.yml, citrix-storefront-web-openapi.yml): per-path servers applied",
     "tag 'Applications' spans 3 source specs (citrix-daas-openapi.yml, citrix-endpoint-management-openapi.yml, citrix-secure-private-access-openapi.yml): per-path servers applied",
     "tag 'Delivery Groups' spans 2 source specs (citrix-daas-openapi.yml, citrix-endpoint-management-openapi.yml): per-path servers applied",
-    "tag 'Sessions' spans 2 source specs (citrix-daas-openapi.yml, citrix-storefront-web-openapi.yml): per-path servers applied"
+    "tag 'Sessions' spans 2 source specs (citrix-daas-openapi.yml, citrix-storefront-web-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "citrix-access-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
