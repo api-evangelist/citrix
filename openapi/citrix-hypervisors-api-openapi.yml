@@ -36,21 +36,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   schemas:
     HypervisorCollection:
       type: object
@@ -74,6 +59,21 @@ components:
         state:
           type: string
           description: Current connection state
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -182,14 +182,29 @@ paths:
           default: xms.example.com
           description: XenMobile server hostname
 components:
+  parameters:
+    deliveryGroupId:
+      name: deliveryGroupId
+      in: path
+      required: true
+      description: Delivery group unique identifier
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
   schemas:
-    DeliveryGroupCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeliveryGroup'
     DeliveryGroup:
       type: object
       properties:
@@ -230,6 +245,13 @@ components:
         enabled:
           type: boolean
           description: Whether the delivery group is enabled
+    DeliveryGroupCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryGroup'
     CreateDeliveryGroupRequest:
       type: object
       required:
@@ -273,28 +295,6 @@ components:
         limit:
           type: integer
           description: Maximum number of results
-  parameters:
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    deliveryGroupId:
-      name: deliveryGroupId
-      in: path
-      required: true
-      description: Delivery group unique identifier
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

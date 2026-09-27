@@ -137,7 +137,7 @@ paths:
       description: Citrix Cloud Production (Japan)
   /authentication/login:
     post:
-      operationId: login
+      operationId: postAuthenticationLogin
       summary: Citrix Authenticate to the API
       description: Log in with administrator credentials to obtain an authentication token.
       tags:
@@ -172,6 +172,8 @@ paths:
         '401':
           description: Authentication failed
       security: []
+      x-operation-id-source: normalized
+      x-operation-id-original: login
     servers:
     - url: https://{xms-server}:4443/xenmobile/api/v1
       description: Citrix Endpoint Management Server
@@ -282,6 +284,19 @@ paths:
           default: storefront.example.com
           description: StoreFront server hostname
 components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        token_type:
+          type: string
+          description: Token type (bearer)
+        access_token:
+          type: string
+          description: OAuth 2.0 access token
+        expires_in:
+          type: integer
+          description: Token expiration time in seconds
   parameters:
     customerId:
       name: customerId
@@ -297,19 +312,6 @@ components:
       description: CSRF token read from the session cookie
       schema:
         type: string
-  schemas:
-    TokenResponse:
-      type: object
-      properties:
-        token_type:
-          type: string
-          description: Token type (bearer)
-        access_token:
-          type: string
-          description: OAuth 2.0 access token
-        expires_in:
-          type: integer
-          description: Token expiration time in seconds
   securitySchemes:
     nitroAuth:
       type: apiKey

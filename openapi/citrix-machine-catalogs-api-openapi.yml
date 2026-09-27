@@ -131,6 +131,15 @@ paths:
           description: Machine catalog not found
 components:
   schemas:
+    UpdateMachineCatalogRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated name
+        description:
+          type: string
+          description: Updated description
     CreateMachineCatalogRequest:
       type: object
       required:
@@ -214,23 +223,7 @@ components:
             name:
               type: string
               description: Zone name
-    UpdateMachineCatalogRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Updated name
-        description:
-          type: string
-          description: Updated description
   parameters:
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
     CitrixCustomerId:
       name: Citrix-CustomerId
       in: header
@@ -243,6 +236,13 @@ components:
       in: path
       required: true
       description: Machine catalog unique identifier
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
       schema:
         type: string
   securitySchemes:

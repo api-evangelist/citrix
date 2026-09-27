@@ -58,6 +58,14 @@ paths:
           description: Not authenticated
 components:
   schemas:
+    ResourcesResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+          description: Available applications and desktops
     Resource:
       type: object
       properties:
@@ -82,14 +90,6 @@ components:
         launchstatusurl:
           type: string
           description: URL to check launch readiness
-    ResourcesResponse:
-      type: object
-      properties:
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/Resource'
-          description: Available applications and desktops
   parameters:
     CsrfToken:
       name: Csrf-Token

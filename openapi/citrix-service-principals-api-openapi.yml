@@ -104,21 +104,6 @@ paths:
         '404':
           description: Service principal not found
 components:
-  parameters:
-    principalId:
-      name: principalId
-      in: path
-      required: true
-      description: Service principal unique identifier
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID header
-      schema:
-        type: string
   schemas:
     ServicePrincipal:
       type: object
@@ -147,6 +132,21 @@ components:
         displayName:
           type: string
           description: Display name for the new service principal
+  parameters:
+    principalId:
+      name: principalId
+      in: path
+      required: true
+      description: Service principal unique identifier
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID header
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

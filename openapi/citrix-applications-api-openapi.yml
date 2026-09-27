@@ -111,7 +111,7 @@ paths:
           description: XenMobile server hostname
   /applications:
     get:
-      operationId: listApplications
+      operationId: getApplications
       summary: Citrix List applications
       description: Retrieve all applications configured in Secure Private Access.
       tags:
@@ -134,6 +134,8 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
+      x-operation-id-source: normalized
+      x-operation-id-original: listApplications
     post:
       operationId: createApplication
       summary: Citrix Create an application
@@ -166,7 +168,7 @@ paths:
       description: Citrix Cloud Production
   /applications/{applicationId}:
     get:
-      operationId: getApplication
+      operationId: getApplicationsByApplicationId
       summary: Citrix Get an application
       description: Retrieve details of a specific application.
       tags:
@@ -187,6 +189,8 @@ paths:
           description: Application not found
       security:
       - bearerAuth: []
+      x-operation-id-source: normalized
+      x-operation-id-original: getApplication
     put:
       operationId: updateApplication
       summary: Citrix Update an application
@@ -235,6 +239,36 @@ paths:
     - url: https://api.cloud.com/accessSecurity
       description: Citrix Cloud Production
 components:
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    applicationId_2:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+        format: uuid
   schemas:
     Application:
       type: object
@@ -297,6 +331,45 @@ components:
         limit:
           type: integer
           description: Maximum number of results
+    CreateApplicationRequest:
+      type: object
+      required:
+      - name
+      - url
+      - appType
+      properties:
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        url:
+          type: string
+          format: uri
+          description: Application URL
+        appType:
+          type: string
+          enum:
+          - SaaS
+          - Web
+          description: Type of application
+    UpdateApplicationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated application name
+        description:
+          type: string
+          description: Updated description
+        url:
+          type: string
+          format: uri
+          description: Updated URL
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
     Application_3:
       type: object
       properties:
@@ -328,75 +401,6 @@ components:
           items:
             type: string
           description: Associated domains
-    UpdateApplicationRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Updated application name
-        description:
-          type: string
-          description: Updated description
-        url:
-          type: string
-          format: uri
-          description: Updated URL
-        enabled:
-          type: boolean
-          description: Whether the application is enabled
-    CreateApplicationRequest:
-      type: object
-      required:
-      - name
-      - url
-      - appType
-      properties:
-        name:
-          type: string
-          description: Application name
-        description:
-          type: string
-          description: Application description
-        url:
-          type: string
-          format: uri
-          description: Application URL
-        appType:
-          type: string
-          enum:
-          - SaaS
-          - Web
-          description: Type of application
-  parameters:
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
-    applicationId:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-    applicationId_2:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     bearerAuth:
       type: http
