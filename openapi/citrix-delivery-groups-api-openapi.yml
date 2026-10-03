@@ -182,29 +182,33 @@ paths:
           default: xms.example.com
           description: XenMobile server hostname
 components:
-  parameters:
-    deliveryGroupId:
-      name: deliveryGroupId
-      in: path
-      required: true
-      description: Delivery group unique identifier
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
   schemas:
+    CreateDeliveryGroupRequest:
+      type: object
+      required:
+      - name
+      - deliveryType
+      properties:
+        name:
+          type: string
+          description: Name for the new delivery group
+        description:
+          type: string
+          description: Description for the delivery group
+        deliveryType:
+          type: string
+          enum:
+          - DesktopsOnly
+          - AppsOnly
+          - DesktopsAndApps
+          description: Type of resources to deliver
+    DeliveryGroupCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryGroup'
     DeliveryGroup:
       type: object
       properties:
@@ -245,32 +249,6 @@ components:
         enabled:
           type: boolean
           description: Whether the delivery group is enabled
-    DeliveryGroupCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeliveryGroup'
-    CreateDeliveryGroupRequest:
-      type: object
-      required:
-      - name
-      - deliveryType
-      properties:
-        name:
-          type: string
-          description: Name for the new delivery group
-        description:
-          type: string
-          description: Description for the delivery group
-        deliveryType:
-          type: string
-          enum:
-          - DesktopsOnly
-          - AppsOnly
-          - DesktopsAndApps
-          description: Type of resources to deliver
     DeliveryGroup_2:
       type: object
       properties:
@@ -295,6 +273,28 @@ components:
         limit:
           type: integer
           description: Maximum number of results
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    deliveryGroupId:
+      name: deliveryGroupId
+      in: path
+      required: true
+      description: Delivery group unique identifier
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

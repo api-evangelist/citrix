@@ -44,6 +44,22 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    CreateCertificateRequest:
+      type: object
+      required:
+      - name
+      - certificate
+      - privateKey
+      properties:
+        name:
+          type: string
+          description: Certificate name
+        certificate:
+          type: string
+          description: PEM-encoded certificate
+        privateKey:
+          type: string
+          description: PEM-encoded private key
     Certificate:
       type: object
       properties:
@@ -64,22 +80,6 @@ components:
           type: string
           format: date-time
           description: Certificate expiration date
-    CreateCertificateRequest:
-      type: object
-      required:
-      - name
-      - certificate
-      - privateKey
-      properties:
-        name:
-          type: string
-          description: Certificate name
-        certificate:
-          type: string
-          description: PEM-encoded certificate
-        privateKey:
-          type: string
-          description: PEM-encoded private key
   parameters:
     CitrixCustomerId:
       name: Citrix-CustomerId

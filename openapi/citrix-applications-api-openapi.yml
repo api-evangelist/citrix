@@ -239,36 +239,6 @@ paths:
     - url: https://api.cloud.com/accessSecurity
       description: Citrix Cloud Production
 components:
-  parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
-    applicationId:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    applicationId_2:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-        format: uuid
   schemas:
     Application:
       type: object
@@ -331,6 +301,37 @@ components:
         limit:
           type: integer
           description: Maximum number of results
+    Application_3:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the application
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        url:
+          type: string
+          format: uri
+          description: Application URL
+        appType:
+          type: string
+          enum:
+          - SaaS
+          - Web
+          description: Type of application
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
+        domains:
+          type: array
+          items:
+            type: string
+          description: Associated domains
     CreateApplicationRequest:
       type: object
       required:
@@ -370,37 +371,36 @@ components:
         enabled:
           type: boolean
           description: Whether the application is enabled
-    Application_3:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: Unique identifier for the application
-        name:
-          type: string
-          description: Application name
-        description:
-          type: string
-          description: Application description
-        url:
-          type: string
-          format: uri
-          description: Application URL
-        appType:
-          type: string
-          enum:
-          - SaaS
-          - Web
-          description: Type of application
-        enabled:
-          type: boolean
-          description: Whether the application is enabled
-        domains:
-          type: array
-          items:
-            type: string
-          description: Associated domains
+  parameters:
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    applicationId_2:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     bearerAuth:
       type: http

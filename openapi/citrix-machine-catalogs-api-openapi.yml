@@ -173,13 +173,6 @@ components:
           - SingleSession
           - MultiSession
           description: Session support type
-    MachineCatalogCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/MachineCatalog'
     MachineCatalog:
       type: object
       properties:
@@ -223,12 +216,19 @@ components:
             name:
               type: string
               description: Zone name
+    MachineCatalogCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MachineCatalog'
   parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
+    CitrixInstanceId:
+      name: Citrix-InstanceId
       in: header
       required: true
-      description: Citrix Cloud customer ID
+      description: Citrix DaaS site instance ID
       schema:
         type: string
     catalogId:
@@ -238,11 +238,11 @@ components:
       description: Machine catalog unique identifier
       schema:
         type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
+    CitrixCustomerId:
+      name: Citrix-CustomerId
       in: header
       required: true
-      description: Citrix DaaS site instance ID
+      description: Citrix Cloud customer ID
       schema:
         type: string
   securitySchemes:

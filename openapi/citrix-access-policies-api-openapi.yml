@@ -65,32 +65,7 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   schemas:
-    CreateAccessPolicyRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: Policy name
-        description:
-          type: string
-          description: Policy description
-        conditions:
-          type: object
-          description: Policy conditions
-        actions:
-          type: object
-          description: Policy actions
     AccessPolicy:
       type: object
       properties:
@@ -116,6 +91,31 @@ components:
         actions:
           type: object
           description: Actions to apply when policy matches
+    CreateAccessPolicyRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Policy name
+        description:
+          type: string
+          description: Policy description
+        conditions:
+          type: object
+          description: Policy conditions
+        actions:
+          type: object
+          description: Policy actions
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
