@@ -182,7 +182,48 @@ paths:
           default: xms.example.com
           description: XenMobile server hostname
 components:
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    deliveryGroupId:
+      name: deliveryGroupId
+      in: path
+      required: true
+      description: Delivery group unique identifier
+      schema:
+        type: string
   schemas:
+    UpdateDeliveryGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated name
+        description:
+          type: string
+          description: Updated description
+        enabled:
+          type: boolean
+          description: Whether the delivery group is enabled
+    DeliveryGroupCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryGroup'
     CreateDeliveryGroupRequest:
       type: object
       required:
@@ -202,13 +243,6 @@ components:
           - AppsOnly
           - DesktopsAndApps
           description: Type of resources to deliver
-    DeliveryGroupCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeliveryGroup'
     DeliveryGroup:
       type: object
       properties:
@@ -237,18 +271,15 @@ components:
           - AppsOnly
           - DesktopsAndApps
           description: Type of resources delivered
-    UpdateDeliveryGroupRequest:
+    DeliveryGroupFilterRequest:
       type: object
       properties:
-        name:
-          type: string
-          description: Updated name
-        description:
-          type: string
-          description: Updated description
-        enabled:
-          type: boolean
-          description: Whether the delivery group is enabled
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
     DeliveryGroup_2:
       type: object
       properties:
@@ -264,37 +295,6 @@ components:
         disabled:
           type: boolean
           description: Whether the delivery group is disabled
-    DeliveryGroupFilterRequest:
-      type: object
-      properties:
-        start:
-          type: integer
-          description: Start index for pagination
-        limit:
-          type: integer
-          description: Maximum number of results
-  parameters:
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
-    deliveryGroupId:
-      name: deliveryGroupId
-      in: path
-      required: true
-      description: Delivery group unique identifier
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

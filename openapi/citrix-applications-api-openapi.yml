@@ -239,7 +239,44 @@ paths:
     - url: https://api.cloud.com/accessSecurity
       description: Citrix Cloud Production
 components:
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    applicationId:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+    applicationId_2:
+      name: applicationId
+      in: path
+      required: true
+      description: Application unique identifier
+      schema:
+        type: string
+        format: uuid
   schemas:
+    ApplicationCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
     Application:
       type: object
       properties:
@@ -264,13 +301,15 @@ components:
         applicationFolder:
           type: string
           description: Folder containing the application
-    ApplicationCollection:
+    ApplicationFilterRequest:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Application'
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
     Application_2:
       type: object
       properties:
@@ -292,15 +331,45 @@ components:
         disabled:
           type: boolean
           description: Whether the application is disabled
-    ApplicationFilterRequest:
+    UpdateApplicationRequest:
       type: object
       properties:
-        start:
-          type: integer
-          description: Start index for pagination
-        limit:
-          type: integer
-          description: Maximum number of results
+        name:
+          type: string
+          description: Updated application name
+        description:
+          type: string
+          description: Updated description
+        url:
+          type: string
+          format: uri
+          description: Updated URL
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
+    CreateApplicationRequest:
+      type: object
+      required:
+      - name
+      - url
+      - appType
+      properties:
+        name:
+          type: string
+          description: Application name
+        description:
+          type: string
+          description: Application description
+        url:
+          type: string
+          format: uri
+          description: Application URL
+        appType:
+          type: string
+          enum:
+          - SaaS
+          - Web
+          description: Type of application
     Application_3:
       type: object
       properties:
@@ -332,75 +401,6 @@ components:
           items:
             type: string
           description: Associated domains
-    CreateApplicationRequest:
-      type: object
-      required:
-      - name
-      - url
-      - appType
-      properties:
-        name:
-          type: string
-          description: Application name
-        description:
-          type: string
-          description: Application description
-        url:
-          type: string
-          format: uri
-          description: Application URL
-        appType:
-          type: string
-          enum:
-          - SaaS
-          - Web
-          description: Type of application
-    UpdateApplicationRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Updated application name
-        description:
-          type: string
-          description: Updated description
-        url:
-          type: string
-          format: uri
-          description: Updated URL
-        enabled:
-          type: boolean
-          description: Whether the application is enabled
-  parameters:
-    applicationId:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
-    applicationId_2:
-      name: applicationId
-      in: path
-      required: true
-      description: Application unique identifier
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     bearerAuth:
       type: http

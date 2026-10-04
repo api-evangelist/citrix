@@ -58,6 +58,28 @@ paths:
         '404':
           description: Machine not found
 components:
+  parameters:
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    machineId:
+      name: machineId
+      in: path
+      required: true
+      description: Machine unique identifier
+      schema:
+        type: string
   schemas:
     Machine:
       type: object
@@ -98,28 +120,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Machine'
-  parameters:
-    machineId:
-      name: machineId
-      in: path
-      required: true
-      description: Machine unique identifier
-      schema:
-        type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

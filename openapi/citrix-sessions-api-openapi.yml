@@ -231,13 +231,6 @@ paths:
           description: StoreFront server hostname
 components:
   parameters:
-    sessionId:
-      name: sessionId
-      in: path
-      required: true
-      description: Session unique identifier
-      schema:
-        type: string
     CitrixInstanceId:
       name: Citrix-InstanceId
       in: header
@@ -252,6 +245,13 @@ components:
       description: Citrix Cloud customer ID
       schema:
         type: string
+    sessionId:
+      name: sessionId
+      in: path
+      required: true
+      description: Session unique identifier
+      schema:
+        type: string
     CsrfToken:
       name: Csrf-Token
       in: header
@@ -260,13 +260,6 @@ components:
       schema:
         type: string
   schemas:
-    SessionCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Session'
     Session:
       type: object
       properties:
@@ -297,6 +290,13 @@ components:
           items:
             type: string
           description: Applications running in the session
+    SessionCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Session'
     Session_2:
       type: object
       properties:

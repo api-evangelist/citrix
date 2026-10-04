@@ -126,24 +126,6 @@ paths:
           description: Device not found
 components:
   schemas:
-    DeviceFilterRequest:
-      type: object
-      properties:
-        start:
-          type: integer
-          description: Start index for pagination
-        limit:
-          type: integer
-          description: Maximum number of results
-        sortOrder:
-          type: string
-          enum:
-          - ASC
-          - DESC
-          description: Sort order
-        search:
-          type: string
-          description: Search text
     Device:
       type: object
       properties:
@@ -183,6 +165,24 @@ components:
         compliant:
           type: boolean
           description: Whether the device is compliant with policies
+    DeviceFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+        sortOrder:
+          type: string
+          enum:
+          - ASC
+          - DESC
+          description: Sort order
+        search:
+          type: string
+          description: Search text
   securitySchemes:
     authToken:
       type: apiKey

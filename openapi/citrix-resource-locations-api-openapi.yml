@@ -63,21 +63,6 @@ paths:
         '404':
           description: Resource location not found
 components:
-  parameters:
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID header
-      schema:
-        type: string
-    locationId:
-      name: locationId
-      in: path
-      required: true
-      description: Resource location unique identifier
-      schema:
-        type: string
   schemas:
     ResourceLocation:
       type: object
@@ -97,6 +82,21 @@ components:
         readOnly:
           type: boolean
           description: Whether the resource location is read-only
+  parameters:
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID header
+      schema:
+        type: string
+    locationId:
+      name: locationId
+      in: path
+      required: true
+      description: Resource location unique identifier
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
