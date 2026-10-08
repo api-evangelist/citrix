@@ -1258,6 +1258,12 @@ apis:
     url: >-
       https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
 common:
+  - type: Plans
+    url: plans/citrix-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/citrix-rate-limits.yml
+  - type: FinOps
+    url: finops/citrix-finops.yml
   - type: CapabilityMap
     url: capabilities/citrix-capability-edges.yml
     name: Citrix Business Capability Map
