@@ -1,22 +1,184 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/citrix-adc-nitro-openapi.yml, openapi/citrix-cloud-openapi.yml, openapi/citrix-daas-openapi.yml,
-  openapi/citrix-endpoint-management-openapi.yml, openapi/citrix-secure-private-access-openapi.yml,
-  openapi/citrix-storefront-web-openapi.yml
+source: openapi/citrix-access-policies-api-openapi.yml, openapi/citrix-application-domains-api-openapi.yml,
+  openapi/citrix-applications-api-openapi.yml, openapi/citrix-authentication-api-openapi.yml,
+  openapi/citrix-certificates-api-openapi.yml, openapi/citrix-content-switching-api-openapi.yml,
+  openapi/citrix-delivery-groups-api-openapi.yml, openapi/citrix-devices-api-openapi.yml, openapi/citrix-hypervisors-api-openapi.yml,
+  openapi/citrix-launch-api-openapi.yml, openapi/citrix-load-balancing-api-openapi.yml, openapi/citrix-machine-catalogs-api-openapi.yml,
+  openapi/citrix-machines-api-openapi.yml, openapi/citrix-notifications-api-openapi.yml, openapi/citrix-policies-api-openapi.yml,
+  openapi/citrix-resource-locations-api-openapi.yml, openapi/citrix-resources-api-openapi.yml,
+  openapi/citrix-service-principals-api-openapi.yml, openapi/citrix-sessions-api-openapi.yml,
+  openapi/citrix-ssl-api-openapi.yml, openapi/citrix-system-api-openapi.yml, openapi/citrix-users-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 69
   by_action_class:
-    acting: 37
-    connected: 32
+    connected: 34
+    acting: 35
   by_consequence:
-    write: 36
-    read: 32
+    read: 34
+    write: 34
     physical: 1
   human_in_the_loop_required: 0
 operations:
+- path: /policies
+  method: get
+  operationId: listAccessPolicies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /policies
+  method: post
+  operationId: createAccessPolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /application/{applicationId}/domain/{encodedURL}
+  method: get
+  operationId: getApplicationDomainCertificate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /application/{applicationId}/domain/{encodedURL}
+  method: put
+  operationId: associateDomainCertificate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /Applications
+  method: get
+  operationId: listApplications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /Applications/{applicationId}
+  method: get
+  operationId: getApplication
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /application/filter
+  method: post
+  operationId: filterApplications
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications
+  method: get
+  operationId: listApplications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications
+  method: post
+  operationId: createApplication
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{applicationId}
+  method: get
+  operationId: getApplication
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{applicationId}
+  method: put
+  operationId: updateApplication
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{applicationId}
+  method: delete
+  operationId: deleteApplication
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /config/login
   method: post
   operationId: login
@@ -33,6 +195,294 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /cctrustoauth2/{customerId}/tokens/clients
+  method: post
+  operationId: getAccessToken
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /authentication/login
+  method: post
+  operationId: login
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /authentication/logout
+  method: post
+  operationId: logout
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /Authentication/GetAuthMethods
+  method: post
+  operationId: getAuthMethods
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ExplicitAuth/Login
+  method: post
+  operationId: explicitLogin
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ExplicitAuth/Logout
+  method: post
+  operationId: explicitLogout
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /certificate
+  method: post
+  operationId: createCertificate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /config/csvserver
+  method: get
+  operationId: listCsVservers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /DeliveryGroups
+  method: get
+  operationId: listDeliveryGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /DeliveryGroups
+  method: post
+  operationId: createDeliveryGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /DeliveryGroups/{deliveryGroupId}
+  method: get
+  operationId: getDeliveryGroup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /DeliveryGroups/{deliveryGroupId}
+  method: put
+  operationId: updateDeliveryGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /DeliveryGroups/{deliveryGroupId}
+  method: delete
+  operationId: deleteDeliveryGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /deliverygroup/filter
+  method: post
+  operationId: filterDeliveryGroups
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /device/filter
+  method: post
+  operationId: filterDevices
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /device/{deviceId}
+  method: get
+  operationId: getDevice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /device/wipe
+  method: post
+  operationId: wipeDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /device/selectivewipe
+  method: post
+  operationId: selectiveWipeDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /Hypervisors
+  method: get
+  operationId: listHypervisors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /Resources/GetLaunchStatus/{resourceId}
+  method: get
+  operationId: getLaunchStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /Resources/LaunchIca/{resourceId}
+  method: get
+  operationId: launchResource
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /config/lbvserver
   method: get
   operationId: listLbVservers
@@ -121,147 +571,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /config/csvserver
-  method: get
-  operationId: listCsVservers
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /config/sslcertkey
-  method: get
-  operationId: listSslCertKeys
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /stat/lbvserver
   method: get
   operationId: getLbVserverStats
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /stat/ns
-  method: get
-  operationId: getSystemStats
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /config/nsconfig
-  method: get
-  operationId: getNsConfig
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /cctrustoauth2/{customerId}/tokens/clients
-  method: post
-  operationId: getAccessToken
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /serviceprincipals
-  method: get
-  operationId: listServicePrincipals
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /serviceprincipals
-  method: post
-  operationId: createServicePrincipal
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /serviceprincipals/{principalId}
-  method: get
-  operationId: getServicePrincipal
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /serviceprincipals/{principalId}
-  method: delete
-  operationId: deleteServicePrincipal
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /resourcelocations
-  method: get
-  operationId: listResourceLocations
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /resourcelocations/{locationId}
-  method: get
-  operationId: getResourceLocation
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /notifications
-  method: get
-  operationId: listNotifications
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -337,9 +649,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /DeliveryGroups
+- path: /Machines
   method: get
-  operationId: listDeliveryGroups
+  operationId: listMachines
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -347,25 +659,47 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /DeliveryGroups
+- path: /Machines/{machineId}
+  method: get
+  operationId: getMachine
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /notifications
+  method: get
+  operationId: listNotifications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /device/policy/deploy
   method: post
-  operationId: createDeliveryGroup
+  operationId: deployPolicy
   x-agentic-access:
     action-class: acting
-    consequence: write
+    consequence: physical
     subject: required
     audience: null
     token:
-      max-ttl: 900
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
     escalation:
       human-in-the-loop: conditional
       triggers:
       - abnormal
       - high-value
     audit: required
-- path: /DeliveryGroups/{deliveryGroupId}
+- path: /resourcelocations
   method: get
-  operationId: getDeliveryGroup
+  operationId: listResourceLocations
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -373,9 +707,39 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /DeliveryGroups/{deliveryGroupId}
-  method: put
-  operationId: updateDeliveryGroup
+- path: /resourcelocations/{locationId}
+  method: get
+  operationId: getResourceLocation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /Resources/List
+  method: post
+  operationId: listResources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /serviceprincipals
+  method: get
+  operationId: listServicePrincipals
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /serviceprincipals
+  method: post
+  operationId: createServicePrincipal
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -389,9 +753,19 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /DeliveryGroups/{deliveryGroupId}
+- path: /serviceprincipals/{principalId}
+  method: get
+  operationId: getServicePrincipal
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /serviceprincipals/{principalId}
   method: delete
-  operationId: deleteDeliveryGroup
+  operationId: deleteServicePrincipal
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -405,26 +779,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /Applications
-  method: get
-  operationId: listApplications
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /Applications/{applicationId}
-  method: get
-  operationId: getApplication
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /Sessions
   method: get
   operationId: listSessions
@@ -464,392 +818,6 @@ operations:
 - path: /Sessions/{sessionId}/$disconnect
   method: post
   operationId: disconnectSession
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /Machines
-  method: get
-  operationId: listMachines
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /Machines/{machineId}
-  method: get
-  operationId: getMachine
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /Hypervisors
-  method: get
-  operationId: listHypervisors
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /authentication/login
-  method: post
-  operationId: login
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /authentication/logout
-  method: post
-  operationId: logout
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /device/filter
-  method: post
-  operationId: filterDevices
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /device/{deviceId}
-  method: get
-  operationId: getDevice
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /device/wipe
-  method: post
-  operationId: wipeDevice
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /device/selectivewipe
-  method: post
-  operationId: selectiveWipeDevice
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /application/filter
-  method: post
-  operationId: filterApplications
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /device/policy/deploy
-  method: post
-  operationId: deployPolicy
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /user/filter
-  method: post
-  operationId: filterUsers
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /deliverygroup/filter
-  method: post
-  operationId: filterDeliveryGroups
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /applications
-  method: get
-  operationId: listApplications
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /applications
-  method: post
-  operationId: createApplication
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /applications/{applicationId}
-  method: get
-  operationId: getApplication
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /applications/{applicationId}
-  method: put
-  operationId: updateApplication
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /applications/{applicationId}
-  method: delete
-  operationId: deleteApplication
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /policies
-  method: get
-  operationId: listAccessPolicies
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /policies
-  method: post
-  operationId: createAccessPolicy
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /certificate
-  method: post
-  operationId: createCertificate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /application/{applicationId}/domain/{encodedURL}
-  method: get
-  operationId: getApplicationDomainCertificate
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /application/{applicationId}/domain/{encodedURL}
-  method: put
-  operationId: associateDomainCertificate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /Authentication/GetAuthMethods
-  method: post
-  operationId: getAuthMethods
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ExplicitAuth/Login
-  method: post
-  operationId: explicitLogin
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ExplicitAuth/Logout
-  method: post
-  operationId: explicitLogout
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /Resources/List
-  method: post
-  operationId: listResources
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -911,9 +879,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /Resources/GetLaunchStatus/{resourceId}
+- path: /config/sslcertkey
   method: get
-  operationId: getLaunchStatus
+  operationId: listSslCertKeys
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -921,9 +889,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /Resources/LaunchIca/{resourceId}
+- path: /stat/ns
   method: get
-  operationId: launchResource
+  operationId: getSystemStats
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -931,3 +899,29 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /config/nsconfig
+  method: get
+  operationId: getNsConfig
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /user/filter
+  method: post
+  operationId: filterUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
