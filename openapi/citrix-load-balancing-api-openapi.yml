@@ -191,33 +191,6 @@ paths:
                       $ref: '#/components/schemas/LbVserverStats'
 components:
   schemas:
-    LbVserverStats:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Virtual server name
-        requestsrate:
-          type: number
-          description: Requests per second
-        responsesrate:
-          type: number
-          description: Responses per second
-        totalrequests:
-          type: integer
-          description: Total requests received
-        totalresponses:
-          type: integer
-          description: Total responses sent
-        curclntconnections:
-          type: integer
-          description: Current client connections
-        cursrvrconnections:
-          type: integer
-          description: Current server connections
-        health:
-          type: number
-          description: Health percentage
     ServiceGroup:
       type: object
       properties:
@@ -248,6 +221,33 @@ components:
         svrstate:
           type: string
           description: Current state of the service
+    LbVserverStats:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Virtual server name
+        requestsrate:
+          type: number
+          description: Requests per second
+        responsesrate:
+          type: number
+          description: Responses per second
+        totalrequests:
+          type: integer
+          description: Total requests received
+        totalresponses:
+          type: integer
+          description: Total responses sent
+        curclntconnections:
+          type: integer
+          description: Current client connections
+        cursrvrconnections:
+          type: integer
+          description: Current server connections
+        health:
+          type: number
+          description: Health percentage
     LbVserver:
       type: object
       properties:

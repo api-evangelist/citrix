@@ -240,11 +240,11 @@ paths:
       description: Citrix Cloud Production
 components:
   parameters:
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
+    applicationId:
+      name: applicationId
+      in: path
       required: true
-      description: Citrix DaaS site instance ID
+      description: Application unique identifier
       schema:
         type: string
     CitrixCustomerId:
@@ -254,11 +254,11 @@ components:
       description: Citrix Cloud customer ID
       schema:
         type: string
-    applicationId:
-      name: applicationId
-      in: path
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
       required: true
-      description: Application unique identifier
+      description: Citrix DaaS site instance ID
       schema:
         type: string
     applicationId_2:
@@ -270,13 +270,6 @@ components:
         type: string
         format: uuid
   schemas:
-    ApplicationCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Application'
     Application:
       type: object
       properties:
@@ -301,15 +294,13 @@ components:
         applicationFolder:
           type: string
           description: Folder containing the application
-    ApplicationFilterRequest:
+    ApplicationCollection:
       type: object
       properties:
-        start:
-          type: integer
-          description: Start index for pagination
-        limit:
-          type: integer
-          description: Maximum number of results
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
     Application_2:
       type: object
       properties:
@@ -331,22 +322,15 @@ components:
         disabled:
           type: boolean
           description: Whether the application is disabled
-    UpdateApplicationRequest:
+    ApplicationFilterRequest:
       type: object
       properties:
-        name:
-          type: string
-          description: Updated application name
-        description:
-          type: string
-          description: Updated description
-        url:
-          type: string
-          format: uri
-          description: Updated URL
-        enabled:
-          type: boolean
-          description: Whether the application is enabled
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
     CreateApplicationRequest:
       type: object
       required:
@@ -401,6 +385,22 @@ components:
           items:
             type: string
           description: Associated domains
+    UpdateApplicationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated application name
+        description:
+          type: string
+          description: Updated description
+        url:
+          type: string
+          format: uri
+          description: Updated URL
+        enabled:
+          type: boolean
+          description: Whether the application is enabled
   securitySchemes:
     bearerAuth:
       type: http

@@ -59,11 +59,11 @@ paths:
           description: Machine not found
 components:
   parameters:
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
+    machineId:
+      name: machineId
+      in: path
       required: true
-      description: Citrix DaaS site instance ID
+      description: Machine unique identifier
       schema:
         type: string
     CitrixCustomerId:
@@ -73,11 +73,11 @@ components:
       description: Citrix Cloud customer ID
       schema:
         type: string
-    machineId:
-      name: machineId
-      in: path
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
       required: true
-      description: Machine unique identifier
+      description: Citrix DaaS site instance ID
       schema:
         type: string
   schemas:

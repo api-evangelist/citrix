@@ -56,6 +56,21 @@ paths:
                     $ref: '#/components/schemas/NsConfig'
 components:
   schemas:
+    NsConfig:
+      type: object
+      properties:
+        ipaddress:
+          type: string
+          description: NetScaler IP address
+        netmask:
+          type: string
+          description: Network mask
+        systemtype:
+          type: string
+          description: System type
+        primaryip:
+          type: string
+          description: Primary IP address
     SystemStats:
       type: object
       properties:
@@ -77,21 +92,6 @@ components:
         disk1perusage:
           type: number
           description: Disk 1 usage percentage
-    NsConfig:
-      type: object
-      properties:
-        ipaddress:
-          type: string
-          description: NetScaler IP address
-        netmask:
-          type: string
-          description: Network mask
-        systemtype:
-          type: string
-          description: System type
-        primaryip:
-          type: string
-          description: Primary IP address
   securitySchemes:
     nitroAuth:
       type: apiKey
