@@ -183,6 +183,13 @@ paths:
           description: XenMobile server hostname
 components:
   schemas:
+    DeliveryGroupCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryGroup'
     DeliveryGroup:
       type: object
       properties:
@@ -211,13 +218,6 @@ components:
           - AppsOnly
           - DesktopsAndApps
           description: Type of resources delivered
-    DeliveryGroupCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeliveryGroup'
     CreateDeliveryGroupRequest:
       type: object
       required:

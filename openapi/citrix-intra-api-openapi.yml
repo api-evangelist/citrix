@@ -1,0 +1,90 @@
+openapi: 3.2.0
+info:
+  title: documentation Intra API
+  version: 0.0.1
+servers:
+- url: https://api.analytics.cloud.com/
+tags:
+- name: intra
+paths:
+  /intra/{mainPath*}:
+    post:
+      operationId: postIntraMainpath
+      parameters:
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - intra
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Post intra mainpath
+      x-summary-source: derived
+    get:
+      operationId: getIntraMainpath
+      parameters:
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - intra
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Get intra mainpath
+      x-summary-source: derived
+    put:
+      operationId: putIntraMainpath
+      parameters:
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - intra
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Put intra mainpath
+      x-summary-source: derived
+    delete:
+      operationId: deleteIntraMainpath
+      parameters:
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - intra
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Delete intra mainpath
+      x-summary-source: derived

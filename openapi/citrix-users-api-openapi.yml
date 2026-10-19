@@ -49,18 +49,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    UserFilterRequest:
-      type: object
-      properties:
-        start:
-          type: integer
-          description: Start index for pagination
-        limit:
-          type: integer
-          description: Maximum number of results
-        search:
-          type: string
-          description: Search text
     User:
       type: object
       properties:
@@ -79,6 +67,18 @@ components:
         domain:
           type: string
           description: Active Directory domain
+    UserFilterRequest:
+      type: object
+      properties:
+        start:
+          type: integer
+          description: Start index for pagination
+        limit:
+          type: integer
+          description: Maximum number of results
+        search:
+          type: string
+          description: Search text
   securitySchemes:
     authToken:
       type: apiKey

@@ -231,6 +231,13 @@ paths:
           description: StoreFront server hostname
 components:
   schemas:
+    SessionCollection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Session'
     Session:
       type: object
       properties:
@@ -261,13 +268,6 @@ components:
           items:
             type: string
           description: Applications running in the session
-    SessionCollection:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Session'
     Session_2:
       type: object
       properties:
@@ -287,6 +287,13 @@ components:
           type: boolean
           description: Whether the session is currently active
   parameters:
+    sessionId:
+      name: sessionId
+      in: path
+      required: true
+      description: Session unique identifier
+      schema:
+        type: string
     CitrixCustomerId:
       name: Citrix-CustomerId
       in: header
@@ -299,13 +306,6 @@ components:
       in: header
       required: true
       description: Citrix DaaS site instance ID
-      schema:
-        type: string
-    sessionId:
-      name: sessionId
-      in: path
-      required: true
-      description: Session unique identifier
       schema:
         type: string
     CsrfToken:

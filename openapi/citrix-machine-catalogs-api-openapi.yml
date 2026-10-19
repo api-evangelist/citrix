@@ -130,6 +130,28 @@ paths:
         '404':
           description: Machine catalog not found
 components:
+  parameters:
+    catalogId:
+      name: catalogId
+      in: path
+      required: true
+      description: Machine catalog unique identifier
+      schema:
+        type: string
+    CitrixCustomerId:
+      name: Citrix-CustomerId
+      in: header
+      required: true
+      description: Citrix Cloud customer ID
+      schema:
+        type: string
+    CitrixInstanceId:
+      name: Citrix-InstanceId
+      in: header
+      required: true
+      description: Citrix DaaS site instance ID
+      schema:
+        type: string
   schemas:
     MachineCatalogCollection:
       type: object
@@ -181,15 +203,6 @@ components:
             name:
               type: string
               description: Zone name
-    UpdateMachineCatalogRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Updated name
-        description:
-          type: string
-          description: Updated description
     CreateMachineCatalogRequest:
       type: object
       required:
@@ -223,28 +236,15 @@ components:
           - SingleSession
           - MultiSession
           description: Session support type
-  parameters:
-    catalogId:
-      name: catalogId
-      in: path
-      required: true
-      description: Machine catalog unique identifier
-      schema:
-        type: string
-    CitrixCustomerId:
-      name: Citrix-CustomerId
-      in: header
-      required: true
-      description: Citrix Cloud customer ID
-      schema:
-        type: string
-    CitrixInstanceId:
-      name: Citrix-InstanceId
-      in: header
-      required: true
-      description: Citrix DaaS site instance ID
-      schema:
-        type: string
+    UpdateMachineCatalogRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Updated name
+        description:
+          type: string
+          description: Updated description
   securitySchemes:
     bearerAuth:
       type: http

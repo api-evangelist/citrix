@@ -191,18 +191,6 @@ paths:
                       $ref: '#/components/schemas/LbVserverStats'
 components:
   schemas:
-    ServiceGroup:
-      type: object
-      properties:
-        servicegroupname:
-          type: string
-          description: Service group name
-        servicetype:
-          type: string
-          description: Protocol type
-        state:
-          type: string
-          description: Current state
     Service:
       type: object
       properties:
@@ -286,6 +274,18 @@ components:
         effectivestate:
           type: string
           description: Effective state considering bound services
+    ServiceGroup:
+      type: object
+      properties:
+        servicegroupname:
+          type: string
+          description: Service group name
+        servicetype:
+          type: string
+          description: Protocol type
+        state:
+          type: string
+          description: Current state
   securitySchemes:
     nitroAuth:
       type: apiKey

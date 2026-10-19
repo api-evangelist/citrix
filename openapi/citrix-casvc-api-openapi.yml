@@ -1,0 +1,114 @@
+openapi: 3.2.0
+info:
+  title: documentation Casvc API
+  version: 0.0.1
+servers:
+- url: https://api.analytics.cloud.com/
+tags:
+- name: casvc
+paths:
+  /casvc/{customerId}/{mainPath*}:
+    post:
+      operationId: postCasvcCustomeridMainpath
+      parameters:
+      - description: customerId
+        name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - casvc
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Post casvc customerid mainpath
+      x-summary-source: derived
+    get:
+      operationId: getCasvcCustomeridMainpath
+      parameters:
+      - description: customerId
+        name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - casvc
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Get casvc customerid mainpath
+      x-summary-source: derived
+    put:
+      operationId: putCasvcCustomeridMainpath
+      parameters:
+      - description: customerId
+        name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - casvc
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Put casvc customerid mainpath
+      x-summary-source: derived
+    delete:
+      operationId: deleteCasvcCustomeridMainpath
+      parameters:
+      - description: customerId
+        name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - description: Main URL
+        name: mainPath
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - casvc
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Delete casvc customerid mainpath
+      x-summary-source: derived

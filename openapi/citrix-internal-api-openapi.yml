@@ -1,0 +1,62 @@
+openapi: 3.2.0
+info:
+  title: documentation Internal API
+  version: 0.0.1
+servers:
+- url: https://api.analytics.cloud.com/
+tags:
+- name: Internal
+paths:
+  /internal/{path*}:
+    post:
+      operationId: postInternalPath
+      tags:
+      - Internal
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Post internal path
+      x-summary-source: derived
+    get:
+      operationId: getInternalPath
+      tags:
+      - Internal
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Get internal path
+      x-summary-source: derived
+    put:
+      operationId: putInternalPath
+      tags:
+      - Internal
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Put internal path
+      x-summary-source: derived
+    delete:
+      operationId: deleteInternalPath
+      tags:
+      - Internal
+      responses:
+        default:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Delete internal path
+      x-summary-source: derived

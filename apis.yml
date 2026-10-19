@@ -1257,6 +1257,46 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html
+- aid: citrix:citrix-casvc-api
+  name: Citrix Casvc API
+  description: The casvc API from Citrix — 1 operation(s) for casvc.
+  humanURL: https://developer.citrix.com/citrix-workspace
+  baseURL: https://api.cloud.com
+  tags:
+  - casvc
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-casvc-api-openapi.yml
+- aid: citrix:citrix-ctxana-api
+  name: Citrix Ctxana API
+  description: The ctxana API from Citrix — 95 operation(s) for ctxana.
+  humanURL: https://developer.citrix.com/citrix-workspace
+  baseURL: https://api.cloud.com
+  tags:
+  - ctxana
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-ctxana-api-openapi.yml
+- aid: citrix:citrix-internal-api
+  name: Citrix Internal API
+  description: The internal API from Citrix — 1 operation(s) for internal.
+  humanURL: https://developer.citrix.com/citrix-workspace
+  baseURL: https://api.cloud.com
+  tags:
+  - internal
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-internal-api-openapi.yml
+- aid: citrix:citrix-intra-api
+  name: Citrix Intra API
+  description: The intra API from Citrix — 1 operation(s) for intra.
+  humanURL: https://developer.citrix.com/citrix-workspace
+  baseURL: https://api.cloud.com
+  tags:
+  - intra
+  properties:
+  - type: OpenAPI
+    url: openapi/citrix-intra-api-openapi.yml
 common:
   - type: Plans
     url: plans/citrix-plans-pricing.yml
