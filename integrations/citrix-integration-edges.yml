@@ -11,25 +11,6 @@ checked:
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
 marketplace_apps: []
 edges:
-- partner_name: Microsoft Azure Marketplace
-  partner: microsoft-azure
-  partner_match: aggregator
-  type: marketplace
-  marketplace: azure-marketplace
-  channel: distribution
-  relationship: distribution-channel
-  direction: third-party
-  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Citrix
-  listing_count: 9
-  apps:
-  - Citrix for Azure
-  - NetScaler Agent
-  - Citrix SPA Sentinel App
-  - NetScaler WAF Solution for Sentinel
-  - Citrix Connector Appliance for Cloud Services
-  seller_name: Citrix
-  detected_by: sweep-cloud-marketplaces.py
-  detected: '2026-10-13'
 - partner_name: Microsoft Sentinel (own)
   partner: microsoft-sentinel
   partner_match: mirror
@@ -51,39 +32,6 @@ edges:
   category: Security - Network
   badges:
   - support-tier:partner
-- partner_name: CNCF (Cloud Native Landscape)
-  partner: cncf
-  partner_match: register
-  type: register
-  direction: partner-built
-  category: Cloud native landscape
-  evidence: https://github.com/cncf/landscape/blob/3a7d378b1824b82e729a453bb03fa6f1e37557e1/landscape.yml
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @3a7d378b18)
-    spec_file: null
-    standard: Cloud Native (CNCF)
-    role: landscape-listed
-    registered_name: Citrix ADC (formerly NetScaler ADC)
-    registered_names:
-    - Citrix ADC (formerly NetScaler ADC)
-    website: https://www.citrix.com/products/citrix-adc/
-    matched_domain: citrix.com
-    matched_by: domain
-    member_tier: null
-    joined: null
-    end_user: false
-    cncf_projects: []
-    landscape_categories:
-    - Orchestration & Management / Service Proxy
-    landscape_entries: 1
-    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
-      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  detected_by: sweep-cloud-native.py
-  first_seen: '2026-10-15'
 - partner_name: FedRAMP
   partner: null
   partner_match: register
@@ -122,6 +70,58 @@ edges:
       lapsed: false
       latest_authorization: '2022-04-11'
   detected_by: sweep-gov-cloud.py
+  first_seen: '2026-10-15'
+- partner_name: Microsoft Azure Marketplace
+  partner: microsoft-azure
+  partner_match: aggregator
+  type: marketplace
+  marketplace: azure-marketplace
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Citrix
+  listing_count: 9
+  apps:
+  - Citrix for Azure
+  - NetScaler Agent
+  - Citrix SPA Sentinel App
+  - Citrix for Azure Custom Offer
+  - Citrix SD-WAN WAN Optimization 10.0
+  seller_name: Citrix
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
+- partner_name: CNCF (Cloud Native Landscape)
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Cloud native landscape
+  evidence: https://github.com/cncf/landscape/blob/42dd4cd91dad8ec8558ac02467a43f0805b9957a/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @42dd4cd91d)
+    spec_file: null
+    standard: Cloud Native (CNCF)
+    role: landscape-listed
+    registered_name: Citrix ADC (formerly NetScaler ADC)
+    registered_names:
+    - Citrix ADC (formerly NetScaler ADC)
+    website: https://www.citrix.com/products/citrix-adc/
+    matched_domain: citrix.com
+    matched_by: domain
+    member_tier: null
+    joined: null
+    end_user: false
+    cncf_projects: []
+    landscape_categories:
+    - Orchestration & Management / Service Proxy
+    landscape_entries: 1
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
 source:
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
