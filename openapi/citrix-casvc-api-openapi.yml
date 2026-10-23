@@ -112,3 +112,9 @@ paths:
                 type: string
       summary: Delete casvc customerid mainpath
       x-summary-source: derived
+x-provenance:
+  method: harvested
+  publisher: Citrix
+  source: https://api.analytics.cloud.com/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
