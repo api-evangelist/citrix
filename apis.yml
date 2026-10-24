@@ -1283,6 +1283,8 @@ apis:
   humanURL: https://developer.citrix.com/citrix-workspace
   baseURL: https://api.cloud.com
   tags:
+  - Internal
+  tags_raw:
   - internal
   properties:
   - type: OpenAPI
