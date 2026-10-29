@@ -1,4 +1,4 @@
-# Citrix (citrix)
+# Citrix
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,360 +66,228 @@
 
 Citrix is a global software company providing virtualization, networking, workspace, and digital experience products that allow organizations to deliver applications and desktops securely from data centers and clouds to any device. Citrix exposes its programmable surface through the Citrix Cloud platform and developer.citrix.com / developer-docs.citrix.com, with REST APIs spanning Virtual Apps and Desktops, DaaS, Workspace, Citrix Cloud, ADC (NetScaler) NITRO, Endpoint Management, Secure Private Access, and Analytics. Authentication uses OAuth 2.0 bearer tokens issued through Citrix Cloud customer-id-scoped credentials.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/citrix/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/citrix/refs/heads/main/apis.yml)
+**Areas:** Application Delivery · Desktop as a Service · Networking · Virtualization · Workspace · Fortune 1000
+
+## Citrix on APIs.io
+
+Everything profiled for Citrix is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/citrix/](https://apis.io/providers/citrix/)** — or go straight to one of the APIs or properties below.
+
+### APIs (27)
+
+- [Citrix Workspace API](https://apis.io/apis/citrix/citrix-workspace-api/) — Integrate and customize Citrix Workspace for end users.
+- [Citrix Analytics API](https://apis.io/apis/citrix/citrix-analytics-api/) — Access analytics data for security and performance insights.
+- [Citrix Monitor Service OData API](https://apis.io/apis/citrix/citrix-monitor-service-odata-api/) — OData-based API for querying monitoring data from Citrix Virtual Apps and Desktops deployments, including session, connection, machine, and application…
+- [Citrix StoreFront Store Services API](https://apis.io/apis/citrix/citrix-storefront-store-services-api/) — Server-side API for customizing and extending the Citrix StoreFront store services, including endpoint management, authentication, and resource enumeration…
+- [Citrix StoreFront Authentication SDK](https://apis.io/apis/citrix/citrix-storefront-authentication-sdk/) — SDK for building custom authentication methods for Citrix StoreFront, allowing integration with third-party identity providers and custom authentication…
+- [Citrix Access Policies API](https://apis.io/apis/citrix/citrix-access-policies-api/) — Manage zero trust access policies
+- [Citrix Application Domains API](https://apis.io/apis/citrix/citrix-application-domains-api/) — Manage application domain configurations
+- [Citrix Applications API](https://apis.io/apis/citrix/citrix-applications-api/) — Manage published applications
+- [Citrix Authentication API](https://apis.io/apis/citrix/citrix-authentication-api/) — Login and session management
+- [Citrix Certificates API](https://apis.io/apis/citrix/citrix-certificates-api/) — Manage application certificates
+- [Citrix Content Switching API](https://apis.io/apis/citrix/citrix-content-switching-api/) — Content switching virtual servers and policies
+- [Citrix Delivery Groups API](https://apis.io/apis/citrix/citrix-delivery-groups-api/) — Manage delivery groups for resource assignment
+- [Citrix Devices API](https://apis.io/apis/citrix/citrix-devices-api/) — Device enrollment and lifecycle management
+- [Citrix Hypervisors API](https://apis.io/apis/citrix/citrix-hypervisors-api/) — Manage hypervisor connections
+- [Citrix Launch API](https://apis.io/apis/citrix/citrix-launch-api/) — Launch applications and desktops
+- [Citrix Load Balancing API](https://apis.io/apis/citrix/citrix-load-balancing-api/) — Load balancing virtual servers and services
+- [Citrix Machine Catalogs API](https://apis.io/apis/citrix/citrix-machine-catalogs-api/) — Manage machine catalogs and provisioning
+- [Citrix Machines API](https://apis.io/apis/citrix/citrix-machines-api/) — Manage individual machines in catalogs
+- [Citrix Notifications API](https://apis.io/apis/citrix/citrix-notifications-api/) — Manage platform notifications
+- [Citrix Policies API](https://apis.io/apis/citrix/citrix-policies-api/) — Device and app policy management
+- [Citrix Resource Locations API](https://apis.io/apis/citrix/citrix-resource-locations-api/) — Manage resource locations within a customer
+- [Citrix Resources API](https://apis.io/apis/citrix/citrix-resources-api/) — Enumerate available applications and desktops
+- [Citrix Service Principals API](https://apis.io/apis/citrix/citrix-service-principals-api/) — Manage service principals for API automation
+- [Citrix Sessions API](https://apis.io/apis/citrix/citrix-sessions-api/) — Manage and monitor active sessions
+- [Citrix SSL API](https://apis.io/apis/citrix/citrix-ssl-api/) — SSL certificates and configuration
+- [Citrix System API](https://apis.io/apis/citrix/citrix-system-api/) — System configuration and statistics
+- [Citrix Users API](https://apis.io/apis/citrix/citrix-users-api/) — User and group management
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Citrix Agentic Access](https://apis.io/agentic-access/citrix/citrix-agentic-access/)
+
+#### JSON Schema (45)
+
+The data models the API reads and writes.
+
+- [AccessPolicy](https://apis.io/schemas/citrix/citrix-accesspolicy/)
+- [Application](https://apis.io/schemas/citrix/citrix-application/)
+- [ApplicationCollection](https://apis.io/schemas/citrix/citrix-applicationcollection/)
+- [ApplicationFilterRequest](https://apis.io/schemas/citrix/citrix-applicationfilterrequest/)
+- [Certificate](https://apis.io/schemas/citrix/citrix-certificate/)
+- [CreateAccessPolicyRequest](https://apis.io/schemas/citrix/citrix-createaccesspolicyrequest/)
+- [CreateApplicationRequest](https://apis.io/schemas/citrix/citrix-createapplicationrequest/)
+- [CreateCertificateRequest](https://apis.io/schemas/citrix/citrix-createcertificaterequest/)
+- [CreateDeliveryGroupRequest](https://apis.io/schemas/citrix/citrix-createdeliverygrouprequest/)
+- [CreateMachineCatalogRequest](https://apis.io/schemas/citrix/citrix-createmachinecatalogrequest/)
+- [CreateServicePrincipalRequest](https://apis.io/schemas/citrix/citrix-createserviceprincipalrequest/)
+- [CsVserver](https://apis.io/schemas/citrix/citrix-csvserver/)
+- [DeliveryGroup](https://apis.io/schemas/citrix/citrix-deliverygroup/)
+- [DeliveryGroupCollection](https://apis.io/schemas/citrix/citrix-deliverygroupcollection/)
+- [DeliveryGroupFilterRequest](https://apis.io/schemas/citrix/citrix-deliverygroupfilterrequest/)
+- [Device](https://apis.io/schemas/citrix/citrix-device/)
+- [DeviceFilterRequest](https://apis.io/schemas/citrix/citrix-devicefilterrequest/)
+- [Hypervisor](https://apis.io/schemas/citrix/citrix-hypervisor/)
+- [HypervisorCollection](https://apis.io/schemas/citrix/citrix-hypervisorcollection/)
+- [LaunchStatus](https://apis.io/schemas/citrix/citrix-launchstatus/)
+- [LbVserver](https://apis.io/schemas/citrix/citrix-lbvserver/)
+- [LbVserverStats](https://apis.io/schemas/citrix/citrix-lbvserverstats/)
+- [Machine](https://apis.io/schemas/citrix/citrix-machine/)
+- [Citrix Machine Catalog](https://apis.io/schemas/citrix/citrix-machine-catalog/)
+- [MachineCatalog](https://apis.io/schemas/citrix/citrix-machinecatalog/)
+- …and 20 more published on APIs.io
 
-## Scope
+#### JSON Structure (1)
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Data models expressed in JSON Structure.
 
-## Tags
+- [Citrix Structure](https://apis.io/json-structure/citrix/citrix-structure/)
 
-- Application Delivery
-- Desktop-As-A-Service
-- Networking
-- Virtualization
-- Workspace
+#### JSON-LD (1)
 
-## Timestamps
+Linked-data contexts for the provider's vocabulary.
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-05-19
+- [Citrix Context](https://apis.io/jsonld/citrix/citrix-context/)
 
-## APIs
+#### Vocabulary (1)
 
-### Citrix Virtual Apps and Desktops REST API
+The provider's domain terms, defined.
 
-Manage and monitor Citrix Virtual Apps and Desktops deployments.
+- [Citrix Domain Vocabulary](https://apis.io/vocabularies/citrix/citrix-vocabulary/)
 
-- **Human URL:** [https://developer.citrix.com/citrix-virtual-apps-and-desktops](https://developer.citrix.com/citrix-virtual-apps-and-desktops)
-- **Base URL:** `https://{customer-id}.xendesktop.net`
+#### Collections (50)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Remote Access
-- VDI
-- Virtual Desktop
+- [Citrix ADC (NetScaler) NITRO Access Policies API](https://apis.io/collections/citrix/open-citrix-access-policies-api/)
+- [Citrix ADC (NetScaler) NITRO API](https://apis.io/collections/citrix/open-citrix-adc-nitro/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Application Domains API](https://apis.io/collections/citrix/open-citrix-application-domains-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Applications API](https://apis.io/collections/citrix/open-citrix-applications-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Authentication API](https://apis.io/collections/citrix/open-citrix-authentication-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Certificates API](https://apis.io/collections/citrix/open-citrix-certificates-api/)
+- [Citrix Cloud API](https://apis.io/collections/citrix/open-citrix-cloud/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Content Switching API](https://apis.io/collections/citrix/open-citrix-content-switching-api/)
+- [Citrix DaaS REST API](https://apis.io/collections/citrix/open-citrix-daas/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Delivery Groups API](https://apis.io/collections/citrix/open-citrix-delivery-groups-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Devices API](https://apis.io/collections/citrix/open-citrix-devices-api/)
+- [Citrix Endpoint Management REST API](https://apis.io/collections/citrix/open-citrix-endpoint-management/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Hypervisors API](https://apis.io/collections/citrix/open-citrix-hypervisors-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Launch API](https://apis.io/collections/citrix/open-citrix-launch-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Load Balancing API](https://apis.io/collections/citrix/open-citrix-load-balancing-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Machine Catalogs API](https://apis.io/collections/citrix/open-citrix-machine-catalogs-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Machines API](https://apis.io/collections/citrix/open-citrix-machines-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Notifications API](https://apis.io/collections/citrix/open-citrix-notifications-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies API](https://apis.io/collections/citrix/open-citrix-policies-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Resource Locations API](https://apis.io/collections/citrix/open-citrix-resource-locations-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Resources API](https://apis.io/collections/citrix/open-citrix-resources-api/)
+- [Citrix Secure Private Access API](https://apis.io/collections/citrix/open-citrix-secure-private-access/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Service Principals API](https://apis.io/collections/citrix/open-citrix-service-principals-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies Sessions API](https://apis.io/collections/citrix/open-citrix-sessions-api/)
+- [Citrix ADC (NetScaler) NITRO Access Policies SSL API](https://apis.io/collections/citrix/open-citrix-ssl-api/)
+- …and 25 more published on APIs.io
 
-#### Properties
+#### Governance rules (2)
 
-- [Documentation](https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis)
-- [OpenAPI](https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Authentication](https://developer.citrix.com/citrix-virtual-apps-and-desktops/citrix-cvad-rest-apis/docs/how-to-get-started)
-- [OpenAPI](openapi/citrix-daas-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/citrix-daas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-daas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Spectral rulesets for the provider's contracts.
 
-### Citrix Workspace API
+- [Citrix — jsonschema rules](https://apis.io/rules/citrix/citrix-jsonschema-spectral-rules/)
+- [Citrix API Rules](https://apis.io/rules/citrix/citrix-rules/)
 
-Integrate and customize Citrix Workspace for end users.
+#### Security (2)
 
-- **Human URL:** [https://developer.citrix.com/citrix-workspace](https://developer.citrix.com/citrix-workspace)
-- **Base URL:** `https://api.cloud.com`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Citrix Authentication](https://apis.io/security/citrix/citrix-authentication/)
+- [Citrix Domain Security](https://apis.io/security/citrix/citrix-domain-security/)
 
-- SSO
-- User Experience
-- Workspace
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://developer.citrix.com/citrix-workspace/citrix-workspace-platform)
-- [API Reference](https://developer.citrix.com/citrix-workspace/citrix-workspace-platform/build/api-reference)
-- [Postman Collection](collections/citrix-adc-nitro.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-adc-nitro.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-cloud.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-cloud.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-daas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-daas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-endpoint-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-endpoint-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-secure-private-access.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-secure-private-access.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-storefront-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-storefront-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Citrix Plans Pricing](https://apis.io/plans/citrix/citrix-plans-pricing/)
 
-### Citrix ADC (NetScaler) NITRO API
+#### Rate limits (1)
 
-Configure and monitor Citrix ADC application delivery controllers.
+Published request limits.
 
-- **Human URL:** [https://developer.citrix.com/citrix-adc](https://developer.citrix.com/citrix-adc)
-- **Base URL:** `https://{netscaler-ip}/nitro/v1`
+- [Citrix Rate Limits](https://apis.io/rate-limits/citrix/citrix-rate-limits/)
 
-#### Tags
+#### FinOps (1)
 
-- ADC
-- Application Delivery
-- Load Balancing
-- Networking
+What the API costs to run, by operation.
 
-#### Properties
+- [Citrix Finops](https://apis.io/finops/citrix/citrix-finops/)
 
-- [Documentation](https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/)
-- [API Reference](https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/api-reference/)
-- [SDK](https://developer-docs.citrix.com/projects/netscaler-nitro-api/en/latest/getting-started/)
-- [OpenAPI](openapi/citrix-adc-nitro-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/citrix-adc-nitro.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-adc-nitro.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+## Where to find this API
 
-### Citrix DaaS REST API
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Manage Citrix Desktop as a Service (DaaS) cloud deployments.
-
-- **Human URL:** [https://developer.citrix.com/citrix-daas](https://developer.citrix.com/citrix-daas)
-- **Base URL:** `https://api.cloud.com/cvad`
-
-#### Tags
-
-- Cloud
-- DaaS
-- Desktop as a Service
-
-#### Properties
-
-- [Documentation](https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis)
-- [OpenAPI](https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Getting Started](https://developer.citrix.com/citrix-daas/citrix-daas-rest-apis/docs/getting-started)
-- [OpenAPI](openapi/citrix-daas-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/citrix-daas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-daas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix Analytics API
-
-Access analytics data for security and performance insights.
-
-- **Human URL:** [https://developer.citrix.com/citrix-analytics](https://developer.citrix.com/citrix-analytics)
-- **Base URL:** `https://api.analytics.cloud.com`
-
-#### Tags
-
-- Analytics
-- Insights
-- Monitoring
-- Security
-
-#### Properties
-
-- [Documentation](https://developer.citrix.com/citrix-analytics/api-overview)
-- [API Reference](https://developer.citrix.com/citrix-analytics/api-reference)
-- [Postman Collection](collections/citrix-adc-nitro.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-adc-nitro.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-cloud.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-cloud.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-daas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-daas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-endpoint-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-endpoint-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-secure-private-access.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-secure-private-access.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-storefront-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-storefront-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix Cloud API
-
-Platform-level API for managing Citrix Cloud services, including authentication, service principals, resource locations, and notifications across the Citrix Cloud platform.
-
-- **Human URL:** [https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html](https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html)
-- **Base URL:** `https://api.cloud.com`
-
-#### Tags
-
-- Cloud
-- Identity
-- Management
-- Platform
-
-#### Properties
-
-- [Documentation](https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html)
-- [Getting Started](https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/citrix-cloud-api-walkthrough.html)
-- [Authentication](https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html)
-- [OpenAPI](openapi/citrix-cloud-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/citrix-cloud.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-cloud.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix Monitor Service OData API
-
-OData-based API for querying monitoring data from Citrix Virtual Apps and Desktops deployments, including session, connection, machine, and application usage data for reporting and analytics.
-
-- **Human URL:** [https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html](https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html)
-- **Base URL:** `https://{delivery-controller}/Citrix/Monitor/OData/v4/Data`
-
-#### Tags
-
-- Analytics
-- Monitoring
-- OData
-- Reporting
-
-#### Properties
-
-- [Documentation](https://developer-docs.citrix.com/en-us/monitor-service-odata-api/overview.html)
-- [Reference](https://developer-docs.citrix.com/en-us/monitor-service-odata-api/monitor-service-resources.html)
-- [Getting Started](https://developer-docs.citrix.com/en-us/monitor-service-odata-api/access-methods.html)
-- [Postman Collection](collections/citrix-adc-nitro.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-adc-nitro.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-cloud.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-cloud.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-daas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-daas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-endpoint-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-endpoint-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-secure-private-access.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-secure-private-access.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-storefront-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-storefront-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix StoreFront Web API
-
-HTTP API for building custom client applications that authenticate users, enumerate available applications and desktops, manage HDX sessions, and launch resources from Citrix StoreFront.
-
-- **Human URL:** [https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html](https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html)
-- **Base URL:** `https://{storefront-server}/Citrix/Store`
-
-#### Tags
-
-- Client
-- Resources
-- Sessions
-- StoreFront
-
-#### Properties
-
-- [Documentation](https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/overview.html)
-- [Getting Started](https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/getting-started.html)
-- [Reference](https://developer-docs.citrix.com/en-us/storefront/storefront-web-api/apis/)
-- [OpenAPI](openapi/citrix-storefront-web-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/citrix-storefront-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-storefront-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix StoreFront Store Services API
-
-Server-side API for customizing and extending the Citrix StoreFront store services, including endpoint management, authentication, and resource enumeration behaviors.
-
-- **Human URL:** [https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/overview.html](https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/overview.html)
-- **Base URL:** `https://{storefront-server}/Citrix/Store`
-
-#### Tags
-
-- Customization
-- Server
-- StoreFront
-
-#### Properties
-
-- [Documentation](https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/overview.html)
-- [Reference](https://developer-docs.citrix.com/en-us/storefront/storefront-store-services-api/endpoints-service/)
-- [Postman Collection](collections/citrix-adc-nitro.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-adc-nitro.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-cloud.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-cloud.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-daas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-daas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-endpoint-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-endpoint-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-secure-private-access.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-secure-private-access.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-storefront-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-storefront-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix StoreFront Authentication SDK
-
-SDK for building custom authentication methods for Citrix StoreFront, allowing integration with third-party identity providers and custom authentication workflows.
-
-- **Human URL:** [https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html](https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html)
-- **Base URL:** `https://{storefront-server}`
-
-#### Tags
-
-- Authentication
-- Identity
-- StoreFront
-
-#### Properties
-
-- [Documentation](https://developer-docs.citrix.com/en-us/storefront/citrix-storefront-authentication-sdk/overview.html)
-- [Postman Collection](collections/citrix-adc-nitro.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-adc-nitro.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-cloud.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-cloud.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-daas.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-daas.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-endpoint-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-endpoint-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-secure-private-access.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-secure-private-access.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/citrix-storefront-web.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-storefront-web.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix Endpoint Management REST API
-
-REST API for managing mobile devices, applications, and policies in Citrix Endpoint Management, enabling integration with external systems for device lifecycle management and compliance.
-
-- **Human URL:** [https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html](https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html)
-- **Base URL:** `https://{xms-server}:4443/xenmobile/api/v1`
-
-#### Tags
-
-- Endpoint Management
-- MDM
-- Mobile
-- UEM
-
-#### Properties
-
-- [Documentation](https://docs.citrix.com/en-us/citrix-endpoint-management/rest-apis.html)
-- [OpenAPI](openapi/citrix-endpoint-management-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/citrix-endpoint-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-endpoint-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Citrix Secure Private Access API
-
-REST API for managing zero trust network access policies, applications, application domains, and certificates in Citrix Secure Private Access, providing secure access to internal web and SaaS applications.
-
-- **Human URL:** [https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html](https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html)
-- **Base URL:** `https://api.cloud.com/accessSecurity`
-
-#### Tags
-
-- Access Control
-- Security
-- Zero Trust
-- ZTNA
-
-#### Properties
-
-- [Documentation](https://developer-docs.citrix.com/en-us/secure-private-access/access-security/overview.html)
-- [Getting Started](https://developer-docs.citrix.com/en-us/secure-private-access/access-security/getting-started.html)
-- [OpenAPI](openapi/citrix-secure-private-access-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/citrix-secure-private-access.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/citrix-secure-private-access.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/citrix)
-- [Portal](https://developer-docs.citrix.com/)
-- [Getting Started](https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html)
-- [Authentication](https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html)
-- [Blog](https://www.citrix.com/blogs/)
-- [Status Page](https://status.cloud.com/)
-- [Support](https://support.citrix.com/)
-- [Terms of Service](https://developer.cloud.com/citrix-developer-terms-of-use)
-- [Privacy Policy](https://www.citrix.com/about/legal/privacy/plain.html)
-- [GitHub Organization](https://github.com/citrix)
-- [Community](https://discussions.citrix.com/)
-- [S D Ks](https://docs.citrix.com/en-us/citrix-cloud/sdk-api.html)
 - [Website](https://www.citrix.com)
-- [Login](https://accounts.cloud.com/)
-- [JSON-LD](json-ld/citrix-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/citrix-machine-catalog-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/citrix-session-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Spectral Rules](rules/citrix-rules.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
-- [Integrations](https://www.citrix.com/partners/)
+- [Getting started](https://developer-docs.citrix.com/en-us/citrix-cloud/citrix-cloud-api-overview/get-started-with-citrix-cloud-apis.html)
+- [Support](https://support.citrix.com/)
+- [Blog](https://www.citrix.com/blogs/)
+- [Terms of service](https://developer.cloud.com/citrix-developer-terms-of-use)
+- [Privacy policy](https://www.citrix.com/about/legal/privacy/plain.html)
+- [GitHub](https://github.com/citrix)
+- [Status](https://status.cloud.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 39.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 54.0 |
+| Contract governance | 13.6 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 63.1 |
+| Access clarity | 14.5 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/citrix/](https://apis.io/providers/citrix/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Citrix: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/citrix/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
